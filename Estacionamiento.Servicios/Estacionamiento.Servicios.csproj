@@ -7,8 +7,8 @@
     <ProjectGuid>{12E89519-F719-43E8-87E5-360F09839866}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Estacionamiento.Servicios</RootNamespace>
-    <AssemblyName>Estacionamiento.Servicios</AssemblyName>
+    <RootNamespace>Cochera.Servicios</RootNamespace>
+    <AssemblyName>Cochera.Servicios</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,13 +41,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServicioAbonados.cs" />
+    <Compile Include="ServicioClientes.cs" />
+    <Compile Include="ServicioCuentasCorrientes.cs" />
+    <Compile Include="ServicioEstacionamientos.cs" />
+    <Compile Include="ServicioIngresos.cs" />
+    <Compile Include="ServicioMarcas.cs" />
+    <Compile Include="ServicioMarcasDeTarjetas.cs" />
+    <Compile Include="ServicioModelos.cs" />
+    <Compile Include="ServicioMovimientosSalidas.cs" />
+    <Compile Include="ServicioMovimientosCtasCtes.cs" />
+    <Compile Include="ServicioPersonas.cs" />
+    <Compile Include="ServicioSalidas.cs" />
+    <Compile Include="ServicioSectores.cs" />
+    <Compile Include="ServicioTarifas.cs" />
+    <Compile Include="ServicioTarifasPorVehiculo.cs" />
+    <Compile Include="ServicioTarjetas.cs" />
+    <Compile Include="ServicioTiposDeDocumentos.cs" />
+    <Compile Include="ServicioTiposDeTarjetas.cs" />
+    <Compile Include="ServicioTiposDeVehiculos.cs" />
     <Compile Include="ServicioUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Estacionamiento.Datos\Estacionamiento.Datos.csproj">
+    <ProjectReference Include="..\Cochera.Datos\Cochera.Datos.csproj">
       <Project>{95a34dac-9d84-4f6d-970d-d56a1795fec3}</Project>
-      <Name>Estacionamiento.Datos</Name>
+      <Name>Cochera.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cochera.Entidades\Cochera.Entidades.csproj">
+      <Project>{f744746b-7b98-41a0-beaa-b7adfb01f42e}</Project>
+      <Name>Cochera.Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

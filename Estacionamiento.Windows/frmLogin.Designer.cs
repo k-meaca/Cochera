@@ -38,6 +38,8 @@
             this.imgPassword = new System.Windows.Forms.PictureBox();
             this.imgSalir = new System.Windows.Forms.PictureBox();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.lblErrorUsuario = new System.Windows.Forms.Label();
+            this.lblErrorPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSalir)).BeginInit();
@@ -90,6 +92,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(248, 27);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtPassword
             // 
@@ -99,6 +102,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(248, 27);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // imgPassword
             // 
@@ -137,6 +141,30 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // lblErrorUsuario
+            // 
+            this.lblErrorUsuario.AutoSize = true;
+            this.lblErrorUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorUsuario.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorUsuario.Location = new System.Drawing.Point(284, 95);
+            this.lblErrorUsuario.Name = "lblErrorUsuario";
+            this.lblErrorUsuario.Size = new System.Drawing.Size(77, 13);
+            this.lblErrorUsuario.TabIndex = 6;
+            this.lblErrorUsuario.Text = "ErrorUsuario";
+            this.lblErrorUsuario.Visible = false;
+            // 
+            // lblErrorPassword
+            // 
+            this.lblErrorPassword.AutoSize = true;
+            this.lblErrorPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPassword.Location = new System.Drawing.Point(284, 185);
+            this.lblErrorPassword.Name = "lblErrorPassword";
+            this.lblErrorPassword.Size = new System.Drawing.Size(88, 13);
+            this.lblErrorPassword.TabIndex = 7;
+            this.lblErrorPassword.Text = "ErrorPassword";
+            this.lblErrorPassword.Visible = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +172,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(599, 286);
             this.ControlBox = false;
+            this.Controls.Add(this.lblErrorPassword);
+            this.Controls.Add(this.lblErrorUsuario);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.imgSalir);
             this.Controls.Add(this.imgPassword);
@@ -160,6 +190,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cocheria 1.0";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSalir)).EndInit();
@@ -179,6 +210,8 @@
         private System.Windows.Forms.PictureBox imgPassword;
         private System.Windows.Forms.PictureBox imgSalir;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Label lblErrorUsuario;
+        private System.Windows.Forms.Label lblErrorPassword;
     }
 }
 

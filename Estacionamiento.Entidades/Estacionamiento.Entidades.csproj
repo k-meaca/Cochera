@@ -43,7 +43,26 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Excepciones\UsuarioInvalidoExcepcion.cs" />
+<<<<<<< Updated upstream:Estacionamiento.Entidades/Estacionamiento.Entidades.csproj
     <Compile Include="Properties\AssemblyInfo.cs" />
+=======
+    <Compile Include="Ingreso.cs" />
+    <Compile Include="Interfaces\IContable.cs" />
+    <Compile Include="Interfaces\IIngreso.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="MarcaTarjeta.cs" />
+    <Compile Include="Modelo.cs" />
+    <Compile Include="MovimientoCuentaCorriente.cs" />
+    <Compile Include="MovimientoSalida.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salida.cs" />
+    <Compile Include="Sector.cs" />
+    <Compile Include="Tarifa.cs" />
+    <Compile Include="TarifaPorVehiculo.cs" />
+    <Compile Include="Tarjeta.cs" />
+    <Compile Include="TipoDePago.cs" />
+>>>>>>> Stashed changes:Cochera.Entidades/Cochera.Entidades.csproj
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+using Estacionamiento.Entidades;
 using Estacionamiento.Entidades.Excepciones;
 
-namespace Estacionamiento.Datos
+namespace Estacionamiento.Datos.Repositorios
 {
     public class RepositorioUsuarios
     {
@@ -26,18 +27,20 @@ namespace Estacionamiento.Datos
 
         //METODOS
 
+        //PRIVADOS
+
         //PUBLICOS
 
-        public bool ValidarUsuario(string usuario, string password)
+        public bool ValidarUsuario(string nick, string password)
         {
             bool valido = false;
             try
             {
-                using (SqlCommand procedimiento = new SqlCommand("SELECT dbo.UF_ValidarUsuario (@Usuario, @Password);"))
+                using (SqlCommand procedimiento = new SqlCommand("SELECT dbo.UF_ValidarUsuario (@Nick, @Password);"))
                 {
                     procedimiento.Connection = conexion;
                     procedimiento.CommandType = System.Data.CommandType.Text;
-                    procedimiento.Parameters.AddWithValue("@Usuario", usuario);
+                    procedimiento.Parameters.AddWithValue("@Nick", nick);
                     procedimiento.Parameters.AddWithValue("@Password", password);
 
                     valido = (bool)procedimiento.ExecuteScalar();
@@ -54,6 +57,34 @@ namespace Estacionamiento.Datos
             }
 
             return valido;
+        }
+
+        public Usuario CrearUsuario(string nick, string password)
+        {
+            Usuario usuario;
+
+            try
+            {
+                string query = "SELECT dbo.UF_ObtenerUsuarioId(@Nick,@Password);";
+
+                using(SqlCommand comando = new SqlCommand(query))
+                {
+                    comando.Connection = conexion;
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@Nick", nick);
+                    comando.Parameters.AddWithValue("@Password", password);
+
+                    int usuarioId = Convert.ToInt32(comando.ExecuteScalar());
+
+                    usuario = new Usuario(usuarioId, nick, password);
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return usuario;
         }
 
     }

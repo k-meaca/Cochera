@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Estacionamiento.Entidades;
+using Estacionamiento.Servicios;
 
 namespace Estacionamiento.Windows
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+
+        //ATRIBUTOS
+
+        private Usuario usuarioSesion;
+
+        public frmPrincipal(Usuario usuarioSesion)
         {
             InitializeComponent();
+
+            this.usuarioSesion = usuarioSesion;
         }
     }
 }

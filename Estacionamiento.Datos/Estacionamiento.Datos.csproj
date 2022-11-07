@@ -46,6 +46,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+<<<<<<< Updated upstream:Estacionamiento.Datos/Estacionamiento.Datos.csproj
+    <Compile Include="Repositorios\RepositorioPersonas.cs" />
+=======
+    <Compile Include="Repositorios\Repositorio.cs" />
+    <Compile Include="Repositorios\RepositorioAbonados.cs" />
+    <Compile Include="Repositorios\RepositorioClientes.cs" />
+    <Compile Include="Repositorios\RepositorioCuentasCorrientes.cs" />
+    <Compile Include="Repositorios\RepositorioEstacionamientos.cs" />
+    <Compile Include="Repositorios\RepositorioIngresos.cs" />
+    <Compile Include="Repositorios\RepositorioMarcas.cs" />
+    <Compile Include="Repositorios\RepositorioMarcasDeTarjetas.cs" />
+    <Compile Include="Repositorios\RepositorioModelos.cs" />
+    <Compile Include="Repositorios\RepositorioMovimientosCtasCtes.cs" />
+    <Compile Include="Repositorios\RepositorioMovimientosSalidas.cs" />
+    <Compile Include="Repositorios\RepositorioPersonas.cs" />
+    <Compile Include="Repositorios\RepositorioSalidas.cs" />
+    <Compile Include="Repositorios\RepositorioSectores.cs" />
+    <Compile Include="Repositorios\RepositorioTarifasEnSalida.cs" />
+    <Compile Include="Repositorios\RepositorioTarifasPorVehiculo.cs" />
+    <Compile Include="Repositorios\RepositorioTarjetas.cs" />
+    <Compile Include="Repositorios\RepositorioTipoDocumentos.cs" />
+    <Compile Include="Repositorios\RepositorioTiposDeTarjetas.cs" />
+    <Compile Include="Repositorios\RepositorioTiposDeVehiculo.cs" />
+    <Compile Include="Repositorios\RepositorioTarifas.cs" />
+>>>>>>> Stashed changes:Cochera.Datos/Cochera.Datos.csproj
     <Compile Include="Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
