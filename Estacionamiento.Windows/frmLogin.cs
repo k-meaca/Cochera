@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using Estacionamiento.Servicios;
 using Estacionamiento.Entidades.Excepciones;
+using Estacionamiento.Windows.Utilidades;
+using Estacionamiento.Entidades;
 
 
 namespace Estacionamiento.Windows
@@ -28,6 +31,69 @@ namespace Estacionamiento.Windows
             txtPassword.Clear();
 
             servicio = new ServicioUsuarios();
+        }
+
+        //METODOS
+
+        //PRIVADOS
+
+        private void IniciarSesion(Usuario usuario)
+        {
+            frmPrincipal principal = new frmPrincipal(usuario);
+            principal.FormClosed += frmLogin_FormClosed;
+            OcultarLogin();
+            principal.Show();
+        }
+
+        private void VisibilidadDePassword(Image imagen, char caracterVisibilidad)
+        {
+            imgPassword.Image = imagen;
+            txtPassword.PasswordChar = caracterVisibilidad;
+        }
+
+        private void LabelConError(Label label, string error)
+        {
+            label.Text = error;
+            label.Visible = true;
+        }
+
+        private void LimpiarLabel(Label label)
+        {
+            label.Text = "";
+            label.Visible = false;
+        }
+
+        public void OcultarLogin()
+        {
+            txtUsuario.Clear();
+            txtPassword.Clear();
+            this.Hide();
+        }
+
+        private bool ValidarDatos()
+        {
+            LimpiarLabel(lblErrorUsuario);
+            LimpiarLabel(lblErrorPassword);
+
+            bool validos = true;
+
+            if (!ValidarInput(txtUsuario))
+            {
+                validos = false;
+                LabelConError(lblErrorUsuario, "Debe llenar este campo.");
+            }
+
+            if (!ValidarInput(txtPassword))
+            {
+                validos = false;
+                LabelConError(lblErrorPassword, "Debe llenar este campo");
+            }
+
+            return validos;
+        }
+        private bool ValidarInput(TextBox input)
+        {
+            return Validador.InputConTexto(input.Text);
         }
 
 
@@ -52,32 +118,59 @@ namespace Estacionamiento.Windows
         {
             if(txtPassword.PasswordChar == '*')
             {
-                imgPassword.Image = Estacionamiento.Windows.Properties.Resources.pwsVisible;
-                txtPassword.PasswordChar = '\0';
-
+                VisibilidadDePassword(Properties.Resources.pwsVisible, '\0');
             }
             else
             {
-                imgPassword.Image = Estacionamiento.Windows.Properties.Resources.pwsNoVisible;
-                txtPassword.PasswordChar = '*';
+                VisibilidadDePassword(Properties.Resources.pwsNoVisible, '*');
             }
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            if (! ValidarDatos())
+            {
+                return;
+            }
+
             try
             {
                 if (servicio.ValidarUsuario(txtUsuario.Text, txtPassword.Text))
                 {
-                    
-                    frmPrincipal principal = new frmPrincipal();
-                    principal.Show();
+                    Usuario usuario = servicio.CrearUsuario(txtUsuario.Text, txtPassword.Text);
+                    IniciarSesion(usuario);
                 }
             }
             catch (UsuarioInvalidoExcepcion)
             {
-                MessageBox.Show("Error", "Usuario invalido", MessageBoxButtons.OK);
+                LabelConError(lblErrorUsuario, "Usuario o contraseña mal ingresados.");
+                LabelConError(lblErrorPassword, "Usuario o contraseña mal ingresados.");
             }
+            catch (SqlException)
+            {
+                Mensajero.MensajeError("No se ha podido conectar con el servidor.");
+            }
+            catch (Exception)
+            {
+                Mensajero.MensajeError("Ha ocurrido algo inesperado. Comuniquese con el tecnico.");
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validador.LetraLoginValida(e.KeyChar);
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validador.LetraLoginValida(e.KeyChar);
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+            txtUsuario.Focus();
+            VisibilidadDePassword(Properties.Resources.pwsNoVisible, '*');
         }
     }
 }
