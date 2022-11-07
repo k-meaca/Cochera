@@ -30,7 +30,10 @@ namespace Estacionamiento.Entidades
 
         //METODOS
 
-        public string NombreCompleto => Nombre + Apellido;
-
+        //TODO: Hacer este metodo.
+        public string NombreCompleto()
+        {
+            return "La vaca loca";
+        }
     }
 }
