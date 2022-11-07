@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Estacionamiento.Datos;
+using Estacionamiento.Datos.Repositorios;
 using System.Data.SqlClient;
+using Estacionamiento.Entidades;
 
 namespace Estacionamiento.Servicios
 {
@@ -13,7 +15,8 @@ namespace Estacionamiento.Servicios
 
         //ATRIBUTOS
 
-        RepositorioUsuarios repositorio;
+        RepositorioUsuarios repositorioUsuarios;
+        RepositorioPersonas repositorioPersonas;
 
 
         //METODOS
@@ -24,11 +27,27 @@ namespace Estacionamiento.Servicios
 
             using (SqlConnection conexion = ConexionBD.AbrirConexion())
             {
-                repositorio = new RepositorioUsuarios(conexion);
-                valido = repositorio.ValidarUsuario(usuario, password);
+                repositorioUsuarios = new RepositorioUsuarios(conexion);
+                valido = repositorioUsuarios.ValidarUsuario(usuario, password);
             }
 
             return valido;
+        }
+
+        public Usuario CrearUsuario(string nick, string password)
+        {
+            Usuario usuario;
+            
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioUsuarios = new RepositorioUsuarios(conexion);
+                repositorioPersonas = new RepositorioPersonas(conexion);
+
+                usuario = repositorioUsuarios.CrearUsuario(nick, password);
+                repositorioPersonas.DatosEnUsuario(usuario);
+            }
+
+            return usuario;
         }
     }
 }

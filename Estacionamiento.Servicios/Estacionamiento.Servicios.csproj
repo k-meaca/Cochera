@@ -49,6 +49,10 @@
       <Project>{95a34dac-9d84-4f6d-970d-d56a1795fec3}</Project>
       <Name>Estacionamiento.Datos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Estacionamiento.Entidades\Estacionamiento.Entidades.csproj">
+      <Project>{f744746b-7b98-41a0-beaa-b7adfb01f42e}</Project>
+      <Name>Estacionamiento.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
