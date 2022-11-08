@@ -101,7 +101,7 @@ namespace Estacionamiento.Windows
 
         private void imgSalir_MouseEnter(object sender, EventArgs e)
         {
-            imgSalir.BackColor = Color.Red;
+            imgSalir.BackColor = Color.Silver;
         }
 
         private void imgSalir_MouseLeave(object sender, EventArgs e)
