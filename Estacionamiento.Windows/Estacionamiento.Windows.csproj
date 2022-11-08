@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientesEdicion.Designer.cs">
+      <DependentUpon>frmClientesEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTarifasEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,9 +85,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\CargadorDeDatos.cs" />
     <Compile Include="Utilidades\CorrectorDeEstados.cs" />
     <Compile Include="Utilidades\Mensajero.cs" />
     <Compile Include="Utilidades\Validador.cs" />
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientesEdicion.resx">
+      <DependentUpon>frmClientesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTarifasEdicion.resx">
       <DependentUpon>frmTarifasEdicion.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +187,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\frmTarifas\EliminarTarifa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPersonas\AgregarCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPersonas\EditarCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPersonas\EliminarCliente.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

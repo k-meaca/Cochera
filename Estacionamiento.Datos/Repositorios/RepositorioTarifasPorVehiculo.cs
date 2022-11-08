@@ -44,7 +44,10 @@ namespace Estacionamiento.Datos.Repositorios
                             int tarifaId = lector.GetInt32(1);
                             decimal monto = lector.GetDecimal(2);
 
-                            TarifaPorVehiculo tpf = new TarifaPorVehiculo(tipos[tipoId - 1], tarifas[tarifaId - 1], monto);
+                            TipoDeVehiculo tipo = tipos.Find(t => t.TipoId == tipoId);
+                            Tarifa tarifa = tarifas.Find(f => f.TarifaId == tarifaId);
+
+                            TarifaPorVehiculo tpf = new TarifaPorVehiculo(tipo, tarifa, monto);
 
                             tarifasPorVehiculos.Add(tpf);
                         }

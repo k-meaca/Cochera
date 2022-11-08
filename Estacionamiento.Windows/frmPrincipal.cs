@@ -39,7 +39,7 @@ namespace Estacionamiento.Windows
 
         //-------PRIVADOS-------//
 
-
+        #region
         private void CerrarFormularioActivo()
         {
             formularioActivo.Close();
@@ -88,8 +88,11 @@ namespace Estacionamiento.Windows
             }
         }
 
+        #endregion
+
         //-------PUBLICOS-------//
 
+        #region
         public void ActivarBotones()
         {
             CorrectorDeEstados.ActivarBotones(botonesMenu);
@@ -100,6 +103,7 @@ namespace Estacionamiento.Windows
             CorrectorDeEstados.AnularBotones(botonesMenu);
         }
 
+        #endregion
 
         //------------------EVENTOS------------------//
 
@@ -144,10 +148,12 @@ namespace Estacionamiento.Windows
             if (btnClientesMenu.Checked)
             {
                 btnClientesMenu_MouseEnter(sender, e);
+                MostrarFormulario(new frmClientes(this));
             }
             else
             {
                 btnClientesMenu_MouseLeave(sender, e);
+                CerrarFormularioActivo();
             }
         }
         private void btnClientesMenu_Click(object sender, EventArgs e)

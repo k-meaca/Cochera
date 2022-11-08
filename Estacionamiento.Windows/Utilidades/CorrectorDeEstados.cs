@@ -25,5 +25,18 @@ namespace Estacionamiento.Windows.Utilidades
                 boton.Enabled = true;
             }
         }
+
+        public static void ActivarBoton(Button boton)
+        {
+            boton.Visible = true;
+            boton.Enabled = true;
+        }
+
+        public static void AnularBoton(Button boton)
+        {
+            boton.Visible = false;
+            boton.Enabled = false;
+        }
+
     }
 }

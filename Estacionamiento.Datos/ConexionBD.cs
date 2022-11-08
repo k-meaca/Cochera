@@ -30,7 +30,12 @@ namespace Estacionamiento.Datos
             }
         }
 
-        //METODOS
+        //------------METODOS------------//
+
+        //----PRIVADOS----//
+
+
+        //----PUBLICOS----//
 
         public static SqlConnection AbrirConexion()
         {
