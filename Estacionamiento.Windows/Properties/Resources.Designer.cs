@@ -63,6 +63,16 @@ namespace Estacionamiento.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AgregarCliente {
+            get {
+                object obj = ResourceManager.GetObject("AgregarCliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AgregarTarifas {
             get {
                 object obj = ResourceManager.GetObject("AgregarTarifas", resourceCulture);
@@ -123,9 +133,29 @@ namespace Estacionamiento.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditarCliente {
+            get {
+                object obj = ResourceManager.GetObject("EditarCliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditarTarifa {
             get {
                 object obj = ResourceManager.GetObject("EditarTarifa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EliminarCliente {
+            get {
+                object obj = ResourceManager.GetObject("EliminarCliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

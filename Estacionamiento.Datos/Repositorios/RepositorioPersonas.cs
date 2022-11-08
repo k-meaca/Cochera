@@ -12,16 +12,80 @@ namespace Estacionamiento.Datos.Repositorios
 {
     public class RepositorioPersonas
     {
-        //ATRIBUTOS
-        SqlConnection conexion;
+        //------------ATRIBUTOS------------//
 
-        //CONSTRUCTOR
+        SqlConnection conexion;
+        SqlTransaction transaccion;
+
+        //------------CONSTRUCTOR------------//
+
         public RepositorioPersonas (SqlConnection conexion)
         {
             this.conexion = conexion;
         }
 
-        //METODOS
+        public RepositorioPersonas (SqlConnection conexion, SqlTransaction transaccion) : this(conexion)
+        {
+            this.transaccion = transaccion;
+        }
+        //------------METODOS------------//
+
+        //----PRIVADOS----//
+
+
+        //----PUBLICOS----//
+
+        public void ActualizarPersona(Cliente cliente)
+        {
+            try
+            {
+                string query = "exec SP_ActualizarPersona @PersonaId, @Nombre, @Apellido, @TipoDocId, @NumDoc, @Telefono;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@PersonaId", cliente.PersonaId);
+                    comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                    comando.Parameters.AddWithValue("@Apellido", cliente.Apellido);
+                    comando.Parameters.AddWithValue("@TipoDocId", cliente.ObtenerTipoDocId());
+                    comando.Parameters.AddWithValue("@NumDoc", cliente.ObtenerNumeroDoc());
+                    comando.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+        public int AgregarPersona(string nombre, string apellido, Documento documento, string telefono)
+        {
+            try
+            {
+                int personaID;
+
+                string query = "exec SP_AgregarPersona @Nombre, @Apellido, @TipoDocId, @NroDoc, @Telefono;";
+                
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@Nombre", nombre);
+                    comando.Parameters.AddWithValue("@Apellido", apellido);
+                    comando.Parameters.AddWithValue("@TipoDocId", documento.TipoDocId);
+                    comando.Parameters.AddWithValue("@NroDoc", documento.NumDoc);
+                    comando.Parameters.AddWithValue("@Telefono", telefono);
+
+                    personaID = Convert.ToInt32(comando.ExecuteScalar());
+                }
+
+                return personaID;
+            }
+            catch(SqlException)
+            {
+                throw;
+            }
+        }
 
         public void DatosEnUsuario(Usuario usuario)
         {
@@ -29,7 +93,7 @@ namespace Estacionamiento.Datos.Repositorios
             {
                 string query = "SELECT * FROM dbo.UF_DatosDePersonaEnUsuario(@UsuarioId);";
 
-                using(SqlCommand comando = new SqlCommand(query))
+                using (SqlCommand comando = new SqlCommand(query))
                 {
                     comando.Connection = conexion;
                     comando.CommandType = System.Data.CommandType.Text;
@@ -44,10 +108,50 @@ namespace Estacionamiento.Datos.Repositorios
 
                 }
             }
-            catch(SqlException)
+            catch (SqlException)
             {
                 throw;
             }
         }
+
+        public void SetearCliente(Cliente cliente, List<Documento> documentos)
+        {
+            try
+            {
+                string query = "SELECT * FROM dbo.UF_DatosDeClientesEnPersona(@PersonaId);";
+
+                using(SqlCommand comando = new SqlCommand(query))
+                {
+                    comando.Connection = conexion;
+                    comando.CommandType = System.Data.CommandType.Text;                    
+
+                    comando.Parameters.AddWithValue("@PersonaId", cliente.PersonaId);
+
+                    using(SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        lector.Read();
+
+                        cliente.EstablecerNombreCompleto(lector.GetString(0), lector.GetString(1));
+
+                        Documento documento = (Documento)documentos.Find(doc => doc.TipoDocId == lector.GetInt32(2)).Clone();
+
+                        documento.EstablecerNumeroDeDoc(lector.GetString(3));
+
+                        cliente.EstablecerDocumento(documento);
+
+                        string telefono = lector.GetString(4);
+
+                        cliente.AsignarTelefono(telefono is null ? "" : telefono);
+                    }
+
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
+
     }
 }
