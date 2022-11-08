@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Repositorios\RepositorioPersonas.cs" />
+    <Compile Include="Repositorios\RepositorioTarifasPorVehiculo.cs" />
+    <Compile Include="Repositorios\RepositorioTiposDeVehiculo.cs" />
+    <Compile Include="Repositorios\RepositorioTarifas.cs" />
     <Compile Include="Repositorios\RepositorioUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

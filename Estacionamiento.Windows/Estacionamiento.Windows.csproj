@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmTarifasEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTarifasEdicion.Designer.cs">
+      <DependentUpon>frmTarifasEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,15 +65,28 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTarifas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTarifas.Designer.cs">
+      <DependentUpon>frmTarifas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\CorrectorDeEstados.cs" />
     <Compile Include="Utilidades\Mensajero.cs" />
     <Compile Include="Utilidades\Validador.cs" />
+    <EmbeddedResource Include="frmTarifasEdicion.resx">
+      <DependentUpon>frmTarifasEdicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTarifas.resx">
+      <DependentUpon>frmTarifas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +132,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\Login\pwsVisible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\expandir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\ClientesMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\ClientesMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\CuentasCorrientesMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\CuentasCorrientesMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\TarifasMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\TarifasMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmTarifas\AgregarTarifas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmTarifas\AgregarTarifa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmTarifas\EditarTarifa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmTarifas\EliminarTarifa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
