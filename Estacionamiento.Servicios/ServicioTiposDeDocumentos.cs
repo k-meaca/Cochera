@@ -23,6 +23,28 @@ namespace Estacionamiento.Servicios
 
         //----PUBLICOS----//
 
+        public void ActualizarTipoDeDocumento(Documento documento)
+        {
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioTipoDocs = new RepositorioTipoDocumentos(conexion);
+                repositorioTipoDocs.ActualizarTipoDeDocumento(documento);
+            }
+        }
+
+        public Documento AgregarTipoDeDocumento(string tipoDoc)
+        {
+            Documento doc;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioTipoDocs = new RepositorioTipoDocumentos(conexion);
+                doc = repositorioTipoDocs.AgregarTipoDeDocumento(tipoDoc);
+            }
+
+            return doc;
+        }
+
         public List<Documento> ObtenerTiposDeDocumentos()
         {
             List<Documento> documentos;

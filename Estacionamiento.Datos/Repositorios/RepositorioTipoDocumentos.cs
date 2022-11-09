@@ -28,6 +28,52 @@ namespace Estacionamiento.Datos.Repositorios
 
         //----PUBLICOS----//
 
+        public void ActualizarTipoDeDocumento(Documento documento)
+        {
+            try
+            {
+                string query = "exec SP_ActualizarDocumento @TipoDocId, @TipoDoc;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@TipoDocId", documento.TipoDocId);
+                    comando.Parameters.AddWithValue("@TipoDoc", documento.TipoDoc);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch(SqlException)
+            {
+                throw;
+            }
+        }
+
+        public Documento AgregarTipoDeDocumento(string tipoDoc)
+        {
+            try
+            {
+                int tipoDocId;
+
+                string query = "exec SP_AgregarDocumento @TipoDoc;";
+
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@TipoDoc", tipoDoc);
+
+                    tipoDocId = Convert.ToInt32(comando.ExecuteScalar());
+                }
+
+                return new Documento(tipoDocId, tipoDoc);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
         public List<Documento> ObtenerDocumentos()
         {
             List<Documento> documentos = new List<Documento>();

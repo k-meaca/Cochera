@@ -31,6 +31,11 @@ namespace Estacionamiento.Entidades
         
         //----PUBLICOS----//
 
+        public void ActualizarTipo(string tipo)
+        {
+            TipoDoc = tipo;
+        }
+
         public void EstablecerNumeroDeDoc(string numero)
         {
             NumDoc = numero;

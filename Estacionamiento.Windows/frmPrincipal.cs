@@ -145,7 +145,7 @@ namespace Estacionamiento.Windows
         #region
         private void btnClientesMenu_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnClientesMenu.Checked)
+            if (((ToolStripButton)sender).Checked)
             {
                 btnClientesMenu_MouseEnter(sender, e);
                 MostrarFormulario(new frmClientes(this));
@@ -180,7 +180,7 @@ namespace Estacionamiento.Windows
         #region
         private void btnCuentasCtesMenu_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnCuentasCtesMenu.Checked)
+            if (((ToolStripButton)sender).Checked)
             {
                 btnCuentasCtesMenu_MouseEnter(sender, e);
             }
@@ -216,7 +216,7 @@ namespace Estacionamiento.Windows
         #region
         private void btnTarifasMenu_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnTarifasMenu.Checked)
+            if (((ToolStripButton)sender).Checked)
             {
                 btnTarifasMenu_MouseEnter(sender, e);
                 MostrarFormulario(new frmTarifas(this));
@@ -243,6 +243,42 @@ namespace Estacionamiento.Windows
         {
             if (botonMenuSeleccionado is null && !btnTarifasMenu.Checked)
                 btnTarifasMenu.Image = Properties.Resources.TarifasMenu;
+        }
+        #endregion
+
+
+        //---BOTON DOCUMENTOS---//
+
+        #region
+        private void btnDocumentosMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                btnTarifasMenu_MouseEnter(sender, e);
+                MostrarFormulario(new frmDocumentos(this));
+            }
+            else
+            {
+                btnTarifasMenu_MouseLeave(sender, e);
+                CerrarFormularioActivo();
+            }
+        }
+
+        private void btnDocumentosMenu_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnDocumentosMenu_MouseEnter(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null)
+                btnDocumentosMenu.Image = Properties.Resources.DocumentosMenuGIF;
+        }
+
+        private void btnDocumentosMenu_MouseLeave(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null && !btnTarifasMenu.Checked)
+                btnDocumentosMenu.Image = Properties.Resources.DocumentosMenu;
         }
         #endregion
     }

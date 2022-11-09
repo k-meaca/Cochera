@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmTipoDocsEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoDocsEdicion.Designer.cs">
+      <DependentUpon>frmTipoDocsEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     </Compile>
     <Compile Include="frmClientesEdicion.Designer.cs">
       <DependentUpon>frmClientesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocumentos.Designer.cs">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTarifasEdicion.cs">
       <SubType>Form</SubType>
@@ -89,11 +101,17 @@
     <Compile Include="Utilidades\CorrectorDeEstados.cs" />
     <Compile Include="Utilidades\Mensajero.cs" />
     <Compile Include="Utilidades\Validador.cs" />
+    <EmbeddedResource Include="frmTipoDocsEdicion.resx">
+      <DependentUpon>frmTipoDocsEdicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClientesEdicion.resx">
       <DependentUpon>frmClientesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocumentos.resx">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTarifasEdicion.resx">
       <DependentUpon>frmTarifasEdicion.cs</DependentUpon>
@@ -196,6 +214,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\frmPersonas\EliminarCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\DocumentosMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\DocumentosMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmDocumentos\AgregarDocumentoMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmDocumentos\EditarDocumentoMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmDocumentos\EliminarDocumentoMenu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

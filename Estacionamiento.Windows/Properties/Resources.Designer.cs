@@ -73,6 +73,16 @@ namespace Estacionamiento.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AgregarDocumentoMenu {
+            get {
+                object obj = ResourceManager.GetObject("AgregarDocumentoMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AgregarTarifas {
             get {
                 object obj = ResourceManager.GetObject("AgregarTarifas", resourceCulture);
@@ -133,9 +143,39 @@ namespace Estacionamiento.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DocumentosMenu {
+            get {
+                object obj = ResourceManager.GetObject("DocumentosMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DocumentosMenuGIF {
+            get {
+                object obj = ResourceManager.GetObject("DocumentosMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditarCliente {
             get {
                 object obj = ResourceManager.GetObject("EditarCliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditarDocumentoMenu {
+            get {
+                object obj = ResourceManager.GetObject("EditarDocumentoMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +196,16 @@ namespace Estacionamiento.Windows.Properties {
         internal static System.Drawing.Bitmap EliminarCliente {
             get {
                 object obj = ResourceManager.GetObject("EliminarCliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EliminarDocumentoMenu {
+            get {
+                object obj = ResourceManager.GetObject("EliminarDocumentoMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

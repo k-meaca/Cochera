@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.botonesMenu = new System.Windows.Forms.ToolStrip();
-            this.btnClientesMenu = new System.Windows.Forms.ToolStripButton();
-            this.btnCuentasCtesMenu = new System.Windows.Forms.ToolStripButton();
-            this.btnTarifasMenu = new System.Windows.Forms.ToolStripButton();
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.panelInfoSesion = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
@@ -43,10 +40,14 @@
             this.reloj = new System.Windows.Forms.Timer(this.components);
             this.pnlDivisorioV = new System.Windows.Forms.Panel();
             this.pnlCerrar = new System.Windows.Forms.Panel();
-            this.imgMinimizar = new System.Windows.Forms.PictureBox();
-            this.imgSalir = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlFormularios = new System.Windows.Forms.Panel();
+            this.imgMinimizar = new System.Windows.Forms.PictureBox();
+            this.imgSalir = new System.Windows.Forms.PictureBox();
+            this.btnClientesMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnCuentasCtesMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnTarifasMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnDocumentosMenu = new System.Windows.Forms.ToolStripButton();
             this.panelMenu.SuspendLayout();
             this.botonesMenu.SuspendLayout();
             this.panelInfoSesion.SuspendLayout();
@@ -75,54 +76,14 @@
             this.botonesMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnClientesMenu,
             this.btnCuentasCtesMenu,
-            this.btnTarifasMenu});
+            this.btnTarifasMenu,
+            this.btnDocumentosMenu});
             this.botonesMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.botonesMenu.Location = new System.Drawing.Point(0, 42);
             this.botonesMenu.Name = "botonesMenu";
-            this.botonesMenu.Size = new System.Drawing.Size(189, 162);
+            this.botonesMenu.Size = new System.Drawing.Size(189, 209);
             this.botonesMenu.TabIndex = 2;
             this.botonesMenu.Text = "toolStrip1";
-            // 
-            // btnClientesMenu
-            // 
-            this.btnClientesMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnClientesMenu.Image = global::Estacionamiento.Windows.Properties.Resources.ClientesMenu;
-            this.btnClientesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClientesMenu.Name = "btnClientesMenu";
-            this.btnClientesMenu.Size = new System.Drawing.Size(187, 44);
-            this.btnClientesMenu.Text = "Clientes";
-            this.btnClientesMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientesMenu.CheckedChanged += new System.EventHandler(this.btnClientesMenu_CheckedChanged);
-            this.btnClientesMenu.Click += new System.EventHandler(this.btnClientesMenu_Click);
-            this.btnClientesMenu.MouseEnter += new System.EventHandler(this.btnClientesMenu_MouseEnter);
-            this.btnClientesMenu.MouseLeave += new System.EventHandler(this.btnClientesMenu_MouseLeave);
-            // 
-            // btnCuentasCtesMenu
-            // 
-            this.btnCuentasCtesMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCuentasCtesMenu.Image = global::Estacionamiento.Windows.Properties.Resources.CuentasCorrientesMenu;
-            this.btnCuentasCtesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCuentasCtesMenu.Name = "btnCuentasCtesMenu";
-            this.btnCuentasCtesMenu.Size = new System.Drawing.Size(187, 44);
-            this.btnCuentasCtesMenu.Text = "Cuentas Ctes.";
-            this.btnCuentasCtesMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCuentasCtesMenu.CheckedChanged += new System.EventHandler(this.btnCuentasCtesMenu_CheckedChanged);
-            this.btnCuentasCtesMenu.Click += new System.EventHandler(this.btnCuentasCtesMenu_Click);
-            this.btnCuentasCtesMenu.MouseEnter += new System.EventHandler(this.btnCuentasCtesMenu_MouseEnter);
-            this.btnCuentasCtesMenu.MouseLeave += new System.EventHandler(this.btnCuentasCtesMenu_MouseLeave);
-            // 
-            // btnTarifasMenu
-            // 
-            this.btnTarifasMenu.Image = global::Estacionamiento.Windows.Properties.Resources.TarifasMenu;
-            this.btnTarifasMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnTarifasMenu.Name = "btnTarifasMenu";
-            this.btnTarifasMenu.Size = new System.Drawing.Size(187, 44);
-            this.btnTarifasMenu.Text = "Tarifas";
-            this.btnTarifasMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTarifasMenu.CheckedChanged += new System.EventHandler(this.btnTarifasMenu_CheckedChanged);
-            this.btnTarifasMenu.Click += new System.EventHandler(this.btnTarifasMenu_Click);
-            this.btnTarifasMenu.MouseEnter += new System.EventHandler(this.btnTarifasMenu_MouseEnter);
-            this.btnTarifasMenu.MouseLeave += new System.EventHandler(this.btnTarifasMenu_MouseLeave);
             // 
             // pnlDivision
             // 
@@ -198,6 +159,23 @@
             this.pnlCerrar.Size = new System.Drawing.Size(818, 39);
             this.pnlCerrar.TabIndex = 7;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(192, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(818, 3);
+            this.panel1.TabIndex = 8;
+            // 
+            // pnlFormularios
+            // 
+            this.pnlFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFormularios.Location = new System.Drawing.Point(192, 42);
+            this.pnlFormularios.Name = "pnlFormularios";
+            this.pnlFormularios.Size = new System.Drawing.Size(818, 510);
+            this.pnlFormularios.TabIndex = 9;
+            // 
             // imgMinimizar
             // 
             this.imgMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -228,22 +206,59 @@
             this.imgSalir.MouseEnter += new System.EventHandler(this.imgControl_MouseEnter);
             this.imgSalir.MouseLeave += new System.EventHandler(this.imgControl_MouseLeave);
             // 
-            // panel1
+            // btnClientesMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(192, 39);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 3);
-            this.panel1.TabIndex = 8;
+            this.btnClientesMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnClientesMenu.Image = global::Estacionamiento.Windows.Properties.Resources.ClientesMenu;
+            this.btnClientesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClientesMenu.Name = "btnClientesMenu";
+            this.btnClientesMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnClientesMenu.Text = "Clientes";
+            this.btnClientesMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientesMenu.CheckedChanged += new System.EventHandler(this.btnClientesMenu_CheckedChanged);
+            this.btnClientesMenu.Click += new System.EventHandler(this.btnClientesMenu_Click);
+            this.btnClientesMenu.MouseEnter += new System.EventHandler(this.btnClientesMenu_MouseEnter);
+            this.btnClientesMenu.MouseLeave += new System.EventHandler(this.btnClientesMenu_MouseLeave);
             // 
-            // pnlFormularios
+            // btnCuentasCtesMenu
             // 
-            this.pnlFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFormularios.Location = new System.Drawing.Point(192, 42);
-            this.pnlFormularios.Name = "pnlFormularios";
-            this.pnlFormularios.Size = new System.Drawing.Size(818, 510);
-            this.pnlFormularios.TabIndex = 9;
+            this.btnCuentasCtesMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCuentasCtesMenu.Image = global::Estacionamiento.Windows.Properties.Resources.CuentasCorrientesMenu;
+            this.btnCuentasCtesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCuentasCtesMenu.Name = "btnCuentasCtesMenu";
+            this.btnCuentasCtesMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnCuentasCtesMenu.Text = "Cuentas Ctes.";
+            this.btnCuentasCtesMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCuentasCtesMenu.CheckedChanged += new System.EventHandler(this.btnCuentasCtesMenu_CheckedChanged);
+            this.btnCuentasCtesMenu.Click += new System.EventHandler(this.btnCuentasCtesMenu_Click);
+            this.btnCuentasCtesMenu.MouseEnter += new System.EventHandler(this.btnCuentasCtesMenu_MouseEnter);
+            this.btnCuentasCtesMenu.MouseLeave += new System.EventHandler(this.btnCuentasCtesMenu_MouseLeave);
+            // 
+            // btnTarifasMenu
+            // 
+            this.btnTarifasMenu.Image = global::Estacionamiento.Windows.Properties.Resources.TarifasMenu;
+            this.btnTarifasMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTarifasMenu.Name = "btnTarifasMenu";
+            this.btnTarifasMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnTarifasMenu.Text = "Tarifas";
+            this.btnTarifasMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTarifasMenu.CheckedChanged += new System.EventHandler(this.btnTarifasMenu_CheckedChanged);
+            this.btnTarifasMenu.Click += new System.EventHandler(this.btnTarifasMenu_Click);
+            this.btnTarifasMenu.MouseEnter += new System.EventHandler(this.btnTarifasMenu_MouseEnter);
+            this.btnTarifasMenu.MouseLeave += new System.EventHandler(this.btnTarifasMenu_MouseLeave);
+            // 
+            // btnDocumentosMenu
+            // 
+            this.btnDocumentosMenu.Image = global::Estacionamiento.Windows.Properties.Resources.DocumentosMenu;
+            this.btnDocumentosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDocumentosMenu.Name = "btnDocumentosMenu";
+            this.btnDocumentosMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnDocumentosMenu.Text = "Documentos";
+            this.btnDocumentosMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDocumentosMenu.CheckedChanged += new System.EventHandler(this.btnDocumentosMenu_CheckedChanged);
+            this.btnDocumentosMenu.Click += new System.EventHandler(this.btnDocumentosMenu_Click);
+            this.btnDocumentosMenu.MouseEnter += new System.EventHandler(this.btnDocumentosMenu_MouseEnter);
+            this.btnDocumentosMenu.MouseLeave += new System.EventHandler(this.btnDocumentosMenu_MouseLeave);
             // 
             // frmPrincipal
             // 
@@ -294,5 +309,6 @@
         private System.Windows.Forms.ToolStripButton btnCuentasCtesMenu;
         private System.Windows.Forms.ToolStripButton btnTarifasMenu;
         private System.Windows.Forms.Panel pnlFormularios;
+        private System.Windows.Forms.ToolStripButton btnDocumentosMenu;
     }
 }
