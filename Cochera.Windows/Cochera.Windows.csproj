@@ -59,6 +59,12 @@
     <Compile Include="frmEstacionamiento.Designer.cs">
       <DependentUpon>frmEstacionamiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIngresosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresosEdicion.Designer.cs">
+      <DependentUpon>frmIngresosEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEstacionamiento.resx">
       <DependentUpon>frmEstacionamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresosEdicion.resx">
+      <DependentUpon>frmIngresosEdicion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMarcas.resx">
       <DependentUpon>frmMarcas.cs</DependentUpon>
@@ -349,6 +358,18 @@
       <Project>{12e89519-f719-43e8-87e5-360f09839866}</Project>
       <Name>Cochera.Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\IngresoMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\IngresoMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\SalidaMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\SalidasMenu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

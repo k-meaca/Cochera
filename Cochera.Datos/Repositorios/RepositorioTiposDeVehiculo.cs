@@ -68,7 +68,7 @@ namespace Cochera.Datos.Repositorios
             return ConstruirTipoVehiculo("Moto");
         }
 
-        public List<TipoDeVehiculo> obtenerTiposDeVehiculo()
+        public List<TipoDeVehiculo> ObtenerTiposDeVehiculo()
         {
             List<TipoDeVehiculo> tipos = new List<TipoDeVehiculo>();
 

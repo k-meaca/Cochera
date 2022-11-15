@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Documento.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Enumeraciones\ClasificacionTarifa.cs" />
     <Compile Include="Estacionamiento.cs" />
     <Compile Include="Excepciones\UsuarioInvalidoExcepcion.cs" />
+    <Compile Include="Ingreso.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -41,7 +41,7 @@ namespace Cochera.Servicios
 
                 estacionamientos = repositorioEstacionamientos.ObtenerEstacionamientos(sectores);
 
-                tipos = repositorioTiposVehiculos.obtenerTiposDeVehiculo();
+                tipos = repositorioTiposVehiculos.ObtenerTiposDeVehiculo();
 
                 repositorioVPorE.EstablecerVehiculosPorEstacionamiento(estacionamientos, tipos);
             }

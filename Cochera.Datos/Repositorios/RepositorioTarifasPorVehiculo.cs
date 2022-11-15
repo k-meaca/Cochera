@@ -25,7 +25,32 @@ namespace Cochera.Datos.Repositorios
 
         //----PUBLICOS----//
 
-        public List<TarifaPorVehiculo> obtenerTarifasPorVehiculo(List<TipoDeVehiculo> tipos, List<Tarifa> tarifas)
+        public decimal ObtenerPrecio(TipoDeVehiculo tipo, Tarifa tarifa)
+        {
+            try
+            {
+                decimal precio;
+
+                string query = "SELECT dbo.UF_ObtenerPrecio(@TipoDeVehiculoId,@TarifaId);";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@TipoDeVehiculoId", tipo.TipoId);
+                    comando.Parameters.AddWithValue("@TarifaId", tarifa.TarifaId);
+
+                    precio = Convert.ToDecimal(comando.ExecuteScalar());
+                }
+
+                return precio;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
+        public List<TarifaPorVehiculo> ObtenerTarifasPorVehiculo(List<TipoDeVehiculo> tipos, List<Tarifa> tarifas)
         {
             List<TarifaPorVehiculo> tarifasPorVehiculos = new List<TarifaPorVehiculo>();
 

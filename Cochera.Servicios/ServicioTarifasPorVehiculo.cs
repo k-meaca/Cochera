@@ -23,7 +23,21 @@ namespace Cochera.Servicios
 
         //----PUBLICOS----//
 
-        public List<TarifaPorVehiculo> obtenerTarifasPorVehiculo()
+        public decimal ObtenerPrecio(TipoDeVehiculo tipo, Tarifa tarifa)
+        {
+            decimal precio;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioTarifasPorVehiculo = new RepositorioTarifasPorVehiculo(conexion);
+                precio = repositorioTarifasPorVehiculo.ObtenerPrecio(tipo, tarifa);
+            }
+
+            return precio;
+        }
+
+
+        public List<TarifaPorVehiculo> ObtenerTarifasPorVehiculo()
         {
             List<TarifaPorVehiculo> tarifasPorVehiculo;
 
@@ -34,10 +48,10 @@ namespace Cochera.Servicios
                 repositorioTarifasPorVehiculo = new RepositorioTarifasPorVehiculo(conexion);
 
 
-                List<Tarifa> tarifas = repositorioTarifas.obtenerTarifas();
-                List<TipoDeVehiculo> tipos = repositorioTiposDeVehiculos.obtenerTiposDeVehiculo();
+                List<Tarifa> tarifas = repositorioTarifas.ObtenerTarifas();
+                List<TipoDeVehiculo> tipos = repositorioTiposDeVehiculos.ObtenerTiposDeVehiculo();
 
-                tarifasPorVehiculo = repositorioTarifasPorVehiculo.obtenerTarifasPorVehiculo(tipos,tarifas);
+                tarifasPorVehiculo = repositorioTarifasPorVehiculo.ObtenerTarifasPorVehiculo(tipos,tarifas);
 
             }
 

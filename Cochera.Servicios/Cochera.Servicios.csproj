@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="ServicioClientes.cs" />
     <Compile Include="ServicioEstacionamientos.cs" />
+    <Compile Include="ServicioIngresos.cs" />
     <Compile Include="ServicioMarcas.cs" />
     <Compile Include="ServicioModelos.cs" />
     <Compile Include="ServicioPersonas.cs" />
     <Compile Include="ServicioSectores.cs" />
+    <Compile Include="ServicioTarifas.cs" />
     <Compile Include="ServicioTarifasPorVehiculo.cs" />
     <Compile Include="ServicioTiposDeDocumentos.cs" />
     <Compile Include="ServicioTiposDeVehiculos.cs" />

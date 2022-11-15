@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Servicios;
 using Cochera.Entidades;
+using Cochera.Windows.Utilidades;
 
 
 namespace Cochera.Windows
@@ -72,6 +73,18 @@ namespace Cochera.Windows
         }
 
         //----PUBLICOS----//
+
+        public void ActivarBotones()
+        {
+            CorrectorDeEstados.ActivarBotones(botonesMenu);
+            formPrincipal.ActivarBotones();
+        }
+
+        public void AnularBotones()
+        {
+            CorrectorDeEstados.AnularBotones(botonesMenu);
+            formPrincipal.AnularBotones();
+        }
 
         //------------EVENTOS------------//
         

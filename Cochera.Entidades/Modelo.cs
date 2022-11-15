@@ -67,5 +67,10 @@ namespace Cochera.Entidades
         {
             return tipoVehiculo.TipoId;
         }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

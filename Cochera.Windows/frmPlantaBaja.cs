@@ -76,6 +76,21 @@ namespace Cochera.Windows
 
         //----PUBLICOS----//
 
+        public void ActivarBotones()
+        {
+            contenedorAutos.Enabled = true;
+            contenedorMotos.Enabled = true;
+            formEstacionamiento.ActivarBotones();
+        }
+
+        public void AnularBotones()
+        {
+            contenedorAutos.Enabled = false;
+            contenedorMotos.Enabled = false;
+            formEstacionamiento.AnularBotones();
+        }
+
+
         //------------EVENTOS------------//
     }
 }

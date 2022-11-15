@@ -30,5 +30,10 @@ namespace Cochera.Entidades
 
         //----PUBLICOS----//
 
+        public override string ToString()
+        {
+            return Tiempo;
+        }
+
     }
 }

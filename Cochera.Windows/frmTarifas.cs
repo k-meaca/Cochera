@@ -41,7 +41,7 @@ namespace Cochera.Windows
 
         private void CargarGrilla()
         {
-            List<TarifaPorVehiculo> datos = servicioTarifasPorVehiculo.obtenerTarifasPorVehiculo();
+            List<TarifaPorVehiculo> datos = servicioTarifasPorVehiculo.ObtenerTarifasPorVehiculo();
 
             foreach(TarifaPorVehiculo dato in datos)
             {

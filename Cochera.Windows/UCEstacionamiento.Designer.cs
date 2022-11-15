@@ -34,9 +34,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblUbicacion = new System.Windows.Forms.Label();
             this.pnlImagen = new System.Windows.Forms.Panel();
             this.imgVehiculo = new System.Windows.Forms.PictureBox();
-            this.lblUbicacion = new System.Windows.Forms.Label();
             this.pnlBoton.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlImagen.SuspendLayout();
@@ -77,6 +77,7 @@
             this.btnEstacionar.TabIndex = 0;
             this.btnEstacionar.Text = "Estacionar";
             this.btnEstacionar.UseVisualStyleBackColor = false;
+            this.btnEstacionar.Click += new System.EventHandler(this.btnEstacionar_Click);
             // 
             // panel2
             // 
@@ -106,23 +107,6 @@
             this.panel4.Size = new System.Drawing.Size(114, 27);
             this.panel4.TabIndex = 3;
             // 
-            // pnlImagen
-            // 
-            this.pnlImagen.Controls.Add(this.imgVehiculo);
-            this.pnlImagen.Location = new System.Drawing.Point(33, 33);
-            this.pnlImagen.Name = "pnlImagen";
-            this.pnlImagen.Size = new System.Drawing.Size(102, 159);
-            this.pnlImagen.TabIndex = 4;
-            // 
-            // imgVehiculo
-            // 
-            this.imgVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgVehiculo.Location = new System.Drawing.Point(0, 0);
-            this.imgVehiculo.Name = "imgVehiculo";
-            this.imgVehiculo.Size = new System.Drawing.Size(102, 159);
-            this.imgVehiculo.TabIndex = 0;
-            this.imgVehiculo.TabStop = false;
-            // 
             // lblUbicacion
             // 
             this.lblUbicacion.AutoSize = true;
@@ -132,6 +116,23 @@
             this.lblUbicacion.Size = new System.Drawing.Size(46, 19);
             this.lblUbicacion.TabIndex = 0;
             this.lblUbicacion.Text = "PB35";
+            // 
+            // pnlImagen
+            // 
+            this.pnlImagen.Controls.Add(this.imgVehiculo);
+            this.pnlImagen.Location = new System.Drawing.Point(33, 33);
+            this.pnlImagen.Name = "pnlImagen";
+            this.pnlImagen.Size = new System.Drawing.Size(102, 150);
+            this.pnlImagen.TabIndex = 4;
+            // 
+            // imgVehiculo
+            // 
+            this.imgVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgVehiculo.Location = new System.Drawing.Point(0, 0);
+            this.imgVehiculo.Name = "imgVehiculo";
+            this.imgVehiculo.Size = new System.Drawing.Size(102, 150);
+            this.imgVehiculo.TabIndex = 0;
+            this.imgVehiculo.TabStop = false;
             // 
             // UCEstacionamiento
             // 
