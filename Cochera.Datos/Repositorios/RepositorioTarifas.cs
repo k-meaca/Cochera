@@ -27,7 +27,7 @@ namespace Cochera.Datos.Repositorios
 
 
         //----PUBLICOS----//
-        public List<Tarifa> obtenerTarifas()
+        public List<Tarifa> ObtenerTarifas()
         {
             List<Tarifa> tarifas = new List<Tarifa>();
             try
@@ -57,6 +57,38 @@ namespace Cochera.Datos.Repositorios
             }
 
             return tarifas;
+        }
+
+        public List<Tarifa> ObtenerTarifasAbonados()
+        {
+            try
+            {
+                List<Tarifa> tarifas = new List<Tarifa>();
+
+                string query = "SELECT * FROM dbo.UF_ObtenerTarifasAbonados();";
+
+                using(SqlCommand comando = new SqlCommand(query,conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    
+                    using(SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            int tarifaId = lector.GetInt32(0);
+                            string tiempo = lector.GetString(1);
+                            Tarifa tarifa = new Tarifa(tarifaId, tiempo);
+                            tarifas.Add(tarifa);
+                        }
+                    }
+                }
+
+                return tarifas;
+            }
+            catch(SqlException)
+            {
+                throw;
+            }
         }
     }
 }

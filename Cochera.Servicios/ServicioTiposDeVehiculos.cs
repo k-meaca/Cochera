@@ -53,7 +53,7 @@ namespace Cochera.Servicios
             using (SqlConnection conexion = ConexionBD.AbrirConexion())
             {
                 repositorioTiposVehiculos = new RepositorioTiposDeVehiculo(conexion);
-                tipos = repositorioTiposVehiculos.obtenerTiposDeVehiculo();
+                tipos = repositorioTiposVehiculos.ObtenerTiposDeVehiculo();
             }
 
             return tipos;

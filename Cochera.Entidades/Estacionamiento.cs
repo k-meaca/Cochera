@@ -69,6 +69,10 @@ namespace Cochera.Entidades
             return vehiculosAdmitidos.Any(v => v.TipoId == tipo.TipoId);
         }
 
+        public bool PuedeEstacionarVehiculo(int tipoId)
+        {
+            return vehiculosAdmitidos.Any(v => v.TipoId == tipoId);
+        }
 
     }
 }

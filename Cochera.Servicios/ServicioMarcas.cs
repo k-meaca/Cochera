@@ -53,5 +53,18 @@ namespace Cochera.Servicios
 
             return marcas;
         }
+
+        public Marca ObtenerMarca(int marcaId)
+        {
+            Marca marca;
+
+            using (SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioMarcas = new RepositorioMarcas(conexion);
+                marca = repositorioMarcas.ObtenerMarca(marcaId);
+            }
+
+            return marca;
+        }
     }
 }

@@ -303,6 +303,26 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IngresoMenu {
+            get {
+                object obj = ResourceManager.GetObject("IngresoMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IngresoMenuGIF {
+            get {
+                object obj = ResourceManager.GetObject("IngresoMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
@@ -376,6 +396,26 @@ namespace Cochera.Windows.Properties {
         internal static System.Drawing.Bitmap pwsVisible {
             get {
                 object obj = ResourceManager.GetObject("pwsVisible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalidaMenuGIF {
+            get {
+                object obj = ResourceManager.GetObject("SalidaMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalidasMenu {
+            get {
+                object obj = ResourceManager.GetObject("SalidasMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

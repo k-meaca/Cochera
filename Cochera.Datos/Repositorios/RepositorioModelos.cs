@@ -39,6 +39,18 @@ namespace Cochera.Datos.Repositorios
 
         }
 
+        private Modelo CrearModelo(List<Marca> marcas, TipoDeVehiculo tipo, SqlDataReader lector)
+        {
+            int modeloId = lector.GetInt32(0);
+            string nombre = lector.GetString(1);
+            int marcaId = lector.GetInt32(2);
+
+            Marca marca = marcas.Find(m => m.MarcaId == marcaId);
+
+            return new Modelo(modeloId, nombre, tipo, marca);
+
+        }
+
         //----PUBLICOS----//
 
         public void ActualizarModelo(Modelo modelo)
@@ -109,6 +121,38 @@ namespace Cochera.Datos.Repositorios
                         while (lector.Read())
                         {
                             Modelo modelo = CrearModelo(marcas, tipos, lector);
+
+                            modelos.Add(modelo);
+                        }
+                    }
+                }
+
+                return modelos;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
+        public List<Modelo> ObtenerModelos(List<Marca> marcas, TipoDeVehiculo tipo)
+        {
+            try
+            {
+                List<Modelo> modelos = new List<Modelo>();
+
+                string query = "SELECT * FROM dbo.UF_ModelosPorTipoDeVehiculo(@TipoDeVehiculo);";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@TipoDeVehiculo", tipo.TipoId);
+
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            Modelo modelo = CrearModelo(marcas, tipo, lector);
 
                             modelos.Add(modelo);
                         }

@@ -39,23 +39,49 @@ namespace Cochera.Windows
         {
             if (estacionamiento.Ocupado)
             {
-                CorrectorDeEstados.ActivarBoton(btnDesocupar);
-                CorrectorDeEstados.AnularBoton(btnEstacionar);
+                EstacionamientoOcupado();
             }
             else
             {
-                CorrectorDeEstados.ActivarBoton(btnEstacionar);
-                CorrectorDeEstados.AnularBoton(btnDesocupar);
+                DesocuparEstacionamiento();
             }
 
             lblUbicacion.Text = estacionamiento.Ubicacion;
 
         }
 
+        //----PUBLICOS----//
+
+        public void DesocuparEstacionamiento()
+        {
+            CorrectorDeEstados.ActivarBoton(btnEstacionar);
+            CorrectorDeEstados.AnularBoton(btnDesocupar);
+        }
+
+        public void EstacionamientoOcupado()
+        {
+            CorrectorDeEstados.ActivarBoton(btnDesocupar);
+            CorrectorDeEstados.AnularBoton(btnEstacionar);
+        }
+
+        public void ActivarBotones()
+        {
+            formPB.ActivarBotones();
+        }
+
         //-----------EVENTOS-----------//
         private void btnDesocupar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEstacionar_Click(object sender, EventArgs e)
+        {
+            frmIngresosEdicion frmEstacionar = new frmIngresosEdicion(estacionamiento,this);
+
+            formPB.AnularBotones();
+
+            frmEstacionar.Show();
         }
     }
 }

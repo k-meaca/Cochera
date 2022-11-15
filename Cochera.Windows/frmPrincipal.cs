@@ -108,11 +108,15 @@ namespace Cochera.Windows
         public void ActivarBotones()
         {
             CorrectorDeEstados.ActivarBotones(botonesMenu);
+            imgMinimizar.Enabled = true;
+            imgSalir.Enabled = true;
         }
 
         public void AnularBotones()
         {
             CorrectorDeEstados.AnularBotones(botonesMenu);
+            imgMinimizar.Enabled = false;
+            imgSalir.Enabled = false;
         }
 
         #endregion
@@ -406,7 +410,6 @@ namespace Cochera.Windows
 
         #region
 
-        #endregion
 
         private void btnEstacionamientoMenu_CheckedChanged(object sender, EventArgs e)
         {
@@ -438,5 +441,78 @@ namespace Cochera.Windows
             if (botonMenuSeleccionado is null && !btnEstacionamientoMenu.Checked)
                 btnEstacionamientoMenu.Image = Properties.Resources.EstacionamientoMenu;
         }
+
+        #endregion
+
+        //---BOTON INGRESOS---//
+
+        #region
+        private void btnIngresosMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                btnIngresosMenu_MouseEnter(sender, e);
+                //MostrarFormulario(new frmEstacionamiento(this));
+            }
+            else
+            {
+                btnIngresosMenu_MouseLeave(sender, e);
+                //CerrarFormularioActivo();
+            }
+        }
+
+        private void btnIngresosMenu_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnIngresosMenu_MouseEnter(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null)
+                btnIngresosMenu.Image = Properties.Resources.IngresoMenuGIF;
+        }
+
+        private void btnIngresosMenu_MouseLeave(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null && !btnIngresosMenu.Checked)
+                btnIngresosMenu.Image = Properties.Resources.IngresoMenu;
+        }
+        #endregion
+
+        //---BOTON SALIDAS---//
+
+        #region
+        private void btnSalidasMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                btnSalidasMenu_MouseEnter(sender, e);
+                //MostrarFormulario(new frmEstacionamiento(this));
+            }
+            else
+            {
+                btnSalidasMenu_MouseLeave(sender, e);
+                //CerrarFormularioActivo();
+            }
+        }
+
+        private void btnSalidasMenu_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnSalidasMenu_MouseEnter(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null)
+                btnSalidasMenu.Image = Properties.Resources.SalidaMenuGIF;
+        }
+
+        private void btnSalidasMenu_MouseLeave(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null && !btnSalidasMenu.Checked)
+                btnSalidasMenu.Image = Properties.Resources.SalidasMenu;
+        }
+
+        #endregion
     }
 }

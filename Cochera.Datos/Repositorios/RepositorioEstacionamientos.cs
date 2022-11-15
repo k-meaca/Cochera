@@ -13,7 +13,8 @@ namespace Cochera.Datos.Repositorios
     {
 
         //------------ATRIBUTOS------------//
-        SqlConnection conexion;
+        private SqlConnection conexion;
+        private SqlTransaction transaccion;
 
         //------------CONSTRUCTOR------------//
         public RepositorioEstacionamientos(SqlConnection conexion)
@@ -21,9 +22,34 @@ namespace Cochera.Datos.Repositorios
             this.conexion = conexion;
         }
 
+        public RepositorioEstacionamientos(SqlConnection conexion, SqlTransaction transaccion) : this(conexion)
+        {
+            this.transaccion = transaccion;
+        }
+
         //------------METODOS------------//
 
         //----PUBLICOS----//
+
+        public void OcuparEstacionamiento(Estacionamiento estacionamiento)
+        {
+            try
+            {
+                string query = "exec SP_OcuparEstacionamiento @EstacionamientoId;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@EstacionamientoId", estacionamiento.EstacionamientoId);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+
+            }
+        }
 
         public List<Estacionamiento> ObtenerEstacionamientos(List<Sector> sectores)
         {

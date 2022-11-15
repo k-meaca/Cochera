@@ -33,8 +33,10 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.botonesMenu = new System.Windows.Forms.ToolStrip();
             this.btnEstacionamientoMenu = new System.Windows.Forms.ToolStripButton();
-            this.btnAbonadosMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnIngresosMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnSalidasMenu = new System.Windows.Forms.ToolStripButton();
             this.btnClientesMenu = new System.Windows.Forms.ToolStripButton();
+            this.btnAbonadosMenu = new System.Windows.Forms.ToolStripButton();
             this.btnCuentasCtesMenu = new System.Windows.Forms.ToolStripButton();
             this.btnModelosMenu = new System.Windows.Forms.ToolStripButton();
             this.btnMarcasMenu = new System.Windows.Forms.ToolStripButton();
@@ -68,7 +70,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(189, 552);
+            this.panelMenu.Size = new System.Drawing.Size(202, 552);
             this.panelMenu.TabIndex = 0;
             // 
             // botonesMenu
@@ -79,6 +81,8 @@
             this.botonesMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.botonesMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEstacionamientoMenu,
+            this.btnIngresosMenu,
+            this.btnSalidasMenu,
             this.btnClientesMenu,
             this.btnAbonadosMenu,
             this.btnCuentasCtesMenu,
@@ -89,7 +93,7 @@
             this.botonesMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.botonesMenu.Location = new System.Drawing.Point(0, 42);
             this.botonesMenu.Name = "botonesMenu";
-            this.botonesMenu.Size = new System.Drawing.Size(189, 397);
+            this.botonesMenu.Size = new System.Drawing.Size(202, 472);
             this.botonesMenu.TabIndex = 2;
             this.botonesMenu.Text = "toolStrip1";
             // 
@@ -98,24 +102,36 @@
             this.btnEstacionamientoMenu.Image = global::Cochera.Windows.Properties.Resources.EstacionamientoMenu;
             this.btnEstacionamientoMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEstacionamientoMenu.Name = "btnEstacionamientoMenu";
-            this.btnEstacionamientoMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnEstacionamientoMenu.Size = new System.Drawing.Size(200, 44);
             this.btnEstacionamientoMenu.Text = "Estacionamientos";
             this.btnEstacionamientoMenu.CheckedChanged += new System.EventHandler(this.btnEstacionamientoMenu_CheckedChanged);
             this.btnEstacionamientoMenu.Click += new System.EventHandler(this.btnEstacionamientoMenu_Click);
             this.btnEstacionamientoMenu.MouseEnter += new System.EventHandler(this.btnEstacionamientoMenu_MouseEnter);
             this.btnEstacionamientoMenu.MouseLeave += new System.EventHandler(this.btnEstacionamientoMenu_MouseLeave);
             // 
-            // btnAbonadosMenu
+            // btnIngresosMenu
             // 
-            this.btnAbonadosMenu.Image = global::Cochera.Windows.Properties.Resources.AbonadosMenu;
-            this.btnAbonadosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAbonadosMenu.Name = "btnAbonadosMenu";
-            this.btnAbonadosMenu.Size = new System.Drawing.Size(187, 44);
-            this.btnAbonadosMenu.Text = "Abonados";
-            this.btnAbonadosMenu.CheckedChanged += new System.EventHandler(this.btnAbonadosMenu_CheckedChanged);
-            this.btnAbonadosMenu.Click += new System.EventHandler(this.btnAbonadosMenu_Click);
-            this.btnAbonadosMenu.MouseEnter += new System.EventHandler(this.btnAbonadosMenu_MouseEnter);
-            this.btnAbonadosMenu.MouseLeave += new System.EventHandler(this.btnAbonadosMenu_MouseLeave);
+            this.btnIngresosMenu.Image = global::Cochera.Windows.Properties.Resources.IngresoMenu;
+            this.btnIngresosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIngresosMenu.Name = "btnIngresosMenu";
+            this.btnIngresosMenu.Size = new System.Drawing.Size(200, 44);
+            this.btnIngresosMenu.Text = "Ingresos";
+            this.btnIngresosMenu.CheckedChanged += new System.EventHandler(this.btnIngresosMenu_CheckedChanged);
+            this.btnIngresosMenu.Click += new System.EventHandler(this.btnIngresosMenu_Click);
+            this.btnIngresosMenu.MouseEnter += new System.EventHandler(this.btnIngresosMenu_MouseEnter);
+            this.btnIngresosMenu.MouseLeave += new System.EventHandler(this.btnIngresosMenu_MouseLeave);
+            // 
+            // btnSalidasMenu
+            // 
+            this.btnSalidasMenu.Image = global::Cochera.Windows.Properties.Resources.SalidasMenu;
+            this.btnSalidasMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSalidasMenu.Name = "btnSalidasMenu";
+            this.btnSalidasMenu.Size = new System.Drawing.Size(200, 44);
+            this.btnSalidasMenu.Text = "Salidas";
+            this.btnSalidasMenu.CheckedChanged += new System.EventHandler(this.btnSalidasMenu_CheckedChanged);
+            this.btnSalidasMenu.Click += new System.EventHandler(this.btnSalidasMenu_Click);
+            this.btnSalidasMenu.MouseEnter += new System.EventHandler(this.btnSalidasMenu_MouseEnter);
+            this.btnSalidasMenu.MouseLeave += new System.EventHandler(this.btnSalidasMenu_MouseLeave);
             // 
             // btnClientesMenu
             // 
@@ -123,19 +139,31 @@
             this.btnClientesMenu.Image = global::Cochera.Windows.Properties.Resources.ClientesMenu;
             this.btnClientesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnClientesMenu.Name = "btnClientesMenu";
-            this.btnClientesMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnClientesMenu.Size = new System.Drawing.Size(200, 44);
             this.btnClientesMenu.Text = "Clientes";
             this.btnClientesMenu.CheckedChanged += new System.EventHandler(this.btnClientesMenu_CheckedChanged);
             this.btnClientesMenu.Click += new System.EventHandler(this.btnClientesMenu_Click);
             this.btnClientesMenu.MouseEnter += new System.EventHandler(this.btnClientesMenu_MouseEnter);
             this.btnClientesMenu.MouseLeave += new System.EventHandler(this.btnClientesMenu_MouseLeave);
             // 
+            // btnAbonadosMenu
+            // 
+            this.btnAbonadosMenu.Image = global::Cochera.Windows.Properties.Resources.AbonadosMenu;
+            this.btnAbonadosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbonadosMenu.Name = "btnAbonadosMenu";
+            this.btnAbonadosMenu.Size = new System.Drawing.Size(200, 44);
+            this.btnAbonadosMenu.Text = "Abonados";
+            this.btnAbonadosMenu.CheckedChanged += new System.EventHandler(this.btnAbonadosMenu_CheckedChanged);
+            this.btnAbonadosMenu.Click += new System.EventHandler(this.btnAbonadosMenu_Click);
+            this.btnAbonadosMenu.MouseEnter += new System.EventHandler(this.btnAbonadosMenu_MouseEnter);
+            this.btnAbonadosMenu.MouseLeave += new System.EventHandler(this.btnAbonadosMenu_MouseLeave);
+            // 
             // btnCuentasCtesMenu
             // 
             this.btnCuentasCtesMenu.Image = global::Cochera.Windows.Properties.Resources.CuentasCtesMenu;
             this.btnCuentasCtesMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCuentasCtesMenu.Name = "btnCuentasCtesMenu";
-            this.btnCuentasCtesMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnCuentasCtesMenu.Size = new System.Drawing.Size(200, 44);
             this.btnCuentasCtesMenu.Text = "Cuentas Ctes";
             this.btnCuentasCtesMenu.CheckedChanged += new System.EventHandler(this.btnCuentasCtesMenu_CheckedChanged);
             this.btnCuentasCtesMenu.Click += new System.EventHandler(this.btnCuentasCtesMenu_Click);
@@ -148,7 +176,7 @@
             this.btnModelosMenu.Image = global::Cochera.Windows.Properties.Resources.ModelosMenu;
             this.btnModelosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModelosMenu.Name = "btnModelosMenu";
-            this.btnModelosMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnModelosMenu.Size = new System.Drawing.Size(200, 44);
             this.btnModelosMenu.Text = "Modelos";
             this.btnModelosMenu.CheckedChanged += new System.EventHandler(this.btnModelosMenu_CheckedChanged);
             this.btnModelosMenu.Click += new System.EventHandler(this.btnModelosMenu_Click);
@@ -160,7 +188,7 @@
             this.btnMarcasMenu.Image = global::Cochera.Windows.Properties.Resources.MarcasMenu;
             this.btnMarcasMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMarcasMenu.Name = "btnMarcasMenu";
-            this.btnMarcasMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnMarcasMenu.Size = new System.Drawing.Size(200, 44);
             this.btnMarcasMenu.Text = "Marcas";
             this.btnMarcasMenu.CheckedChanged += new System.EventHandler(this.btnMarcasMenu_CheckedChanged);
             this.btnMarcasMenu.Click += new System.EventHandler(this.btnMarcasMenu_Click);
@@ -172,7 +200,7 @@
             this.btnTarifasMenu.Image = global::Cochera.Windows.Properties.Resources.TarifasMenu;
             this.btnTarifasMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTarifasMenu.Name = "btnTarifasMenu";
-            this.btnTarifasMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnTarifasMenu.Size = new System.Drawing.Size(200, 44);
             this.btnTarifasMenu.Text = "Tarifas";
             this.btnTarifasMenu.CheckedChanged += new System.EventHandler(this.btnTarifasMenu_CheckedChanged);
             this.btnTarifasMenu.Click += new System.EventHandler(this.btnTarifasMenu_Click);
@@ -184,7 +212,7 @@
             this.btnDocumentosMenu.Image = global::Cochera.Windows.Properties.Resources.DocumentosMenu;
             this.btnDocumentosMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocumentosMenu.Name = "btnDocumentosMenu";
-            this.btnDocumentosMenu.Size = new System.Drawing.Size(187, 44);
+            this.btnDocumentosMenu.Size = new System.Drawing.Size(200, 44);
             this.btnDocumentosMenu.Text = "Documentos";
             this.btnDocumentosMenu.CheckedChanged += new System.EventHandler(this.btnDocumentosMenu_CheckedChanged);
             this.btnDocumentosMenu.Click += new System.EventHandler(this.btnDocumentosMenu_Click);
@@ -197,7 +225,7 @@
             this.pnlDivision.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDivision.Location = new System.Drawing.Point(0, 39);
             this.pnlDivision.Name = "pnlDivision";
-            this.pnlDivision.Size = new System.Drawing.Size(189, 3);
+            this.pnlDivision.Size = new System.Drawing.Size(202, 3);
             this.pnlDivision.TabIndex = 1;
             // 
             // panelInfoSesion
@@ -208,14 +236,14 @@
             this.panelInfoSesion.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfoSesion.Location = new System.Drawing.Point(0, 0);
             this.panelInfoSesion.Name = "panelInfoSesion";
-            this.panelInfoSesion.Size = new System.Drawing.Size(189, 39);
+            this.panelInfoSesion.Size = new System.Drawing.Size(202, 39);
             this.panelInfoSesion.TabIndex = 0;
             // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(110, 20);
+            this.lblHora.Location = new System.Drawing.Point(121, 20);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(36, 16);
             this.lblHora.TabIndex = 1;
@@ -225,7 +253,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(7, 20);
+            this.lblFecha.Location = new System.Drawing.Point(3, 20);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(41, 16);
             this.lblFecha.TabIndex = 1;
@@ -235,7 +263,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(7, 4);
+            this.lblUsuario.Location = new System.Drawing.Point(3, 4);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 16);
             this.lblUsuario.TabIndex = 0;
@@ -250,7 +278,7 @@
             // 
             this.pnlDivisorioV.BackColor = System.Drawing.Color.Silver;
             this.pnlDivisorioV.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDivisorioV.Location = new System.Drawing.Point(189, 0);
+            this.pnlDivisorioV.Location = new System.Drawing.Point(202, 0);
             this.pnlDivisorioV.Name = "pnlDivisorioV";
             this.pnlDivisorioV.Size = new System.Drawing.Size(3, 552);
             this.pnlDivisorioV.TabIndex = 1;
@@ -260,9 +288,9 @@
             this.pnlCerrar.Controls.Add(this.imgMinimizar);
             this.pnlCerrar.Controls.Add(this.imgSalir);
             this.pnlCerrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCerrar.Location = new System.Drawing.Point(192, 0);
+            this.pnlCerrar.Location = new System.Drawing.Point(205, 0);
             this.pnlCerrar.Name = "pnlCerrar";
-            this.pnlCerrar.Size = new System.Drawing.Size(818, 39);
+            this.pnlCerrar.Size = new System.Drawing.Size(805, 39);
             this.pnlCerrar.TabIndex = 7;
             // 
             // imgMinimizar
@@ -270,7 +298,7 @@
             this.imgMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.imgMinimizar.Image = global::Cochera.Windows.Properties.Resources.minimizar;
-            this.imgMinimizar.Location = new System.Drawing.Point(733, 11);
+            this.imgMinimizar.Location = new System.Drawing.Point(720, 11);
             this.imgMinimizar.Name = "imgMinimizar";
             this.imgMinimizar.Size = new System.Drawing.Size(38, 17);
             this.imgMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -285,7 +313,7 @@
             this.imgSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgSalir.BackColor = System.Drawing.Color.Transparent;
             this.imgSalir.Image = ((System.Drawing.Image)(resources.GetObject("imgSalir.Image")));
-            this.imgSalir.Location = new System.Drawing.Point(777, 11);
+            this.imgSalir.Location = new System.Drawing.Point(764, 11);
             this.imgSalir.Name = "imgSalir";
             this.imgSalir.Size = new System.Drawing.Size(38, 17);
             this.imgSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -299,17 +327,17 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(192, 39);
+            this.panel1.Location = new System.Drawing.Point(205, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 3);
+            this.panel1.Size = new System.Drawing.Size(805, 3);
             this.panel1.TabIndex = 8;
             // 
             // pnlFormularios
             // 
             this.pnlFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFormularios.Location = new System.Drawing.Point(192, 42);
+            this.pnlFormularios.Location = new System.Drawing.Point(205, 42);
             this.pnlFormularios.Name = "pnlFormularios";
-            this.pnlFormularios.Size = new System.Drawing.Size(818, 510);
+            this.pnlFormularios.Size = new System.Drawing.Size(805, 510);
             this.pnlFormularios.TabIndex = 9;
             // 
             // frmPrincipal
@@ -326,7 +354,7 @@
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Cochera 1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelMenu.ResumeLayout(false);
@@ -366,5 +394,7 @@
         private System.Windows.Forms.ToolStripButton btnMarcasMenu;
         private System.Windows.Forms.ToolStripButton btnCuentasCtesMenu;
         private System.Windows.Forms.ToolStripButton btnEstacionamientoMenu;
+        private System.Windows.Forms.ToolStripButton btnIngresosMenu;
+        private System.Windows.Forms.ToolStripButton btnSalidasMenu;
     }
 }

@@ -52,8 +52,24 @@ namespace Cochera.Servicios
                 repositorioModelos = new RepositorioModelos(conexion);
 
                 List<Marca> marcas = repositorioMarcas.ObtenerMarcas();
-                List<TipoDeVehiculo> tipos = repositorioTipoVehiculo.obtenerTiposDeVehiculo();
+                List<TipoDeVehiculo> tipos = repositorioTipoVehiculo.ObtenerTiposDeVehiculo();
                 modelos = repositorioModelos.ObtenerModelos(marcas, tipos);
+            }
+
+            return modelos;
+        }
+
+        public List<Modelo> ObtenerModelos(TipoDeVehiculo tipo)
+        {
+            List<Modelo> modelos;
+
+            using (SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioMarcas = new RepositorioMarcas(conexion);
+                repositorioModelos = new RepositorioModelos(conexion);
+                
+                List<Marca> marcas = repositorioMarcas.ObtenerMarcas();
+                modelos = repositorioModelos.ObtenerModelos(marcas, tipo);
             }
 
             return modelos;

@@ -48,6 +48,7 @@
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioEstacionamientos.cs" />
+    <Compile Include="Repositorios\RepositorioIngresos.cs" />
     <Compile Include="Repositorios\RepositorioMarcas.cs" />
     <Compile Include="Repositorios\RepositorioModelos.cs" />
     <Compile Include="Repositorios\RepositorioPersonas.cs" />

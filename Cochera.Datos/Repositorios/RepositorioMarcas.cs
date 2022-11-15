@@ -101,5 +101,27 @@ namespace Cochera.Datos.Repositorios
                 throw;
             }
         }
+
+        public Marca ObtenerMarca(int marcaId)
+        {
+            try
+            {
+                string query = "SELECT dbo.UF_ObtenerMarca(@MarcaId);";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@MarcaId", marcaId);
+
+                    string marca = Convert.ToString(comando.ExecuteScalar());
+
+                    return new Marca(marcaId, marca);
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
     }
 }
