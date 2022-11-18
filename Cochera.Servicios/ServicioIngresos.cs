@@ -16,13 +16,15 @@ namespace Cochera.Servicios
 
         private RepositorioIngresos repositorioIngresos;
         private RepositorioEstacionamientos repositorioEstacionamientos;
+        private RepositorioTiposDeVehiculo repositorioTipos;
 
         //------------METODOS------------//
 
-        public void GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime ingreso, Estacionamiento estacionamiento)
+        public Ingreso GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime fechaIngreso, Estacionamiento estacionamiento)
         {
             
             SqlTransaction transaccion = null;
+            Ingreso ingreso;
 
             try
             {
@@ -34,20 +36,36 @@ namespace Cochera.Servicios
                     repositorioIngresos = new RepositorioIngresos(conexion,transaccion);
                     repositorioEstacionamientos = new RepositorioEstacionamientos(conexion, transaccion);
 
-                    repositorioIngresos.GenerarIngreso(patente, tipo,ingreso, estacionamiento);
-                    repositorioEstacionamientos.OcuparEstacionamiento(estacionamiento);
+                    ingreso = repositorioIngresos.GenerarIngreso(patente, tipo,fechaIngreso, estacionamiento);
+                    repositorioEstacionamientos.OcuparEstacionamiento(estacionamiento.EstacionamientoId);
 
                     transaccion.Commit();
                 }
+
+                return ingreso;
             }
             catch (SqlException)
             {
+                transaccion.Rollback();
                 throw;
             }
-            finally
+        }
+
+        public Ingreso ObtenerIngreso(Estacionamiento estacionamiento)
+        {
+            Ingreso ingreso;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
             {
-                transaccion.Rollback();
+                repositorioIngresos = new RepositorioIngresos(conexion);
+                repositorioTipos = new RepositorioTiposDeVehiculo(conexion);
+
+                List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
+
+                ingreso = repositorioIngresos.ObtenerIngreso(estacionamiento,tipos);
             }
+
+            return ingreso;
         }
     }
 }

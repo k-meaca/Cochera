@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 using Cochera.Entidades;
+using Cochera.Entidades.Enumeraciones;
 
 
 namespace Cochera.Windows.Utilidades

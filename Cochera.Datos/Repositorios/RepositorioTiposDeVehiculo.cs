@@ -44,8 +44,9 @@ namespace Cochera.Datos.Repositorios
 
                         int tipoId = lector.GetInt32(0);
                         string tipoVehiculo = lector.GetString(1);
+                        string imagen = lector.GetString(2);
 
-                        tipo = new TipoDeVehiculo(tipoId, tipoVehiculo);
+                        tipo = new TipoDeVehiculo(tipoId, tipoVehiculo, imagen);
                     }
                 }
 
@@ -86,8 +87,9 @@ namespace Cochera.Datos.Repositorios
                         {
                             int tipoId = lector.GetInt32(0);
                             string tipo = lector.GetString(1);
+                            string imagen = lector.GetString(2);
 
-                            TipoDeVehiculo tipoDeVehiculo = new TipoDeVehiculo(tipoId, tipo);
+                            TipoDeVehiculo tipoDeVehiculo = new TipoDeVehiculo(tipoId, tipo, imagen);
 
                             tipos.Add(tipoDeVehiculo);
                         }

@@ -25,7 +25,19 @@ namespace Cochera.Datos.Repositorios
 
         //----PUBLICOS----//
 
-        public decimal ObtenerPrecio(TipoDeVehiculo tipo, Tarifa tarifa)
+        public decimal ObtenerMontoParaTarifas(int tipoVehiculoId, List<Tarifa> tarifas)
+        {
+            decimal monto = 0;
+
+            foreach(Tarifa tarifa in tarifas)
+            {
+                monto += ObtenerPrecio(tipoVehiculoId, tarifa);
+            }
+
+            return monto;
+        }
+
+        public decimal ObtenerPrecio(int tipoVehiculoId, Tarifa tarifa)
         {
             try
             {
@@ -36,7 +48,7 @@ namespace Cochera.Datos.Repositorios
                 using(SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.CommandType = System.Data.CommandType.Text;
-                    comando.Parameters.AddWithValue("@TipoDeVehiculoId", tipo.TipoId);
+                    comando.Parameters.AddWithValue("@TipoDeVehiculoId", tipoVehiculoId);
                     comando.Parameters.AddWithValue("@TarifaId", tarifa.TarifaId);
 
                     precio = Convert.ToDecimal(comando.ExecuteScalar());

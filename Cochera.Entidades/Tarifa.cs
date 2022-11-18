@@ -14,8 +14,6 @@ namespace Cochera.Entidades
 
         public string Tiempo {get; private set; }
 
-        public decimal Monto { get; private set; }
-
         //------------CONSTRUCTOR------------//
 
         public Tarifa(int tarifaId, string tipoTarifa)

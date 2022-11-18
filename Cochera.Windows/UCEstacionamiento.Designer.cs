@@ -131,8 +131,10 @@
             this.imgVehiculo.Location = new System.Drawing.Point(0, 0);
             this.imgVehiculo.Name = "imgVehiculo";
             this.imgVehiculo.Size = new System.Drawing.Size(102, 150);
+            this.imgVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgVehiculo.TabIndex = 0;
             this.imgVehiculo.TabStop = false;
+            this.imgVehiculo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgVehiculo_MouseDoubleClick);
             // 
             // UCEstacionamiento
             // 

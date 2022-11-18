@@ -35,15 +35,39 @@ namespace Cochera.Entidades
         //------------METODOS------------//
 
         //----PUBLICOS----//
+        public int ObtenerEstacionamientoId()
+        {
+            return estacionamiento.EstacionamientoId;
+        }
+
+        public string ObtenerImagenVehiculo()
+        {
+            return tipo.ImagenAsociada;
+        }
+
+        public string ObtenerSector()
+        {
+            return estacionamiento.ObtenerSector();
+        }
+
+        public string ObtenerTipoVehiculo()
+        {
+            return tipo.Tipo;
+        }
 
         public int ObtenerTipoVehiculoId()
         {
             return tipo.TipoId;
         }
 
-        public int ObtenerEstacionamientoId()
+        public string ObtenerUbicacion()
         {
-            return estacionamiento.EstacionamientoId;
+            return estacionamiento.Ubicacion;
+        }
+
+        public TipoDeVehiculo ObtenerVehiculo()
+        {
+            return tipo;
         }
     }
 }

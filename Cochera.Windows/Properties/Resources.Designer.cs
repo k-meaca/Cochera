@@ -123,6 +123,26 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Auto {
+            get {
+                object obj = ResourceManager.GetObject("Auto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Camioneta4x4 {
+            get {
+                object obj = ResourceManager.GetObject("Camioneta4x4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClientesMenu {
             get {
                 object obj = ResourceManager.GetObject("ClientesMenu", resourceCulture);
@@ -146,6 +166,16 @@ namespace Cochera.Windows.Properties {
         internal static System.Drawing.Bitmap close_button {
             get {
                 object obj = ResourceManager.GetObject("close_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Combi {
+            get {
+                object obj = ResourceManager.GetObject("Combi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +406,16 @@ namespace Cochera.Windows.Properties {
         internal static System.Drawing.Bitmap ModelosMenuGIF {
             get {
                 object obj = ResourceManager.GetObject("ModelosMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap moto {
+            get {
+                object obj = ResourceManager.GetObject("moto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
