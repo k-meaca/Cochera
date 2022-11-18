@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlBottom = new System.Windows.Forms.Panel();
@@ -40,6 +40,9 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.pnlClientes = new System.Windows.Forms.Panel();
+            this.datosClientes = new System.Windows.Forms.DataGridView();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBotonCliente = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.pnlIzq = new System.Windows.Forms.Panel();
@@ -63,15 +66,16 @@
             this.pnlBotonEstacionar = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtMarca = new System.Windows.Forms.TextBox();
-            this.datosClientes = new System.Windows.Forms.DataGridView();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkAbonar = new System.Windows.Forms.CheckBox();
+            this.lblTarifaIngreso = new System.Windows.Forms.Label();
+            this.cmboxTarifaIngreso = new System.Windows.Forms.ComboBox();
+            this.lblPrecioIngreso = new System.Windows.Forms.Label();
+            this.txtPrecioIngreso = new System.Windows.Forms.TextBox();
             this.pnlClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).BeginInit();
             this.pnlBotonCliente.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotonEstacionar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -159,6 +163,51 @@
             this.pnlClientes.Name = "pnlClientes";
             this.pnlClientes.Size = new System.Drawing.Size(293, 318);
             this.pnlClientes.TabIndex = 6;
+            // 
+            // datosClientes
+            // 
+            this.datosClientes.AllowUserToAddRows = false;
+            this.datosClientes.AllowUserToDeleteRows = false;
+            this.datosClientes.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datosClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.datosClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datosClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCliente,
+            this.colNumDoc});
+            this.datosClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datosClientes.Location = new System.Drawing.Point(0, 0);
+            this.datosClientes.Name = "datosClientes";
+            this.datosClientes.ReadOnly = true;
+            this.datosClientes.RowHeadersVisible = false;
+            this.datosClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datosClientes.Size = new System.Drawing.Size(293, 282);
+            this.datosClientes.TabIndex = 3;
+            // 
+            // colCliente
+            // 
+            this.colCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colCliente.HeaderText = "Cliente";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.ReadOnly = true;
+            // 
+            // colNumDoc
+            // 
+            this.colNumDoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNumDoc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colNumDoc.HeaderText = "Nro de Doc.";
+            this.colNumDoc.Name = "colNumDoc";
+            this.colNumDoc.ReadOnly = true;
+            this.colNumDoc.Width = 99;
             // 
             // pnlBotonCliente
             // 
@@ -393,51 +442,6 @@
             this.txtMarca.Size = new System.Drawing.Size(162, 26);
             this.txtMarca.TabIndex = 4;
             // 
-            // datosClientes
-            // 
-            this.datosClientes.AllowUserToAddRows = false;
-            this.datosClientes.AllowUserToDeleteRows = false;
-            this.datosClientes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datosClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.datosClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datosClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCliente,
-            this.colNumDoc});
-            this.datosClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datosClientes.Location = new System.Drawing.Point(0, 0);
-            this.datosClientes.Name = "datosClientes";
-            this.datosClientes.ReadOnly = true;
-            this.datosClientes.RowHeadersVisible = false;
-            this.datosClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datosClientes.Size = new System.Drawing.Size(293, 282);
-            this.datosClientes.TabIndex = 3;
-            // 
-            // colCliente
-            // 
-            this.colCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colCliente.DefaultCellStyle = dataGridViewCellStyle20;
-            this.colCliente.HeaderText = "Cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            // 
-            // colNumDoc
-            // 
-            this.colNumDoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNumDoc.DefaultCellStyle = dataGridViewCellStyle21;
-            this.colNumDoc.HeaderText = "Nro de Doc.";
-            this.colNumDoc.Name = "colNumDoc";
-            this.colNumDoc.ReadOnly = true;
-            this.colNumDoc.Width = 99;
-            // 
             // checkAbonar
             // 
             this.checkAbonar.AutoSize = true;
@@ -450,6 +454,49 @@
             this.checkAbonar.Text = "Abonar";
             this.checkAbonar.UseVisualStyleBackColor = true;
             this.checkAbonar.CheckedChanged += new System.EventHandler(this.checkAbonar_CheckedChanged);
+            // 
+            // lblTarifaIngreso
+            // 
+            this.lblTarifaIngreso.AutoSize = true;
+            this.lblTarifaIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTarifaIngreso.Location = new System.Drawing.Point(21, 300);
+            this.lblTarifaIngreso.Name = "lblTarifaIngreso";
+            this.lblTarifaIngreso.Size = new System.Drawing.Size(45, 18);
+            this.lblTarifaIngreso.TabIndex = 2;
+            this.lblTarifaIngreso.Text = "Tarifa";
+            this.lblTarifaIngreso.Visible = false;
+            // 
+            // cmboxTarifaIngreso
+            // 
+            this.cmboxTarifaIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmboxTarifaIngreso.FormattingEnabled = true;
+            this.cmboxTarifaIngreso.Location = new System.Drawing.Point(24, 324);
+            this.cmboxTarifaIngreso.Name = "cmboxTarifaIngreso";
+            this.cmboxTarifaIngreso.Size = new System.Drawing.Size(162, 26);
+            this.cmboxTarifaIngreso.TabIndex = 3;
+            this.cmboxTarifaIngreso.Visible = false;
+            this.cmboxTarifaIngreso.SelectedValueChanged += new System.EventHandler(this.cmboxTarifa_SelectedValueChanged);
+            // 
+            // lblPrecioIngreso
+            // 
+            this.lblPrecioIngreso.AutoSize = true;
+            this.lblPrecioIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioIngreso.Location = new System.Drawing.Point(21, 359);
+            this.lblPrecioIngreso.Name = "lblPrecioIngreso";
+            this.lblPrecioIngreso.Size = new System.Drawing.Size(50, 18);
+            this.lblPrecioIngreso.TabIndex = 2;
+            this.lblPrecioIngreso.Text = "Precio";
+            this.lblPrecioIngreso.Visible = false;
+            // 
+            // txtPrecioIngreso
+            // 
+            this.txtPrecioIngreso.Enabled = false;
+            this.txtPrecioIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioIngreso.Location = new System.Drawing.Point(24, 383);
+            this.txtPrecioIngreso.Name = "txtPrecioIngreso";
+            this.txtPrecioIngreso.Size = new System.Drawing.Size(162, 26);
+            this.txtPrecioIngreso.TabIndex = 4;
+            this.txtPrecioIngreso.Visible = false;
             // 
             // frmIngresosEdicion
             // 
@@ -468,18 +515,22 @@
             this.Controls.Add(this.txtExpiracion);
             this.Controls.Add(this.txtIngreso);
             this.Controls.Add(this.txtMarca);
+            this.Controls.Add(this.txtPrecioIngreso);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblExpiracion);
             this.Controls.Add(this.txtEstacionamiento);
             this.Controls.Add(this.lblIngreso);
+            this.Controls.Add(this.lblPrecioIngreso);
             this.Controls.Add(this.txtPatente);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblEstacionamiento);
             this.Controls.Add(this.lblPatente);
             this.Controls.Add(this.cmboxModelo);
+            this.Controls.Add(this.cmboxTarifaIngreso);
             this.Controls.Add(this.cmboxTarifa);
             this.Controls.Add(this.lblMarca);
+            this.Controls.Add(this.lblTarifaIngreso);
             this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.lblTarifa);
             this.Controls.Add(this.cmboxTipoVehiculo);
@@ -491,12 +542,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIngresosEdicion";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmIngresosEdicion_FormClosing);
             this.pnlClientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).EndInit();
             this.pnlBotonCliente.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotonEstacionar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,5 +592,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumDoc;
         private System.Windows.Forms.CheckBox checkAbonar;
+        private System.Windows.Forms.Label lblTarifaIngreso;
+        private System.Windows.Forms.ComboBox cmboxTarifaIngreso;
+        private System.Windows.Forms.Label lblPrecioIngreso;
+        private System.Windows.Forms.TextBox txtPrecioIngreso;
     }
 }

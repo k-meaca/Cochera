@@ -52,7 +52,9 @@
     <Compile Include="Repositorios\RepositorioMarcas.cs" />
     <Compile Include="Repositorios\RepositorioModelos.cs" />
     <Compile Include="Repositorios\RepositorioPersonas.cs" />
+    <Compile Include="Repositorios\RepositorioSalidas.cs" />
     <Compile Include="Repositorios\RepositorioSectores.cs" />
+    <Compile Include="Repositorios\RepositorioTarifasEnSalida.cs" />
     <Compile Include="Repositorios\RepositorioTarifasPorVehiculo.cs" />
     <Compile Include="Repositorios\RepositorioTipoDocumentos.cs" />
     <Compile Include="Repositorios\RepositorioTiposDeVehiculo.cs" />

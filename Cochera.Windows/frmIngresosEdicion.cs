@@ -33,6 +33,7 @@ namespace Cochera.Windows
         private Estacionamiento estacionamiento;
         private UCEstacionamiento uCEstacionamiento;
 
+        private Ingreso ingreso;
         #endregion
 
         //------------CONSTRUCTOR------------//
@@ -111,16 +112,17 @@ namespace Cochera.Windows
         {
             try
             {
-                ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime ingreso);
+                ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime fechaIngreso);
 
                 //Ingreso ingreso = new Ingreso(patente, tipo, ingreso, estacionamiento);
 
-                servicioIngresos.GenerarIngreso(patente,tipo,ingreso,estacionamiento);
+                ingreso = servicioIngresos.GenerarIngreso(patente,tipo,fechaIngreso,estacionamiento);
 
                 estacionamiento.EstacionarVehiculo(tipo);
 
-                uCEstacionamiento.EstacionamientoOcupado();
+                uCEstacionamiento.EstacionamientoOcupado(ingreso);
 
+                Close();
             }
             catch (SqlException)
             {
@@ -139,7 +141,9 @@ namespace Cochera.Windows
 
         private void ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime ingreso)
         {
-            tipo = (TipoDeVehiculo)cmboxTipoVehiculo.Items[cmboxTipoVehiculo.SelectedIndex];
+            List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
+
+            tipo = tipos.Find(t => t.Tipo == cmboxTipoVehiculo.SelectedItem.ToString());
 
             patente = txtPatente.Text;
 
@@ -177,12 +181,11 @@ namespace Cochera.Windows
         private void SetearModelos()
         {
             cmboxModelo.Items.Clear();
-            
-            //List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
 
-            //TipoDeVehiculo tipo = tipos.Find(t => t.Tipo == cmboxTipoVehiculo.SelectedItem.ToString());
+            List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
 
-            TipoDeVehiculo tipo = (TipoDeVehiculo)cmboxTipoVehiculo.Items[cmboxTipoVehiculo.SelectedIndex];
+            TipoDeVehiculo tipo = tipos.Find(t => t.Tipo == cmboxTipoVehiculo.SelectedItem.ToString());
+
 
             List<Modelo> modelos = servicioModelos.ObtenerModelos(tipo);
 
@@ -192,11 +195,10 @@ namespace Cochera.Windows
         private void SetearMarca() 
         {
 
-            //List<Modelo> modelos = (List<Modelo>)cmboxModelo.Tag;
+            List<Modelo> modelos = (List<Modelo>)cmboxModelo.Tag;
 
-            //Modelo modelo = modelos.Find(m => m.Nombre == cmboxModelo.SelectedItem.ToString());
+            Modelo modelo = modelos.Find(m => m.Nombre == cmboxModelo.SelectedItem.ToString());
 
-            Modelo modelo = (Modelo)cmboxModelo.Items[cmboxModelo.SelectedIndex];
 
             Marca marca = servicioMarcas.ObtenerMarca(modelo.ObtenerMarcaId());
 
@@ -292,7 +294,6 @@ namespace Cochera.Windows
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            uCEstacionamiento.ActivarBotones();
             Close();
         }
 
@@ -303,6 +304,11 @@ namespace Cochera.Windows
         private void txtPatente_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !Validador.NumerosYLetras(e.KeyChar);
+        }
+
+        private void frmIngresosEdicion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            uCEstacionamiento.ActivarBotones();
         }
     }
 }

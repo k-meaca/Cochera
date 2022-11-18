@@ -74,5 +74,10 @@ namespace Cochera.Entidades
             return vehiculosAdmitidos.Any(v => v.TipoId == tipoId);
         }
 
+        public void SacarVehiculo()
+        {
+            Ocupado = false;
+        }
+
     }
 }

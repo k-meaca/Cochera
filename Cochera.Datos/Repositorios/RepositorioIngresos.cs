@@ -29,10 +29,12 @@ namespace Cochera.Datos.Repositorios
 
         //-----------METODOS-------------//
 
-        public void GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime ingreso, Estacionamiento estacionamiento)
+        public Ingreso GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime fechaIngreso, Estacionamiento estacionamiento)
         {
             try
             {
+                int ingresoId;
+
                 string query = "exec SP_GenerarIngreso @Patente, @TipoVehiculoId, @FechaIngreso, @EstacionamientoId;";
 
                 using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
@@ -40,13 +42,51 @@ namespace Cochera.Datos.Repositorios
                     comando.CommandType = System.Data.CommandType.Text;
                     comando.Parameters.AddWithValue("@Patente", patente);
                     comando.Parameters.AddWithValue("@TipoVehiculoId", tipo.TipoId);
-                    comando.Parameters.AddWithValue("@FechaIngreso", ingreso);
+                    comando.Parameters.AddWithValue("@FechaIngreso", fechaIngreso);
                     comando.Parameters.AddWithValue("@EstacionamientoId", estacionamiento.EstacionamientoId);
 
-                    comando.ExecuteNonQuery();
+                    ingresoId = Convert.ToInt32(comando.ExecuteScalar());
                 }
+
+                return new Ingreso(ingresoId, patente, tipo, fechaIngreso, estacionamiento);
             }
             catch(SqlException)
+            {
+                throw;
+            }
+        }
+
+        public Ingreso ObtenerIngreso(Estacionamiento estacionamiento, List<TipoDeVehiculo> tipos)
+        {
+            try
+            {
+                Ingreso ingreso;
+
+                string query = "SELECT * FROM dbo.UF_ObtenerUltimoIngreso(@EstacionamientoId);";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@EstacionamientoId", estacionamiento.EstacionamientoId);
+
+                    using(SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        lector.Read();
+
+                        int ingresoId = lector.GetInt32(0);
+                        string patente = lector.GetString(1);
+                        int tipoId = lector.GetInt32(2);
+                        DateTime fechaIngreso = lector.GetDateTime(3);
+
+                        TipoDeVehiculo tipo = tipos.Find(t => t.TipoId == tipoId);
+
+                        ingreso = new Ingreso(ingresoId, patente, tipo, fechaIngreso, estacionamiento);
+                    }
+                }
+
+                return ingreso;
+            }
+            catch (SqlException)
             {
                 throw;
             }

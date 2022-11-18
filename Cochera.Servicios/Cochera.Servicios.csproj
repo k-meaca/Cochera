@@ -47,6 +47,7 @@
     <Compile Include="ServicioMarcas.cs" />
     <Compile Include="ServicioModelos.cs" />
     <Compile Include="ServicioPersonas.cs" />
+    <Compile Include="ServicioSalidas.cs" />
     <Compile Include="ServicioSectores.cs" />
     <Compile Include="ServicioTarifas.cs" />
     <Compile Include="ServicioTarifasPorVehiculo.cs" />

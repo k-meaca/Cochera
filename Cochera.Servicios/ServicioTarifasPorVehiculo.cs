@@ -23,6 +23,21 @@ namespace Cochera.Servicios
 
         //----PUBLICOS----//
 
+        public decimal ObtenerMontoParaTarifas(int tipoVehiculoId, List<Tarifa> tarifas)
+        {
+            decimal monto;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioTarifasPorVehiculo = new RepositorioTarifasPorVehiculo(conexion);
+
+                monto = repositorioTarifasPorVehiculo.ObtenerMontoParaTarifas(tipoVehiculoId, tarifas);
+            }
+
+            return monto;
+
+        }
+
         public decimal ObtenerPrecio(TipoDeVehiculo tipo, Tarifa tarifa)
         {
             decimal precio;
@@ -30,7 +45,7 @@ namespace Cochera.Servicios
             using(SqlConnection conexion = ConexionBD.AbrirConexion())
             {
                 repositorioTarifasPorVehiculo = new RepositorioTarifasPorVehiculo(conexion);
-                precio = repositorioTarifasPorVehiculo.ObtenerPrecio(tipo, tarifa);
+                precio = repositorioTarifasPorVehiculo.ObtenerPrecio(tipo.TipoId, tarifa);
             }
 
             return precio;

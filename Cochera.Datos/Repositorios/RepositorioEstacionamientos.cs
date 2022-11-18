@@ -31,7 +31,26 @@ namespace Cochera.Datos.Repositorios
 
         //----PUBLICOS----//
 
-        public void OcuparEstacionamiento(Estacionamiento estacionamiento)
+        public void DesocuparEstacionamiento(int estacionamientoId)
+        {
+            try
+            {
+                string query = "exec SP_DesocuparEstacionamient @EstacionamientoId;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@EstacionamientoId", estacionamientoId);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch(SqlException)
+            {
+                throw;
+            }
+        }
+        public void OcuparEstacionamiento(int estacionamientoId)
         {
             try
             {
@@ -40,14 +59,14 @@ namespace Cochera.Datos.Repositorios
                 using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
                 {
                     comando.CommandType = System.Data.CommandType.Text;
-                    comando.Parameters.AddWithValue("@EstacionamientoId", estacionamiento.EstacionamientoId);
+                    comando.Parameters.AddWithValue("@EstacionamientoId", estacionamientoId);
 
                     comando.ExecuteNonQuery();
                 }
             }
             catch (SqlException)
             {
-
+                throw;
             }
         }
 
