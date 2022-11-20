@@ -24,6 +24,15 @@ namespace Cochera.Servicios
 
         //------------METODOS------------//
 
+        //----PRIVADOS----//
+
+        private List<Estacionamiento> ObtenerEstacionamientosPorSector(string sector)
+        {
+            return ObtenerEstacionamientos().Where(est => est.ObtenerSector() == sector).ToList();
+        }
+
+        //----PUBLICOS----//
+
         public List<Estacionamiento> ObtenerEstacionamientos()
         {
             List<Estacionamiento> estacionamientos;
@@ -49,9 +58,29 @@ namespace Cochera.Servicios
             return estacionamientos;
         }
 
-        public List<Estacionamiento> ObtenerEstacionmientosPB()
+        public List<Estacionamiento> ObtenerEstacionamientosPB()
         {
-            return ObtenerEstacionamientos().Where(est => est.ObtenerSector() == "Planta Baja").ToList();
+            return ObtenerEstacionamientosPorSector("Planta Baja");
+        }
+
+        public List<Estacionamiento> ObtenerEstacionamientosSubsueloA()
+        {
+            return ObtenerEstacionamientosPorSector("Subsuelo A");
+        }
+
+        public List<Estacionamiento> ObtenerEstacionamientosSubsueloB()
+        {
+            return ObtenerEstacionamientosPorSector("Subsuelo B");
+        }
+
+        public List<Estacionamiento> ObtenerEstacionamientosSubsueloC()
+        {
+            return ObtenerEstacionamientosPorSector("Subsuelo C");
+        }
+
+        public List<Estacionamiento> ObtenerEstacionamientosSubsueloD()
+        {
+            return ObtenerEstacionamientosPorSector("Subsuelo D");
         }
     }
 }

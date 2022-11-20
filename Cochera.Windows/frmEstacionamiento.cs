@@ -20,7 +20,9 @@ namespace Cochera.Windows
 
         private frmPrincipal formPrincipal;
         private ServicioEstacionamientos servicioEstacionamientos;
-        List<Estacionamiento> estacionamientos;
+
+        Form formularioActivo;
+        ToolStripButton botonSeleccionado;
 
         public frmEstacionamiento(frmPrincipal formPrincipal)
         {
@@ -29,47 +31,53 @@ namespace Cochera.Windows
             this.formPrincipal = formPrincipal;
             servicioEstacionamientos = new ServicioEstacionamientos();
 
-
+            SeleccionarBoton(btnMostrarTodos);
         }
 
         //------------METODOS------------//
 
         //----PRIVADOS----//
 
-        private void CargarDatosEnFila(DataGridViewRow fila, Estacionamiento estacionamiento)
+
+
+        private void CerrarSector()
         {
-            fila.Cells[colSector.Index].Value = estacionamiento.ObtenerSector();
-            fila.Cells[colUbicacion.Index].Value = estacionamiento.Ubicacion;
-            fila.Cells[colOcupado.Index].Value = estacionamiento.Ocupado ? "SI" : "NO";
+            formularioActivo.Close();
+            formularioActivo = null;
         }
 
-        private void CargarFilaEnGrilla(DataGridViewRow fila)
+        private void EstablecerSector(Form frmSector)
         {
-            datosEstacionamientos.Rows.Add(fila);
+      
+            formularioActivo = frmSector;
+
+            frmSector.TopLevel = false;
+
+            frmSector.Dock = DockStyle.Fill;
+
+            pnlEstacionamientos.Controls.Add(frmSector);
+
+            frmSector.Show();
         }
 
-        private void CargarGrilla()
+
+
+        private void SeleccionarBoton(ToolStripButton boton)
         {
-
-            List<Estacionamiento> estacionamientos = servicioEstacionamientos.ObtenerEstacionamientos();
-
-            foreach (Estacionamiento estacionamiento in estacionamientos)
+            if (!boton.Checked)
             {
-                DataGridViewRow fila = CrearFila();
-
-                CargarDatosEnFila(fila, estacionamiento);
-
-                CargarFilaEnGrilla(fila);
+                if(botonSeleccionado != null)
+                    botonSeleccionado.Checked = false;
+                
+                boton.Checked = true;
+                botonSeleccionado = boton;
             }
-        }
-
-        private DataGridViewRow CrearFila()
-        {
-            DataGridViewRow fila = new DataGridViewRow();
-
-            fila.CreateCells(datosEstacionamientos);
-
-            return fila;
+            else
+            {
+                boton.Checked = false;
+                botonSeleccionado = null;
+                SeleccionarBoton(btnMostrarTodos);
+            }
         }
 
         //----PUBLICOS----//
@@ -87,41 +95,136 @@ namespace Cochera.Windows
         }
 
         //------------EVENTOS------------//
-        
-        private void frmEstacionamiento_Load(object sender, EventArgs e)
-        {
-            btnMostrarTodos_Click(sender, e);
-        }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            datosEstacionamientos.Rows.Clear();
-            datosEstacionamientos.Visible = true; ;
-            panelBotones.Visible = true;
+            if(!btnMostrarTodos.Checked)
+                SeleccionarBoton((ToolStripButton)sender);
 
-            CargarGrilla();
+        }
+        private void btnMostrarTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                frmEstacionamientoTodos todos = new frmEstacionamientoTodos(this);
+
+                EstablecerSector(todos);
+            }
+            else
+            {
+                CerrarSector();
+            }
         }
 
         private void btnPlantaBaja_Click(object sender, EventArgs e)
         {
-            datosEstacionamientos.Rows.Clear();
-            datosEstacionamientos.Visible = false;
-            panelBotones.Visible = false;
+            SeleccionarBoton((ToolStripButton)sender);
+        }
 
-            servicioEstacionamientos = new ServicioEstacionamientos();
+        private void btnPlantaBaja_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
 
-            List<Estacionamiento> estacionamientosPB = servicioEstacionamientos.ObtenerEstacionmientosPB();
+                List<Estacionamiento> estacionamientosPB = servicioEstacionamientos.ObtenerEstacionamientosPB();
 
-            frmPlantaBaja plantaBaja = new frmPlantaBaja(this,estacionamientosPB);
+                frmPlantaBaja plantaBaja = new frmPlantaBaja(this, estacionamientosPB);
 
-            plantaBaja.TopLevel = false;
+                EstablecerSector(plantaBaja);
 
-            plantaBaja.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                CerrarSector();
+            }
+        }
 
-            pnlEstacionamientos.Controls.Add(plantaBaja);
+        private void btnSubsueloA_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
 
-            plantaBaja.Show();
+        private void btnSubsueloA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                List<Estacionamiento> estacionamientosSubsueloA = servicioEstacionamientos.ObtenerEstacionamientosSubsueloA();
+
+                frmSubsuelo subsueloA = new frmSubsuelo(this, estacionamientosSubsueloA);
+
+                EstablecerSector(subsueloA);
+            }
+            else
+            {
+                CerrarSector();
+            }
+        }
+
+        private void btnSubsueloB_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnSubsueloB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+
+                List<Estacionamiento> estacionamientosSubsueloB = servicioEstacionamientos.ObtenerEstacionamientosSubsueloB();
+
+                frmSubsuelo subsueloB = new frmSubsuelo(this, estacionamientosSubsueloB);
+
+                EstablecerSector(subsueloB);
+            }
+            else
+            {
+                CerrarSector();
+            }
+        }
+
+        private void btnSubsueloC_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnSubsueloC_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (((ToolStripButton)sender).Checked)
+            {
+                List<Estacionamiento> estacionamientosSubsueloC = servicioEstacionamientos.ObtenerEstacionamientosSubsueloC();
+
+                frmSubsuelo subsueloC = new frmSubsuelo(this, estacionamientosSubsueloC);
+
+                EstablecerSector(subsueloC);
+            }
+            else
+            {
+                CerrarSector();
+            }
 
         }
+
+        private void btnSubsueloD_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnSubsueloD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                List<Estacionamiento> estacionamientosSubsueloD = servicioEstacionamientos.ObtenerEstacionamientosSubsueloD();
+
+                frmSubsuelo subsueloD = new frmSubsuelo(this, estacionamientosSubsueloD);
+
+                EstablecerSector(subsueloD);
+            }
+            else
+            {
+                CerrarSector();
+            }
+        }
+
     }
 }

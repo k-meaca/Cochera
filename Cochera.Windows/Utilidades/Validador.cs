@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cochera.Servicios;
+using Cochera.Entidades;
 
 namespace Cochera.Windows.Utilidades
 {
@@ -71,6 +73,33 @@ namespace Cochera.Windows.Utilidades
             }
 
             return false;
+        }
+
+        public static bool ValidarIngreso(string patente)
+        {
+            bool ingresoValido = true;
+            
+            ServicioIngresos servicioIngresos = new ServicioIngresos();
+            ServicioSalidas servicioSalidas = new ServicioSalidas();
+
+
+            Ingreso ingreso = servicioIngresos.ObtenerUltimoIngreso(patente);
+            Salida salida = servicioSalidas.ObtenerUltimaSalida(patente);
+
+            if( ingreso != null && salida != null)
+            {
+                if(ingreso.FechaIngreso > salida.FechaSalida)
+                {
+                    ingresoValido = false;
+                }
+            }
+            else if (ingreso != null && salida == null)
+            {
+                ingresoValido = false;
+            }
+
+            return ingresoValido;
+            
         }
     }
 }

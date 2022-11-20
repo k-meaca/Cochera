@@ -97,6 +97,8 @@
             // 
             // txtVehiculo
             // 
+            this.txtVehiculo.BackColor = System.Drawing.Color.White;
+            this.txtVehiculo.Enabled = false;
             this.txtVehiculo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVehiculo.Location = new System.Drawing.Point(25, 41);
             this.txtVehiculo.Name = "txtVehiculo";
@@ -115,6 +117,8 @@
             // 
             // txtPatente
             // 
+            this.txtPatente.BackColor = System.Drawing.Color.White;
+            this.txtPatente.Enabled = false;
             this.txtPatente.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPatente.Location = new System.Drawing.Point(25, 97);
             this.txtPatente.Name = "txtPatente";
@@ -133,6 +137,8 @@
             // 
             // txtUbicacion
             // 
+            this.txtUbicacion.BackColor = System.Drawing.Color.White;
+            this.txtUbicacion.Enabled = false;
             this.txtUbicacion.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUbicacion.Location = new System.Drawing.Point(25, 154);
             this.txtUbicacion.Name = "txtUbicacion";
@@ -151,6 +157,8 @@
             // 
             // txtIngreso
             // 
+            this.txtIngreso.BackColor = System.Drawing.Color.White;
+            this.txtIngreso.Enabled = false;
             this.txtIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIngreso.Location = new System.Drawing.Point(25, 213);
             this.txtIngreso.Name = "txtIngreso";
@@ -169,6 +177,8 @@
             // 
             // txtTarifa
             // 
+            this.txtTarifa.BackColor = System.Drawing.Color.White;
+            this.txtTarifa.Enabled = false;
             this.txtTarifa.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTarifa.Location = new System.Drawing.Point(25, 273);
             this.txtTarifa.Name = "txtTarifa";
@@ -216,6 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(253, 361);
             this.ControlBox = false;
             this.Controls.Add(this.imgSalir);

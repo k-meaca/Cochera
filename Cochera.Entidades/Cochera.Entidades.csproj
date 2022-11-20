@@ -51,6 +51,7 @@
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salida.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="Tarifa.cs" />
     <Compile Include="TarifaPorVehiculo.cs" />

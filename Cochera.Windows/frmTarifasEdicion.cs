@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Entidades;
 using Cochera.Windows.Utilidades;
+using Cochera.Servicios;
 
 namespace Cochera.Windows
 {
@@ -17,8 +18,10 @@ namespace Cochera.Windows
 
         //------------ATRIBUTOS------------//
 
-        TarifaPorVehiculo tarifaPorVehiculo;
-        frmTarifas formTarifas;
+        private TarifaPorVehiculo tarifaPorVehiculo;
+        private frmTarifas formTarifas;
+        private ServicioTarifasPorVehiculo servicioTarifasPorVehiculo;
+
 
         //------------CONSTRUCTOR------------//
         public frmTarifasEdicion(frmTarifas frmTarifas, TarifaPorVehiculo tarifaPorVehiculo)
@@ -28,6 +31,8 @@ namespace Cochera.Windows
             formTarifas = frmTarifas;
 
             this.tarifaPorVehiculo = tarifaPorVehiculo;
+
+            servicioTarifasPorVehiculo = new ServicioTarifasPorVehiculo();
 
             LimpiarTextos();
 
@@ -71,7 +76,12 @@ namespace Cochera.Windows
             if (Validador.InputMayorACero(txtMonto.Text))
             {
                 tarifaPorVehiculo.ActualizarMonto(Convert.ToDecimal(txtMonto.Text));
+
+                servicioTarifasPorVehiculo.ActualizarTarifa(tarifaPorVehiculo);
+
                 formTarifas.ActualizarTarifaPorVehiculo(tarifaPorVehiculo);
+
+                formTarifas.ActivarBotones();
 
                 this.Close();
             }

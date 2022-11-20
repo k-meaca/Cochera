@@ -31,13 +31,6 @@ namespace Cochera.Windows
 
         //----PRIVADOS----//
 
-        private void CargarDatoEnFila(DataGridViewRow fila, Documento documento)
-        {
-            fila.Cells[colTipoDeDoc.Index].Value = documento.TipoDoc;
-
-            fila.Tag = documento;
-        }
-
         private void CargarFilaEnGrilla(DataGridViewRow fila)
         {
             datosDocumentos.Rows.Add(fila);
@@ -46,24 +39,7 @@ namespace Cochera.Windows
         {
             List<Documento> documentos = serviciosTipoDocumentos.ObtenerTiposDeDocumentos();
 
-            foreach (Documento documento in documentos)
-            {
-                DataGridViewRow fila = CrearFila();
-
-                CargarDatoEnFila(fila, documento);
-
-                CargarFilaEnGrilla(fila);
-
-            }
-        }
-
-        public DataGridViewRow CrearFila()
-        {
-            DataGridViewRow fila = new DataGridViewRow();
-
-            fila.CreateCells(datosDocumentos);
-
-            return fila;
+            CargadorDeDatos.CargarDataGrid(datosDocumentos, documentos);
         }
 
         //----PUBLICOS----//
@@ -78,16 +54,16 @@ namespace Cochera.Windows
         {
             DataGridViewRow fila = datosDocumentos.SelectedRows[0];
 
-            CargarDatoEnFila(fila, doc);
+            CargadorDeDatos.CargarDatosEnFila(fila, doc);
         }
 
         public void AgregarDocumento(Documento doc)
         {
-            DataGridViewRow fila = CrearFila();
+            DataGridViewRow fila = CargadorDeDatos.CrearFila(datosDocumentos);
 
-            CargarDatoEnFila(fila, doc);
+            CargadorDeDatos.CargarDatosEnFila(fila, doc);
 
-            CargarFilaEnGrilla(fila);
+            CargadorDeDatos.CargarFilaEnGrilla(datosDocumentos,fila);
         }
 
         public void AnularBotones()

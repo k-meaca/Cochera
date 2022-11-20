@@ -67,10 +67,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.checkAbonar = new System.Windows.Forms.CheckBox();
-            this.lblTarifaIngreso = new System.Windows.Forms.Label();
-            this.cmboxTarifaIngreso = new System.Windows.Forms.ComboBox();
-            this.lblPrecioIngreso = new System.Windows.Forms.Label();
-            this.txtPrecioIngreso = new System.Windows.Forms.TextBox();
             this.pnlClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).BeginInit();
             this.pnlBotonCliente.SuspendLayout();
@@ -123,7 +119,7 @@
             this.cmboxTipoVehiculo.Location = new System.Drawing.Point(24, 87);
             this.cmboxTipoVehiculo.Name = "cmboxTipoVehiculo";
             this.cmboxTipoVehiculo.Size = new System.Drawing.Size(162, 26);
-            this.cmboxTipoVehiculo.TabIndex = 3;
+            this.cmboxTipoVehiculo.TabIndex = 0;
             this.cmboxTipoVehiculo.SelectedValueChanged += new System.EventHandler(this.cmboxTipoVehiculo_SelectedValueChanged);
             // 
             // lblPatente
@@ -142,7 +138,7 @@
             this.txtPatente.Location = new System.Drawing.Point(24, 145);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(162, 26);
-            this.txtPatente.TabIndex = 4;
+            this.txtPatente.TabIndex = 1;
             this.txtPatente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPatente_KeyPress);
             // 
             // lblCliente
@@ -450,53 +446,10 @@
             this.checkAbonar.Location = new System.Drawing.Point(45, 322);
             this.checkAbonar.Name = "checkAbonar";
             this.checkAbonar.Size = new System.Drawing.Size(107, 33);
-            this.checkAbonar.TabIndex = 11;
+            this.checkAbonar.TabIndex = 2;
             this.checkAbonar.Text = "Abonar";
             this.checkAbonar.UseVisualStyleBackColor = true;
             this.checkAbonar.CheckedChanged += new System.EventHandler(this.checkAbonar_CheckedChanged);
-            // 
-            // lblTarifaIngreso
-            // 
-            this.lblTarifaIngreso.AutoSize = true;
-            this.lblTarifaIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTarifaIngreso.Location = new System.Drawing.Point(21, 300);
-            this.lblTarifaIngreso.Name = "lblTarifaIngreso";
-            this.lblTarifaIngreso.Size = new System.Drawing.Size(45, 18);
-            this.lblTarifaIngreso.TabIndex = 2;
-            this.lblTarifaIngreso.Text = "Tarifa";
-            this.lblTarifaIngreso.Visible = false;
-            // 
-            // cmboxTarifaIngreso
-            // 
-            this.cmboxTarifaIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmboxTarifaIngreso.FormattingEnabled = true;
-            this.cmboxTarifaIngreso.Location = new System.Drawing.Point(24, 324);
-            this.cmboxTarifaIngreso.Name = "cmboxTarifaIngreso";
-            this.cmboxTarifaIngreso.Size = new System.Drawing.Size(162, 26);
-            this.cmboxTarifaIngreso.TabIndex = 3;
-            this.cmboxTarifaIngreso.Visible = false;
-            this.cmboxTarifaIngreso.SelectedValueChanged += new System.EventHandler(this.cmboxTarifa_SelectedValueChanged);
-            // 
-            // lblPrecioIngreso
-            // 
-            this.lblPrecioIngreso.AutoSize = true;
-            this.lblPrecioIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioIngreso.Location = new System.Drawing.Point(21, 359);
-            this.lblPrecioIngreso.Name = "lblPrecioIngreso";
-            this.lblPrecioIngreso.Size = new System.Drawing.Size(50, 18);
-            this.lblPrecioIngreso.TabIndex = 2;
-            this.lblPrecioIngreso.Text = "Precio";
-            this.lblPrecioIngreso.Visible = false;
-            // 
-            // txtPrecioIngreso
-            // 
-            this.txtPrecioIngreso.Enabled = false;
-            this.txtPrecioIngreso.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioIngreso.Location = new System.Drawing.Point(24, 383);
-            this.txtPrecioIngreso.Name = "txtPrecioIngreso";
-            this.txtPrecioIngreso.Size = new System.Drawing.Size(162, 26);
-            this.txtPrecioIngreso.TabIndex = 4;
-            this.txtPrecioIngreso.Visible = false;
             // 
             // frmIngresosEdicion
             // 
@@ -515,22 +468,18 @@
             this.Controls.Add(this.txtExpiracion);
             this.Controls.Add(this.txtIngreso);
             this.Controls.Add(this.txtMarca);
-            this.Controls.Add(this.txtPrecioIngreso);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblExpiracion);
             this.Controls.Add(this.txtEstacionamiento);
             this.Controls.Add(this.lblIngreso);
-            this.Controls.Add(this.lblPrecioIngreso);
             this.Controls.Add(this.txtPatente);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblEstacionamiento);
             this.Controls.Add(this.lblPatente);
             this.Controls.Add(this.cmboxModelo);
-            this.Controls.Add(this.cmboxTarifaIngreso);
             this.Controls.Add(this.cmboxTarifa);
             this.Controls.Add(this.lblMarca);
-            this.Controls.Add(this.lblTarifaIngreso);
             this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.lblTarifa);
             this.Controls.Add(this.cmboxTipoVehiculo);
@@ -592,9 +541,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumDoc;
         private System.Windows.Forms.CheckBox checkAbonar;
-        private System.Windows.Forms.Label lblTarifaIngreso;
-        private System.Windows.Forms.ComboBox cmboxTarifaIngreso;
-        private System.Windows.Forms.Label lblPrecioIngreso;
-        private System.Windows.Forms.TextBox txtPrecioIngreso;
     }
 }
