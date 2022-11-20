@@ -66,6 +66,18 @@
     <Compile Include="frmEstacionamiento.Designer.cs">
       <DependentUpon>frmEstacionamiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstacionamientoTodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstacionamientoTodos.Designer.cs">
+      <DependentUpon>frmEstacionamientoTodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresos.Designer.cs">
+      <DependentUpon>frmIngresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngresosEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,18 @@
     </Compile>
     <Compile Include="frmPlantaBaja.Designer.cs">
       <DependentUpon>frmPlantaBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalidas.Designer.cs">
+      <DependentUpon>frmSalidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubsuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubsuelo.Designer.cs">
+      <DependentUpon>frmSubsuelo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTipoDocsEdicion.cs">
       <SubType>Form</SubType>
@@ -150,6 +174,7 @@
     <Compile Include="frmTarifas.Designer.cs">
       <DependentUpon>frmTarifas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ISectorEstacionamiento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -157,17 +182,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UCEstacionamiento.cs">
+    <Compile Include="ControlUsuario\UCEstacionamiento.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCEstacionamiento.Designer.cs">
+    <Compile Include="ControlUsuario\UCEstacionamiento.Designer.cs">
       <DependentUpon>UCEstacionamiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCEstacionamientoM.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCEstacionamientoM.Designer.cs">
-      <DependentUpon>UCEstacionamientoM.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\CargadorDeDatos.cs" />
     <Compile Include="Utilidades\CorrectorDeEstados.cs" />
@@ -181,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEstacionamiento.resx">
       <DependentUpon>frmEstacionamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstacionamientoTodos.resx">
+      <DependentUpon>frmEstacionamientoTodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresos.resx">
+      <DependentUpon>frmIngresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresosEdicion.resx">
       <DependentUpon>frmIngresosEdicion.cs</DependentUpon>
@@ -199,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlantaBaja.resx">
       <DependentUpon>frmPlantaBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalidas.resx">
+      <DependentUpon>frmSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubsuelo.resx">
+      <DependentUpon>frmSubsuelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTipoDocsEdicion.resx">
       <DependentUpon>frmTipoDocsEdicion.cs</DependentUpon>
@@ -229,11 +260,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCEstacionamiento.resx">
+    <EmbeddedResource Include="ControlUsuario\UCEstacionamiento.resx">
       <DependentUpon>UCEstacionamiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCEstacionamientoM.resx">
-      <DependentUpon>UCEstacionamientoM.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -393,6 +421,11 @@
   <ItemGroup>
     <None Include="Imagenes\TiposDeVehiculos\moto.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Imagenes\frmIngresos\buscando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmIngresos\lupa.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

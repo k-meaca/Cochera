@@ -38,5 +38,11 @@ namespace Cochera.Windows.Utilidades
             boton.Enabled = false;
         }
 
+        public static void SetearFecha(DateTimePicker selectorFecha, DateTime fechaInicial)
+        {
+            selectorFecha.MinDate = fechaInicial;
+            selectorFecha.MaxDate = DateTime.Now;
+        }
+
     }
 }

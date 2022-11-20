@@ -122,6 +122,8 @@ namespace Cochera.Windows
 
                 uCEstacionamiento.EstacionamientoOcupado(ingreso);
 
+                uCEstacionamiento.ActualizarLugares(tipo);
+
                 Close();
             }
             catch (SqlException)
@@ -159,7 +161,7 @@ namespace Cochera.Windows
         {
             List<Cliente> clientes = servicioClientes.ObtenerClientes();
 
-            CargadorDeDatos.CargarDataGridReducido<Cliente>(datosClientes, clientes);
+            CargadorDeDatos.CargarDataGridReducido(datosClientes, clientes);
         }
 
         private void SetearComponentes()
@@ -176,6 +178,8 @@ namespace Cochera.Windows
             txtIngreso.Text = DateTime.Now.ToString();
 
             checkAbonar.Checked = false;
+
+            txtPatente.Focus();
         }
 
         private void SetearModelos()
@@ -289,7 +293,14 @@ namespace Cochera.Windows
             }
             else if(ValidarPatente())
             {
-                EstacionarVehiculo();
+                if (Validador.ValidarIngreso(txtPatente.Text))
+                {
+                    EstacionarVehiculo();
+                }
+                else
+                {
+                    Mensajero.MensajeError("Esa patente se ya se encuentra en la cochera.");
+                }
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -303,7 +314,16 @@ namespace Cochera.Windows
 
         private void txtPatente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !Validador.NumerosYLetras(e.KeyChar);
+            if (Validador.NumerosYLetras(e.KeyChar))
+            {
+                e.Handled = false;
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
         }
 
         private void frmIngresosEdicion_FormClosing(object sender, FormClosingEventArgs e)

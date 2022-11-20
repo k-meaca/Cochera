@@ -32,39 +32,14 @@ namespace Cochera.Windows
 
         //----PRIVADOS----//
 
-        private void CargarDatosEnFila(DataGridViewRow fila, Marca marca)
-        {
-            fila.Cells[colMarcas.Index].Value = marca.Nombre;
-
-            fila.Tag = marca;
-        }
-        private void CargarFilaEnGrilla(DataGridViewRow fila)
-        {
-            datosMarcas.Rows.Add(fila);
-        }
         private void CargarGrilla()
         {
             servicioMarcas = new ServicioMarcas();
 
             List<Marca> marcas = servicioMarcas.ObtenerMarcas();
 
-            foreach (Marca marca in marcas)
-            {
-                DataGridViewRow fila = CrearFila();
+            CargadorDeDatos.CargarDataGrid(datosMarcas, marcas);
 
-                CargarDatosEnFila(fila, marca);
-
-                CargarFilaEnGrilla(fila);
-            }
-
-        }
-        public DataGridViewRow CrearFila()
-        {
-            DataGridViewRow fila = new DataGridViewRow();
-
-            fila.CreateCells(datosMarcas);
-
-            return fila;
         }
 
         //----PUBLICOS----//
@@ -79,16 +54,16 @@ namespace Cochera.Windows
         {
             DataGridViewRow fila = datosMarcas.SelectedRows[0];
 
-            CargarDatosEnFila(fila, marca);
+            CargadorDeDatos.CargarDatosEnFila(fila, marca);
         }
 
         public void AgregarMarca(Marca marca)
         {
-            DataGridViewRow fila = CrearFila();
+            DataGridViewRow fila = CargadorDeDatos.CrearFila(datosMarcas);
 
-            CargarDatosEnFila(fila, marca);
+            CargadorDeDatos.CargarDatosEnFila(fila, marca);
 
-            CargarFilaEnGrilla(fila);
+            CargadorDeDatos.CargarFilaEnGrilla(datosMarcas, fila);
         }
 
         public void AnularBotones()

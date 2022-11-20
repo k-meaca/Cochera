@@ -29,6 +29,26 @@ namespace Cochera.Datos.Repositorios
 
         //------------METODOS------------//
 
+        //----PRIVADO----//
+
+        private Salida CrearSalida(List<Ingreso> ingresos, SqlDataReader lector)
+        {
+            int salidaId = lector.GetInt32(0);
+            int ingresoId = lector.GetInt32(1);
+            DateTime fechaSalida = lector.GetDateTime(2);
+            decimal montoTotal = lector.GetDecimal(3);
+
+            Ingreso ingreso = ingresos.Find(i => i.IngresoId == ingresoId);
+
+            return new Salida(salidaId, ingreso, fechaSalida, montoTotal);
+        }
+
+        private Salida SinSalida(Ingreso ingreso)
+        {
+            DateTime ayer = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 1);
+
+            return new Salida(-1, ingreso, ayer, 0);
+        }
 
         //----PUBLICOS----//
         public int DarSalida(Ingreso ingreso, DateTime fechaSalida, decimal montoTotal)
@@ -57,5 +77,47 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+        public List<Salida> ObtenerSalidas(List<Ingreso> ingresos)
+        {
+            try
+            {
+                List<Salida> salidas = new List<Salida>();
+
+                string query = "SELECT * FROM Salidas;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+
+                    using(SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            salidas.Add(CrearSalida(ingresos,lector));
+                        }
+                    }
+                }
+
+                return salidas;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
+        public Salida ObtenerUltimaSalida(string patente, List<Ingreso> ingresos)
+        {
+            Salida ultimaSalida;
+
+            ultimaSalida = ObtenerSalidas(ingresos).FindLast(s => s.ObtenerPatente() == patente);
+
+            //if(ultimaSalida is null)
+            //{
+            //    ultimaSalida = SinSalida(ingresos[0]);
+            //}
+            
+            return ultimaSalida;
+        }
     }
 }

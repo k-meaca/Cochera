@@ -38,43 +38,11 @@ namespace Cochera.Windows
 
         //----PRIVADOS----//
 
-        private void CargarDatosEnFila(DataGridViewRow fila, Cliente cliente)
-        {
-            fila.Cells[colNombreCompleto.Index].Value = cliente.NombreCompleto();
-            fila.Cells[colTipoDoc.Index].Value = cliente.ObtenerTipoDoc();
-            fila.Cells[colNroDoc.Index].Value = cliente.ObtenerNumeroDoc();
-            fila.Cells[colTelefono.Index].Value = cliente.Telefono;
-
-            fila.Tag = cliente;
-        }
-
-        private void CargarFilaEnGrilla(DataGridViewRow fila)
-        {
-            datosClientes.Rows.Add(fila);
-        }
-
         private void CargarGrilla()
         {
             List<Cliente> clientes = servicio.ObtenerClientes();
 
-            foreach(Cliente cliente in clientes)
-            {
-                DataGridViewRow fila = CrearFila();
-
-                CargarDatosEnFila(fila, cliente);
-
-                CargarFilaEnGrilla(fila);
-            }
-
-        }
-
-        private DataGridViewRow CrearFila()
-        {
-            DataGridViewRow fila = new DataGridViewRow();
-
-            fila.CreateCells(datosClientes);
-
-            return fila;
+            CargadorDeDatos.CargarDataGrid(datosClientes, clientes);
         }
 
         //----PUBLICOS----//
@@ -83,17 +51,16 @@ namespace Cochera.Windows
         {
             DataGridViewRow fila = datosClientes.SelectedRows[0];
 
-            CargarDatosEnFila(fila, cliente);
-
+            CargadorDeDatos.CargarDatosEnFila(fila, cliente);
         }
 
         public void AgregarCliente(Cliente cliente)
         {
-            DataGridViewRow fila = CrearFila();
+            DataGridViewRow fila = CargadorDeDatos.CrearFila(datosClientes);
 
-            CargarDatosEnFila(fila, cliente);
+            CargadorDeDatos.CargarDatosEnFila(fila, cliente);
 
-            CargarFilaEnGrilla(fila);
+            CargadorDeDatos.CargarFilaEnGrilla(datosClientes, fila);
         }
 
         public void AnularBotones()

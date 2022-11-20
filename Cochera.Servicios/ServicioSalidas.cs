@@ -15,7 +15,10 @@ namespace Cochera.Servicios
         //------------ATRIBUTOS------------//
         private RepositorioSalidas repositorioSalidas;
         private RepositorioTarifasEnSalida repositorioTarifasEnSalida;
-        private RepositorioEstacionamientos repositorioEstacionamiento;
+        private RepositorioEstacionamientos repositorioEstacionamientos;
+        private RepositorioIngresos repositorioIngresos;
+        private RepositorioTiposDeVehiculo repositorioTipos;
+        private RepositorioSectores repositorioSectores;
 
         //------------METODOS------------//
 
@@ -31,12 +34,12 @@ namespace Cochera.Servicios
 
                     repositorioSalidas = new RepositorioSalidas(conexion, transaccion);
                     repositorioTarifasEnSalida = new RepositorioTarifasEnSalida(conexion, transaccion);
-                    repositorioEstacionamiento = new RepositorioEstacionamientos(conexion, transaccion);
+                    repositorioEstacionamientos = new RepositorioEstacionamientos(conexion, transaccion);
 
                     int salidaId = repositorioSalidas.DarSalida(ingreso, fechaSalida, montoTotal);
                     repositorioTarifasEnSalida.EstablecerTarifasParaSalida(salidaId, tarifas);
 
-                    repositorioEstacionamiento.DesocuparEstacionamiento(ingreso.ObtenerEstacionamientoId());
+                    repositorioEstacionamientos.DesocuparEstacionamiento(ingreso.ObtenerEstacionamientoId());
 
                     transaccion.Commit();
                 }
@@ -46,6 +49,52 @@ namespace Cochera.Servicios
                 transaccion.Rollback();
                 throw;
             }
+        }
+
+        public List<Salida> ObtenerSalidas()
+        {
+            List<Salida> salidas;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioSectores = new RepositorioSectores(conexion);
+                repositorioEstacionamientos = new RepositorioEstacionamientos(conexion);
+                repositorioTipos = new RepositorioTiposDeVehiculo(conexion);
+                repositorioIngresos = new RepositorioIngresos(conexion);
+                repositorioSalidas = new RepositorioSalidas(conexion);
+
+                List<Sector> sectores = repositorioSectores.ObtenerSectores();
+                List<Estacionamiento> estacionamientos = repositorioEstacionamientos.ObtenerEstacionamientos(sectores);
+                List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
+                List<Ingreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
+
+                salidas = repositorioSalidas.ObtenerSalidas(ingresos);
+            }
+
+            return salidas;
+        }
+
+        public Salida ObtenerUltimaSalida(string patente)
+        {
+            Salida ultimaSalida;
+
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioSalidas = new RepositorioSalidas(conexion);
+                repositorioIngresos = new RepositorioIngresos(conexion);
+                repositorioEstacionamientos = new RepositorioEstacionamientos(conexion);
+                repositorioSectores = new RepositorioSectores(conexion);
+                repositorioTipos = new RepositorioTiposDeVehiculo(conexion);
+
+                List<Sector> sectores = repositorioSectores.ObtenerSectores();
+                List<Estacionamiento> estacionamientos = repositorioEstacionamientos.ObtenerEstacionamientos(sectores);
+                List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
+                List<Ingreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
+
+                ultimaSalida = repositorioSalidas.ObtenerUltimaSalida(patente, ingresos);
+            }
+
+            return ultimaSalida;
         }
     }
 }

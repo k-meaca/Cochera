@@ -29,44 +29,14 @@ namespace Cochera.Windows
 
         //----PRIVADOS----//
 
-        private void CargarDatosEnFila(DataGridViewRow fila, Modelo modelo)
-        {
-            fila.Cells[colTipoVehiculo.Index].Value = modelo.ObtenerTipoVehiculo();
-            fila.Cells[colModelo.Index].Value = modelo.Nombre;
-            fila.Cells[colMarca.Index].Value = modelo.ObtenerMarca();
-
-            fila.Tag = modelo;
-        }
-
-        private void CargarFilaEnGrilla(DataGridViewRow fila)
-        {
-            datosModelos.Rows.Add(fila);
-        }
-
         private void CargarGrilla()
         {
             servicioModelos = new ServicioModelos();
 
             List<Modelo> modelos = servicioModelos.ObtenerModelos();
 
-            foreach(Modelo modelo in modelos)
-            {
-                DataGridViewRow fila = CrearFila();
+            CargadorDeDatos.CargarDataGrid(datosModelos, modelos);
 
-                CargarDatosEnFila(fila, modelo);
-
-                CargarFilaEnGrilla(fila);
-            }
-
-        }
-
-        public DataGridViewRow CrearFila()
-        {
-            DataGridViewRow fila = new DataGridViewRow();
-
-            fila.CreateCells(datosModelos);
-
-            return fila;
         }
 
         //----PUBLICOS----//
@@ -81,16 +51,16 @@ namespace Cochera.Windows
         {
             DataGridViewRow fila = datosModelos.SelectedRows[0];
 
-            CargarDatosEnFila(fila, modelo);
+            CargadorDeDatos.CargarDatosEnFila(fila, modelo);
         }
 
         public void AgregarModelo(Modelo modelo)
         {
-            DataGridViewRow fila = CrearFila();
+            DataGridViewRow fila = CargadorDeDatos.CrearFila(datosModelos);
 
-            CargarDatosEnFila(fila, modelo);
+            CargadorDeDatos.CargarDatosEnFila(fila, modelo);
 
-            CargarFilaEnGrilla(fila);
+            CargadorDeDatos.CargarFilaEnGrilla(datosModelos, fila);
         }
 
         public void AnularBotones()

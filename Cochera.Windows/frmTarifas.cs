@@ -43,20 +43,7 @@ namespace Cochera.Windows
         {
             List<TarifaPorVehiculo> datos = servicioTarifasPorVehiculo.ObtenerTarifasPorVehiculo();
 
-            foreach(TarifaPorVehiculo dato in datos)
-            {
-                DataGridViewRow fila = new DataGridViewRow();
-                
-                fila.CreateCells(datosTarifas);
-
-                fila.Cells[colTipoDeVehiculo.Index].Value = dato.ObtenerTipo();
-                fila.Cells[colTiempo.Index].Value = dato.ObtenerTarifa();
-                fila.Cells[colTarifa.Index].Value = dato.ObtenerMonto().ToString("C");
-
-                fila.Tag = dato;
-
-                datosTarifas.Rows.Add(fila);
-            }
+            CargadorDeDatos.CargarDataGrid(datosTarifas, datos);
         }
 
         //----PUBLICOS----//
@@ -69,11 +56,9 @@ namespace Cochera.Windows
 
         public void ActualizarTarifaPorVehiculo(TarifaPorVehiculo tarifaPorVehiculo)
         {
-            servicioTarifasPorVehiculo.ActualizarTarifa(tarifaPorVehiculo);
+            DataGridViewRow fila = datosTarifas.SelectedRows[0];
 
-            datosTarifas.SelectedRows[0].Cells[colTarifa.Index].Value = tarifaPorVehiculo.ObtenerMonto().ToString("C");
-
-            ActivarBotones();
+            CargadorDeDatos.CargarDatosEnFila(fila, tarifaPorVehiculo);
         }
         public void AnularBotones()
         {

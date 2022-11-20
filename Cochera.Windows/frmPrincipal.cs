@@ -409,8 +409,6 @@ namespace Cochera.Windows
         //---BOTON ESTACIONMIENTO---//
 
         #region
-
-
         private void btnEstacionamientoMenu_CheckedChanged(object sender, EventArgs e)
         {
             if (((ToolStripButton)sender).Checked)
@@ -452,12 +450,12 @@ namespace Cochera.Windows
             if (((ToolStripButton)sender).Checked)
             {
                 btnIngresosMenu_MouseEnter(sender, e);
-                //MostrarFormulario(new frmEstacionamiento(this));
+                MostrarFormulario(new frmIngresos(this));
             }
             else
             {
                 btnIngresosMenu_MouseLeave(sender, e);
-                //CerrarFormularioActivo();
+                CerrarFormularioActivo();
             }
         }
 
@@ -487,12 +485,12 @@ namespace Cochera.Windows
             if (((ToolStripButton)sender).Checked)
             {
                 btnSalidasMenu_MouseEnter(sender, e);
-                //MostrarFormulario(new frmEstacionamiento(this));
+                MostrarFormulario(new frmSalidas(this));
             }
             else
             {
                 btnSalidasMenu_MouseLeave(sender, e);
-                //CerrarFormularioActivo();
+                CerrarFormularioActivo();
             }
         }
 

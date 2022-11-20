@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Entidades;
 using Cochera.Entidades.Enumeraciones;
+using Cochera.Windows.Interfaces;
 using Cochera.Windows.Utilidades;
 using Cochera.Servicios;
 
@@ -19,7 +20,7 @@ namespace Cochera.Windows
     {
         //------------ATRIBUTOS------------//
 
-        private frmPlantaBaja formPB;
+        private ISectorEstacionamiento sector;
         private Estacionamiento estacionamiento;
         private Ingreso ingreso;
 
@@ -27,10 +28,10 @@ namespace Cochera.Windows
 
 
         //------------CONSTRUCTOR------------//
-        public UCEstacionamiento(frmPlantaBaja formPB,Estacionamiento estacionamiento)
+        public UCEstacionamiento(ISectorEstacionamiento sector,Estacionamiento estacionamiento)
         {
             InitializeComponent();
-            this.formPB = formPB;
+            this.sector = sector;
             this.estacionamiento = estacionamiento;
 
             servicioIngresos = new ServicioIngresos();
@@ -46,7 +47,7 @@ namespace Cochera.Windows
         {
             frmDarSalida frmSalida = new frmDarSalida(ingreso, this);
 
-            formPB.AnularBotones();
+            sector.AnularBotones();
 
             frmSalida.Show();
         }
@@ -76,10 +77,13 @@ namespace Cochera.Windows
 
         public void ActivarBotones()
         {
-            formPB.ActivarBotones();
+            sector.ActivarBotones();
         }
 
-
+        public void ActualizarLugares(TipoDeVehiculo vehiculo)
+        {
+            sector.ActualizarLugares(vehiculo);
+        }
 
         public void DesocuparEstacionamiento()
         {
@@ -114,7 +118,7 @@ namespace Cochera.Windows
         {
             frmIngresosEdicion frmEstacionar = new frmIngresosEdicion(estacionamiento,this);
 
-            formPB.AnularBotones();
+            sector.AnularBotones();
 
             frmEstacionar.Show();
         }
