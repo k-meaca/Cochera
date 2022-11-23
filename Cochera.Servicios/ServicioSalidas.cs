@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Cochera.Datos;
 using Cochera.Datos.Repositorios;
 using Cochera.Entidades;
+using Cochera.Entidades.Interfaces;
 
 namespace Cochera.Servicios
 {
@@ -66,7 +67,7 @@ namespace Cochera.Servicios
                 List<Sector> sectores = repositorioSectores.ObtenerSectores();
                 List<Estacionamiento> estacionamientos = repositorioEstacionamientos.ObtenerEstacionamientos(sectores);
                 List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
-                List<Ingreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
+                List<IIngreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
 
                 salidas = repositorioSalidas.ObtenerSalidas(ingresos);
             }
@@ -89,7 +90,7 @@ namespace Cochera.Servicios
                 List<Sector> sectores = repositorioSectores.ObtenerSectores();
                 List<Estacionamiento> estacionamientos = repositorioEstacionamientos.ObtenerEstacionamientos(sectores);
                 List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
-                List<Ingreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
+                List<IIngreso> ingresos = repositorioIngresos.ObtenerIngresos(tipos, estacionamientos);
 
                 ultimaSalida = repositorioSalidas.ObtenerUltimaSalida(patente, ingresos);
             }

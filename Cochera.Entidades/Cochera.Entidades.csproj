@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abonado.cs" />
+    <Compile Include="CuentaCorriente.cs" />
     <Compile Include="Documento.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Enumeraciones\ClasificacionTarifa.cs" />
@@ -48,6 +50,8 @@
     <Compile Include="Estacionamiento.cs" />
     <Compile Include="Excepciones\UsuarioInvalidoExcepcion.cs" />
     <Compile Include="Ingreso.cs" />
+    <Compile Include="Interfaces\IContable.cs" />
+    <Compile Include="Interfaces\IIngreso.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,8 +62,6 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="TipoDeVehiculo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

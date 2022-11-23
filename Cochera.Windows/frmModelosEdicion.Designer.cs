@@ -126,6 +126,7 @@
             // 
             // cmboxTiposVehiculos
             // 
+            this.cmboxTiposVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxTiposVehiculos.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxTiposVehiculos.FormattingEnabled = true;
             this.cmboxTiposVehiculos.Location = new System.Drawing.Point(49, 93);
@@ -145,6 +146,7 @@
             // 
             // cmboxMarcas
             // 
+            this.cmboxMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxMarcas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxMarcas.FormattingEnabled = true;
             this.cmboxMarcas.Location = new System.Drawing.Point(49, 156);

@@ -44,7 +44,7 @@ namespace Cochera.Datos.Repositorios
                 using(SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.CommandType = System.Data.CommandType.Text;
-                    comando.Parameters.AddWithValue("@PersonaId", cliente.PersonaId);
+                    comando.Parameters.AddWithValue("@PersonaId", cliente.ClienteId);
                     comando.Parameters.AddWithValue("@Nombre", cliente.Nombre);
                     comando.Parameters.AddWithValue("@Apellido", cliente.Apellido);
                     comando.Parameters.AddWithValue("@TipoDocId", cliente.ObtenerTipoDocId());
@@ -114,36 +114,57 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
-        public void SetearCliente(Cliente cliente, List<Documento> documentos)
+        public void EliminarPersona(Cliente cliente)
+        {
+            try
+            {
+                string query = "exec SP_EliminarPersona @PersonaId;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@PersonaId", cliente.ClienteId);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+        public void SetearClientes(List<Cliente> clientes, List<Documento> documentos)
         {
             try
             {
                 string query = "SELECT * FROM dbo.UF_DatosDeClientesEnPersona(@PersonaId);";
 
-                using(SqlCommand comando = new SqlCommand(query))
+                foreach(Cliente cliente in clientes)
                 {
-                    comando.Connection = conexion;
-                    comando.CommandType = System.Data.CommandType.Text;                    
-
-                    comando.Parameters.AddWithValue("@PersonaId", cliente.PersonaId);
-
-                    using(SqlDataReader lector = comando.ExecuteReader())
+                    using (SqlCommand comando = new SqlCommand(query))
                     {
-                        lector.Read();
+                        comando.Connection = conexion;
+                        comando.CommandType = System.Data.CommandType.Text;
 
-                        cliente.EstablecerNombreCompleto(lector.GetString(0), lector.GetString(1));
+                        comando.Parameters.AddWithValue("@PersonaId", cliente.ClienteId);
 
-                        Documento documento = (Documento)documentos.Find(doc => doc.TipoDocId == lector.GetInt32(2)).Clone();
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            lector.Read();
 
-                        documento.EstablecerNumeroDeDoc(lector.GetString(3));
+                            cliente.EstablecerNombreCompleto(lector.GetString(0), lector.GetString(1));
 
-                        cliente.EstablecerDocumento(documento);
+                            Documento documento = (Documento)documentos.Find(doc => doc.TipoDocId == lector.GetInt32(2)).Clone();
 
-                        string telefono = lector.GetString(4);
+                            documento.EstablecerNumeroDeDoc(lector.GetString(3));
 
-                        cliente.AsignarTelefono(telefono is null ? "" : telefono);
+                            cliente.EstablecerDocumento(documento);
+
+                            string telefono = lector.GetString(4);
+
+                            cliente.AsignarTelefono(telefono is null ? "" : telefono);
+                        }
                     }
-
                 }
             }
             catch (SqlException)
@@ -155,3 +176,5 @@ namespace Cochera.Datos.Repositorios
 
     }
 }
+                    
+

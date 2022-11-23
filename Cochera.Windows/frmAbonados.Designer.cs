@@ -33,13 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.botonesMenu = new System.Windows.Forms.ToolStrip();
             this.btnAgregar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnEliminar = new System.Windows.Forms.ToolStripButton();
             this.pnlSeparador = new System.Windows.Forms.Panel();
-            this.datosTarifas = new System.Windows.Forms.DataGridView();
+            this.datosAbonados = new System.Windows.Forms.DataGridView();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPatente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,10 +53,9 @@
             this.colTarifa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaAbono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaExpiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCaducado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMenu.SuspendLayout();
             this.botonesMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datosTarifas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosAbonados)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -113,15 +117,15 @@
             this.pnlSeparador.Size = new System.Drawing.Size(800, 3);
             this.pnlSeparador.TabIndex = 1;
             // 
-            // datosTarifas
+            // datosAbonados
             // 
-            this.datosTarifas.AllowUserToAddRows = false;
-            this.datosTarifas.AllowUserToDeleteRows = false;
-            this.datosTarifas.AllowUserToResizeColumns = false;
-            this.datosTarifas.AllowUserToResizeRows = false;
+            this.datosAbonados.AllowUserToAddRows = false;
+            this.datosAbonados.AllowUserToDeleteRows = false;
+            this.datosAbonados.AllowUserToResizeColumns = false;
+            this.datosAbonados.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.datosTarifas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.datosTarifas.BackgroundColor = System.Drawing.Color.White;
+            this.datosAbonados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datosAbonados.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,9 +133,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datosTarifas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.datosTarifas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datosTarifas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datosAbonados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datosAbonados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datosAbonados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colCliente,
             this.colTipoVehiculo,
             this.colPatente,
@@ -139,24 +143,23 @@
             this.colMarca,
             this.colTarifa,
             this.colFechaAbono,
-            this.colFechaExpiracion,
-            this.colCaducado});
-            this.datosTarifas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datosTarifas.Location = new System.Drawing.Point(0, 46);
-            this.datosTarifas.MultiSelect = false;
-            this.datosTarifas.Name = "datosTarifas";
-            this.datosTarifas.ReadOnly = true;
-            this.datosTarifas.RowHeadersVisible = false;
-            this.datosTarifas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.datosTarifas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datosTarifas.Size = new System.Drawing.Size(800, 404);
-            this.datosTarifas.TabIndex = 2;
+            this.colFechaExpiracion});
+            this.datosAbonados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datosAbonados.Location = new System.Drawing.Point(0, 46);
+            this.datosAbonados.MultiSelect = false;
+            this.datosAbonados.Name = "datosAbonados";
+            this.datosAbonados.ReadOnly = true;
+            this.datosAbonados.RowHeadersVisible = false;
+            this.datosAbonados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.datosAbonados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datosAbonados.Size = new System.Drawing.Size(800, 404);
+            this.datosAbonados.TabIndex = 2;
             // 
             // colCliente
             // 
             this.colCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colCliente.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCliente.HeaderText = "Cliente";
             this.colCliente.Name = "colCliente";
@@ -167,7 +170,7 @@
             // 
             this.colTipoVehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colTipoVehiculo.DefaultCellStyle = dataGridViewCellStyle4;
             this.colTipoVehiculo.HeaderText = "Vehiculo";
             this.colTipoVehiculo.Name = "colTipoVehiculo";
@@ -179,7 +182,7 @@
             // 
             this.colPatente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colPatente.DefaultCellStyle = dataGridViewCellStyle5;
             this.colPatente.HeaderText = "Patente";
             this.colPatente.Name = "colPatente";
@@ -190,50 +193,56 @@
             // colModelo
             // 
             this.colModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colModelo.DefaultCellStyle = dataGridViewCellStyle6;
             this.colModelo.HeaderText = "Modelo";
             this.colModelo.Name = "colModelo";
             this.colModelo.ReadOnly = true;
-            this.colModelo.Width = 74;
+            this.colModelo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colModelo.Width = 55;
             // 
             // colMarca
             // 
             this.colMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMarca.DefaultCellStyle = dataGridViewCellStyle7;
             this.colMarca.HeaderText = "Marca";
             this.colMarca.Name = "colMarca";
             this.colMarca.ReadOnly = true;
-            this.colMarca.Width = 68;
+            this.colMarca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colMarca.Width = 49;
             // 
             // colTarifa
             // 
             this.colTarifa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTarifa.DefaultCellStyle = dataGridViewCellStyle8;
             this.colTarifa.HeaderText = "Tarifa";
             this.colTarifa.Name = "colTarifa";
             this.colTarifa.ReadOnly = true;
-            this.colTarifa.Width = 64;
+            this.colTarifa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colTarifa.Width = 45;
             // 
             // colFechaAbono
             // 
-            this.colFechaAbono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colFechaAbono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFechaAbono.DefaultCellStyle = dataGridViewCellStyle9;
             this.colFechaAbono.HeaderText = "Fecha Abono";
             this.colFechaAbono.Name = "colFechaAbono";
             this.colFechaAbono.ReadOnly = true;
-            this.colFechaAbono.Width = 105;
+            this.colFechaAbono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colFechaAbono.Width = 86;
             // 
             // colFechaExpiracion
             // 
-            this.colFechaExpiracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colFechaExpiracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFechaExpiracion.DefaultCellStyle = dataGridViewCellStyle10;
             this.colFechaExpiracion.HeaderText = "Fecha Expiracion";
             this.colFechaExpiracion.Name = "colFechaExpiracion";
             this.colFechaExpiracion.ReadOnly = true;
-            this.colFechaExpiracion.Width = 119;
-            // 
-            // colCaducado
-            // 
-            this.colCaducado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colCaducado.HeaderText = "Caducado";
-            this.colCaducado.Name = "colCaducado";
-            this.colCaducado.ReadOnly = true;
-            this.colCaducado.Width = 88;
+            this.colFechaExpiracion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmAbonados
             // 
@@ -242,7 +251,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.datosTarifas);
+            this.Controls.Add(this.datosAbonados);
             this.Controls.Add(this.pnlSeparador);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -252,7 +261,7 @@
             this.pnlMenu.PerformLayout();
             this.botonesMenu.ResumeLayout(false);
             this.botonesMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datosTarifas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosAbonados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,7 +270,7 @@
 
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlSeparador;
-        private System.Windows.Forms.DataGridView datosTarifas;
+        private System.Windows.Forms.DataGridView datosAbonados;
         private System.Windows.Forms.ToolStrip botonesMenu;
         private System.Windows.Forms.ToolStripButton btnAgregar;
         private System.Windows.Forms.ToolStripButton btnEditar;
@@ -274,6 +283,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTarifa;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaAbono;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaExpiracion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCaducado;
     }
 }

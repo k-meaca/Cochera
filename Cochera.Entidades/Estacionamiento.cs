@@ -44,10 +44,6 @@ namespace Cochera.Entidades
             {
                 Ocupado = true;
             }
-            else
-            {
-                Ocupado = false;
-            }
         }
 
         public string ObtenerSector()

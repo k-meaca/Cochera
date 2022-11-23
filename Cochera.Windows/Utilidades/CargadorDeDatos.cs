@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using Cochera.Entidades;
-using Cochera.Entidades.Enumeraciones;
+using Cochera.Entidades.Interfaces;
 
 
 namespace Cochera.Windows.Utilidades
@@ -18,6 +18,9 @@ namespace Cochera.Windows.Utilidades
 
         //----PUBLICOS----//
 
+        //--COMBO BOX--//
+
+        #region
         public static void SetearComboBox<T>(ComboBox combo, List<T> datos)
         {
             //SetearCombo(combo, datos);
@@ -38,6 +41,7 @@ namespace Cochera.Windows.Utilidades
             caja.Tag = datos;
         }
 
+        #endregion
         public static void CargarDataGridReducido(DataGridView grilla, List<Cliente> clientes)
         {
 
@@ -45,15 +49,21 @@ namespace Cochera.Windows.Utilidades
             {
                 DataGridViewRow fila = CrearFila(grilla);
 
-                fila.Cells[0].Value = cliente.NombreCompleto();
+                CargarDatosEnFilaReducida(fila, cliente);
 
-                fila.Cells[1].Value = cliente.ObtenerNumeroDoc();
-
-                fila.Tag = cliente;
-
-                grilla.Rows.Add(fila);
+                CargarFilaEnGrilla(grilla, fila);
             }
         }
+
+        public static void CargarDatosEnFilaReducida(DataGridViewRow fila, Cliente cliente)
+        {
+            fila.Cells[0].Value = cliente.NombreCompleto();
+
+            fila.Cells[1].Value = cliente.ObtenerNumeroDoc();
+
+            fila.Tag = cliente;
+        }
+       
         //--DATA GRAL--//
 
         #region
@@ -76,9 +86,9 @@ namespace Cochera.Windows.Utilidades
         //--DATA INGRESOS--//
 
         #region
-        public static void CargarDataGrid(DataGridView grilla, List<Ingreso> ingresos)
+        public static void CargarDataGrid(DataGridView grilla, List<IIngreso> ingresos)
         {
-            foreach(Ingreso ingreso in ingresos)
+            foreach(IIngreso ingreso in ingresos)
             {
                 DataGridViewRow fila = CrearFila(grilla);
 
@@ -88,12 +98,12 @@ namespace Cochera.Windows.Utilidades
             }
         }
 
-        public static void CargarDatosEnFila(DataGridViewRow fila, Ingreso ingreso)
+        public static void CargarDatosEnFila(DataGridViewRow fila, IIngreso ingreso)
         {
-            fila.Cells[0].Value = ingreso.Patente;
+            fila.Cells[0].Value = ingreso.ObtenerPatente();
             fila.Cells[1].Value = ingreso.ObtenerTipoVehiculo();
-            fila.Cells[2].Value = ingreso.FechaIngreso.ToShortDateString();
-            fila.Cells[3].Value = ingreso.FechaIngreso.ToShortTimeString();
+            fila.Cells[2].Value = ingreso.ObtenerFechaIngreso().ToShortDateString();
+            fila.Cells[3].Value = ingreso.ObtenerFechaIngreso().ToShortTimeString();
             fila.Cells[4].Value = ingreso.ObtenerUbicacion();
             fila.Cells[5].Value = ingreso.ObtenerSector();
 
@@ -137,26 +147,45 @@ namespace Cochera.Windows.Utilidades
         //--DATA ESTACIONAMIENTOS--//
 
         #region
-        public static void CargarDataGrid(DataGridView grilla, List<Estacionamiento> estacionamientos)
+        public static void CargarDataGrid(DataGridView grilla, List<Estacionamiento> estacionamientos, List<IIngreso> ingresos)
         {
             foreach(Estacionamiento estacionamiento in estacionamientos)
             {
+                IIngreso ingreso = ingresos.Find(i => i.ObtenerUbicacion() == estacionamiento.Ubicacion);
+    
                 DataGridViewRow fila = CrearFila(grilla);
 
-                CargarDatosEnFila(fila, estacionamiento);
+                CargarDatosEnFila(fila, estacionamiento, ingreso);
 
                 CargarFilaEnGrilla(grilla, fila);
             }
         }
 
-        public static void CargarDatosEnFila(DataGridViewRow fila, Estacionamiento estacionamiento)
+        public static void CargarDatosEnFila(DataGridViewRow fila, Estacionamiento estacionamiento, IIngreso ingreso)
         {
+
             fila.Cells[0].Value = estacionamiento.ObtenerSector();
             fila.Cells[1].Value = estacionamiento.Ubicacion;
             fila.Cells[2].Value = estacionamiento.Ocupado ? "SI" : "NO";
+            
+            if(ingreso is null)
+            {
+                fila.Cells[3].Value = "";
+                fila.Cells[4].Value = "";
+            }
+            else
+            {
+                if (ingreso.esAbonado())
+                {
+                    fila.DefaultCellStyle.BackColor = Color.Gold;
+                }
+                fila.Cells[3].Value = ingreso.ObtenerPatente();
+                fila.Cells[4].Value = ingreso.ObtenerTipoVehiculo();
+            }
 
-            fila.Tag = estacionamiento;
-
+            Tuple<Estacionamiento, IIngreso> dato = new Tuple<Estacionamiento, IIngreso>(estacionamiento,ingreso);
+            
+            fila.Tag = dato;
         }
 
         #endregion
@@ -290,7 +319,100 @@ namespace Cochera.Windows.Utilidades
 
         #endregion
 
+        //--DATA ABONADOS--//
 
+        #region
 
+        public static void CargarDataGrid(DataGridView grilla, List<Abonado> abonados)
+        {
+            foreach(Abonado abonado in abonados)
+            {
+                DataGridViewRow fila = CrearFila(grilla);
+
+                CargarDatosEnFila(fila, abonado);
+
+                CargarFilaEnGrilla(grilla, fila);
+            }
+        }
+
+        public static void CargarDatosEnFila(DataGridViewRow fila, Abonado abonado)
+        {
+            fila.Cells[0].Value = abonado.NombreCompletoCliente();
+            fila.Cells[1].Value = abonado.ObtenerVehiculo();
+            fila.Cells[2].Value = abonado.ObtenerPatente();
+            fila.Cells[3].Value = abonado.ObtenerModelo();
+            fila.Cells[4].Value = abonado.ObtenerMarca();
+            fila.Cells[5].Value = abonado.ObtenerTiempoTarifa();
+            fila.Cells[6].Value = abonado.ObtenerFechaIngreso().ToShortDateString(); ;
+            fila.Cells[7].Value = abonado.FechaExpiracion.ToShortDateString();
+
+            fila.Tag = abonado;
+        }
+
+        #endregion
+
+        //--DATA CTA CTES--//
+
+        #region
+
+        public static void CargarDataGrid(DataGridView grilla, List<CuentaCorriente> cuentas)
+        {
+            foreach(CuentaCorriente cuenta in cuentas)
+            {
+                DataGridViewRow fila = CrearFila(grilla);
+
+                CargarDatosEnFila(fila, cuenta);
+
+                CargarFilaEnGrilla(grilla, fila);
+            }
+        }
+
+        public static void CargarDatosEnFila(DataGridViewRow fila, CuentaCorriente cuenta)
+        {
+            fila.Cells[0].Value = cuenta.CuentaId.ToString();
+            fila.Cells[1].Value = cuenta.ObtenerDescripcion();
+            fila.Cells[2].Value = cuenta.NombreCompletoCliente();
+            fila.Cells[3].Value = cuenta.ObtenerVehiculo();
+            fila.Cells[4].Value = cuenta.ObtenerPatente();
+            fila.Cells[5].Value = cuenta.Debe.ToString("C");
+            fila.Cells[6].Value = cuenta.Haber.ToString("C");
+            fila.Cells[7].Value = cuenta.Saldo.ToString("C");
+            fila.Cells[8].Value = cuenta.FechaMoviemiento.ToShortDateString();
+
+            fila.Tag = cuenta;
+        }
+
+        #endregion
+
+        //--DATA CONTABLES--//
+
+        #region
+
+        public static void CargarDataGrid(DataGridView grilla, List<IContable> contables)
+        {
+            foreach(IContable contable in contables)
+            {
+                DataGridViewRow fila = CrearFila(grilla);
+
+                CargarDatosEnFila(fila, contable);
+
+                CargarFilaEnGrilla(grilla, fila);
+            }
+        }
+
+        public static void CargarDatosEnFila(DataGridViewRow fila, IContable contable)
+        {
+            fila.Cells[0].Value = contable.Descripcion();
+            fila.Cells[1].Value = contable.Vehiculo();
+            fila.Cells[2].Value = contable.Patente();
+            fila.Cells[3].Value = contable.FechaMovimiento().ToShortDateString();
+            fila.Cells[4].Value = contable.FechaMovimiento().ToShortTimeString();
+            fila.Cells[5].Value = contable.MedioDePago();
+            fila.Cells[6].Value = contable.Importe().ToString("C");
+
+            fila.Tag = contable;
+        }
+
+        #endregion
     }
 }

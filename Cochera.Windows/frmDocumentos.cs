@@ -42,6 +42,8 @@ namespace Cochera.Windows
             CargadorDeDatos.CargarDataGrid(datosDocumentos, documentos);
         }
 
+
+
         //----PUBLICOS----//
 
         public void ActivarBotones()
@@ -98,6 +100,32 @@ namespace Cochera.Windows
                 AnularBotones();
 
                 frmEditarDoc.Show();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(datosDocumentos.SelectedRows.Count > 0)
+            {
+                Documento doc = (Documento)datosDocumentos.SelectedRows[0].Tag;
+
+                DialogResult opcion = Mensajero.MensajeAdvertencia("Esta por eliminar un dato.", "Cuidado.. operacion con riesgo.");
+
+                if(opcion == DialogResult.OK)
+                {
+                    try
+                    {
+                        serviciosTipoDocumentos.EliminarDocumento(doc);
+
+                        datosDocumentos.Rows.Remove(datosDocumentos.SelectedRows[0]);
+
+                        Mensajero.MensajeExitoso($"Se elimino correctamente el tipo de documento: {doc.TipoDoc}, con todos sus datos asociados.");
+                    }
+                    catch (Exception)
+                    {
+                        Mensajero.MensajeError($"No se ha podido eliminar el documento: {doc.TipoDoc}. Elimine primero sus clientes asociados.");
+                    }
+                }
             }
         }
     }

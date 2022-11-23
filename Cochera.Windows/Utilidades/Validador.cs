@@ -88,7 +88,7 @@ namespace Cochera.Windows.Utilidades
 
             if( ingreso != null && salida != null)
             {
-                if(ingreso.FechaIngreso > salida.FechaSalida)
+                if(ingreso.ObtenerFechaIngreso() > salida.FechaSalida)
                 {
                     ingresoValido = false;
                 }

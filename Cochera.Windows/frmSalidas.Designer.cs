@@ -40,7 +40,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlDivisor = new System.Windows.Forms.Panel();
             this.imgBuscarPatente = new System.Windows.Forms.PictureBox();
             this.txtBuscarPatente = new System.Windows.Forms.TextBox();
             this.btnFiltrarPorFecha = new System.Windows.Forms.Button();
@@ -49,7 +48,10 @@
             this.lblFechaInicio = new System.Windows.Forms.Label();
             this.fechaFinal = new System.Windows.Forms.DateTimePicker();
             this.fechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.pnlDivisor = new System.Windows.Forms.Panel();
             this.pnlInfoSalidas = new System.Windows.Forms.Panel();
+            this.lblMontoTotal = new System.Windows.Forms.Label();
+            this.lblRecaudado = new System.Windows.Forms.Label();
             this.pnlDivisorBottom = new System.Windows.Forms.Panel();
             this.datosSalidas = new System.Windows.Forms.DataGridView();
             this.colPatente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +63,6 @@
             this.colEstacionamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSector = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblRecaudado = new System.Windows.Forms.Label();
-            this.lblMontoTotal = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBuscarPatente)).BeginInit();
             this.pnlInfoSalidas.SuspendLayout();
@@ -85,19 +85,10 @@
             this.pnlMenu.Size = new System.Drawing.Size(800, 65);
             this.pnlMenu.TabIndex = 0;
             // 
-            // pnlDivisor
-            // 
-            this.pnlDivisor.BackColor = System.Drawing.Color.Black;
-            this.pnlDivisor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDivisor.Location = new System.Drawing.Point(0, 65);
-            this.pnlDivisor.Name = "pnlDivisor";
-            this.pnlDivisor.Size = new System.Drawing.Size(800, 4);
-            this.pnlDivisor.TabIndex = 1;
-            // 
             // imgBuscarPatente
             // 
             this.imgBuscarPatente.Image = global::Cochera.Windows.Properties.Resources.lupa;
-            this.imgBuscarPatente.Location = new System.Drawing.Point(745, 30);
+            this.imgBuscarPatente.Location = new System.Drawing.Point(497, 30);
             this.imgBuscarPatente.Name = "imgBuscarPatente";
             this.imgBuscarPatente.Size = new System.Drawing.Size(27, 26);
             this.imgBuscarPatente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,17 +98,20 @@
             // txtBuscarPatente
             // 
             this.txtBuscarPatente.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarPatente.Location = new System.Drawing.Point(331, 30);
+            this.txtBuscarPatente.Location = new System.Drawing.Point(329, 30);
+            this.txtBuscarPatente.MaxLength = 8;
             this.txtBuscarPatente.Name = "txtBuscarPatente";
-            this.txtBuscarPatente.Size = new System.Drawing.Size(408, 26);
+            this.txtBuscarPatente.Size = new System.Drawing.Size(162, 26);
             this.txtBuscarPatente.TabIndex = 11;
+            this.txtBuscarPatente.TextChanged += new System.EventHandler(this.txtBuscarPatente_TextChanged);
+            this.txtBuscarPatente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPatente_KeyPress);
             // 
             // btnFiltrarPorFecha
             // 
             this.btnFiltrarPorFecha.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnFiltrarPorFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrarPorFecha.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarPorFecha.Location = new System.Drawing.Point(199, 8);
+            this.btnFiltrarPorFecha.Location = new System.Drawing.Point(197, 8);
             this.btnFiltrarPorFecha.Name = "btnFiltrarPorFecha";
             this.btnFiltrarPorFecha.Size = new System.Drawing.Size(112, 48);
             this.btnFiltrarPorFecha.TabIndex = 10;
@@ -129,7 +123,7 @@
             // 
             this.lblBuscarPatente.AutoSize = true;
             this.lblBuscarPatente.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPatente.Location = new System.Drawing.Point(328, 8);
+            this.lblBuscarPatente.Location = new System.Drawing.Point(326, 8);
             this.lblBuscarPatente.Name = "lblBuscarPatente";
             this.lblBuscarPatente.Size = new System.Drawing.Size(110, 18);
             this.lblBuscarPatente.TabIndex = 7;
@@ -139,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 36);
+            this.label1.Location = new System.Drawing.Point(9, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 8;
@@ -149,7 +143,7 @@
             // 
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaInicio.Location = new System.Drawing.Point(11, 10);
+            this.lblFechaInicio.Location = new System.Drawing.Point(9, 10);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(86, 18);
             this.lblFechaInicio.TabIndex = 9;
@@ -159,19 +153,30 @@
             // 
             this.fechaFinal.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.fechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaFinal.Location = new System.Drawing.Point(103, 36);
+            this.fechaFinal.Location = new System.Drawing.Point(101, 36);
             this.fechaFinal.Name = "fechaFinal";
             this.fechaFinal.Size = new System.Drawing.Size(80, 20);
             this.fechaFinal.TabIndex = 5;
+            this.fechaFinal.ValueChanged += new System.EventHandler(this.fechaFinal_ValueChanged);
             // 
             // fechaInicio
             // 
             this.fechaInicio.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.fechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaInicio.Location = new System.Drawing.Point(103, 10);
+            this.fechaInicio.Location = new System.Drawing.Point(101, 10);
             this.fechaInicio.Name = "fechaInicio";
             this.fechaInicio.Size = new System.Drawing.Size(80, 20);
             this.fechaInicio.TabIndex = 6;
+            this.fechaInicio.ValueChanged += new System.EventHandler(this.fechaInicio_ValueChanged);
+            // 
+            // pnlDivisor
+            // 
+            this.pnlDivisor.BackColor = System.Drawing.Color.Black;
+            this.pnlDivisor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDivisor.Location = new System.Drawing.Point(0, 65);
+            this.pnlDivisor.Name = "pnlDivisor";
+            this.pnlDivisor.Size = new System.Drawing.Size(800, 4);
+            this.pnlDivisor.TabIndex = 1;
             // 
             // pnlInfoSalidas
             // 
@@ -182,6 +187,28 @@
             this.pnlInfoSalidas.Name = "pnlInfoSalidas";
             this.pnlInfoSalidas.Size = new System.Drawing.Size(800, 27);
             this.pnlInfoSalidas.TabIndex = 2;
+            // 
+            // lblMontoTotal
+            // 
+            this.lblMontoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMontoTotal.AutoSize = true;
+            this.lblMontoTotal.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoTotal.Location = new System.Drawing.Point(694, 4);
+            this.lblMontoTotal.Name = "lblMontoTotal";
+            this.lblMontoTotal.Size = new System.Drawing.Size(26, 18);
+            this.lblMontoTotal.TabIndex = 0;
+            this.lblMontoTotal.Text = "$$";
+            // 
+            // lblRecaudado
+            // 
+            this.lblRecaudado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRecaudado.AutoSize = true;
+            this.lblRecaudado.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecaudado.Location = new System.Drawing.Point(600, 4);
+            this.lblRecaudado.Name = "lblRecaudado";
+            this.lblRecaudado.Size = new System.Drawing.Size(88, 18);
+            this.lblRecaudado.TabIndex = 0;
+            this.lblRecaudado.Text = "Recaudado :";
             // 
             // pnlDivisorBottom
             // 
@@ -265,7 +292,8 @@
             this.colFechaIngreso.HeaderText = "Fecha ingreso";
             this.colFechaIngreso.Name = "colFechaIngreso";
             this.colFechaIngreso.ReadOnly = true;
-            this.colFechaIngreso.Width = 113;
+            this.colFechaIngreso.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colFechaIngreso.Width = 94;
             // 
             // colHoraIngreso
             // 
@@ -277,7 +305,8 @@
             this.colHoraIngreso.HeaderText = "Hora ingreso";
             this.colHoraIngreso.Name = "colHoraIngreso";
             this.colHoraIngreso.ReadOnly = true;
-            this.colHoraIngreso.Width = 108;
+            this.colHoraIngreso.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colHoraIngreso.Width = 89;
             // 
             // colFechaSalida
             // 
@@ -333,7 +362,7 @@
             // 
             // colMontoTotal
             // 
-            this.colMontoTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colMontoTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.SteelBlue;
@@ -343,28 +372,6 @@
             this.colMontoTotal.ReadOnly = true;
             this.colMontoTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colMontoTotal.Width = 77;
-            // 
-            // lblRecaudado
-            // 
-            this.lblRecaudado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRecaudado.AutoSize = true;
-            this.lblRecaudado.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecaudado.Location = new System.Drawing.Point(600, 4);
-            this.lblRecaudado.Name = "lblRecaudado";
-            this.lblRecaudado.Size = new System.Drawing.Size(88, 18);
-            this.lblRecaudado.TabIndex = 0;
-            this.lblRecaudado.Text = "Recaudado :";
-            // 
-            // lblMontoTotal
-            // 
-            this.lblMontoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMontoTotal.AutoSize = true;
-            this.lblMontoTotal.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoTotal.Location = new System.Drawing.Point(694, 4);
-            this.lblMontoTotal.Name = "lblMontoTotal";
-            this.lblMontoTotal.Size = new System.Drawing.Size(26, 18);
-            this.lblMontoTotal.TabIndex = 0;
-            this.lblMontoTotal.Text = "$$";
             // 
             // frmSalidas
             // 
@@ -407,6 +414,8 @@
         private System.Windows.Forms.Panel pnlInfoSalidas;
         private System.Windows.Forms.Panel pnlDivisorBottom;
         private System.Windows.Forms.DataGridView datosSalidas;
+        private System.Windows.Forms.Label lblMontoTotal;
+        private System.Windows.Forms.Label lblRecaudado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPatente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVehiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaIngreso;
@@ -416,7 +425,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstacionamiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSector;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMontoTotal;
-        private System.Windows.Forms.Label lblMontoTotal;
-        private System.Windows.Forms.Label lblRecaudado;
     }
 }

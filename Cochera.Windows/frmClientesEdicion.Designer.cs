@@ -187,6 +187,7 @@
             // 
             // cmboxTipoDocs
             // 
+            this.cmboxTipoDocs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxTipoDocs.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxTipoDocs.FormattingEnabled = true;
             this.cmboxTipoDocs.Location = new System.Drawing.Point(18, 133);

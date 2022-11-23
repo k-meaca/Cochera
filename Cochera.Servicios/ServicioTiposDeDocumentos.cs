@@ -45,6 +45,19 @@ namespace Cochera.Servicios
             return doc;
         }
 
+        public void EliminarDocumento(Documento doc)
+        {
+
+            using (SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+
+                repositorioTipoDocs = new RepositorioTipoDocumentos(conexion);
+
+                repositorioTipoDocs.EliminarDocumento(doc);
+            }
+            
+        }
+
         public List<Documento> ObtenerTiposDeDocumentos()
         {
             List<Documento> documentos;

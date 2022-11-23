@@ -54,6 +54,18 @@
     <Compile Include="frmAbonados.Designer.cs">
       <DependentUpon>frmAbonados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmContabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContabilidad.Designer.cs">
+      <DependentUpon>frmContabilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCuentasCorrientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuentasCorrientes.Designer.cs">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDarSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +186,8 @@
     <Compile Include="frmTarifas.Designer.cs">
       <DependentUpon>frmTarifas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IGeneradorIngresos.cs" />
+    <Compile Include="Interfaces\IGeneradorSalidas.cs" />
     <Compile Include="Interfaces\ISectorEstacionamiento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +208,12 @@
     <Compile Include="Utilidades\Validador.cs" />
     <EmbeddedResource Include="frmAbonados.resx">
       <DependentUpon>frmAbonados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContabilidad.resx">
+      <DependentUpon>frmContabilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCuentasCorrientes.resx">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDarSalida.resx">
       <DependentUpon>frmDarSalida.cs</DependentUpon>
@@ -426,6 +446,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\frmIngresos\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\ContabilidadMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\frmPrincipal\ContabilidadMenuGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\ordenar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\buscarVehiculo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\desocupado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\metodoPago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UsoGral\descripcion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

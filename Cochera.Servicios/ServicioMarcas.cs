@@ -41,6 +41,16 @@ namespace Cochera.Servicios
 
             return marca;
         }
+
+        public void EliminarMarca(Marca marca)
+        {
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioMarcas = new RepositorioMarcas(conexion);
+
+                repositorioMarcas.EliminarMarca(marca);
+            }
+        }
         public List<Marca> ObtenerMarcas()
         {
             List<Marca> marcas;

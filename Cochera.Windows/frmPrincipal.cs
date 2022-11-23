@@ -379,12 +379,12 @@ namespace Cochera.Windows
             if (((ToolStripButton)sender).Checked)
             {
                 btnCuentasCtesMenu_MouseEnter(sender, e);
-                //MostrarFormulario(new frmCtasCtes(this));
+                MostrarFormulario(new frmCuentasCorrientes(this));
             }
             else
             {
                 btnCuentasCtesMenu_MouseLeave(sender, e);
-                //CerrarFormularioActivo();
+                CerrarFormularioActivo();
             }
         }
 
@@ -512,5 +512,43 @@ namespace Cochera.Windows
         }
 
         #endregion
+
+        //---BOTON CONTABILIDAD---//
+
+        #region
+        private void btnContabilidadMenu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((ToolStripButton)sender).Checked)
+            {
+                btnContabilidadMenu_MouseEnter(sender, e);
+                MostrarFormulario(new frmContabilidad(this));
+            }
+            else
+            {
+                btnContabilidadMenu_MouseLeave(sender, e);
+                CerrarFormularioActivo();
+            }
+        }
+
+        private void btnContabilidadMenu_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((ToolStripButton)sender);
+        }
+
+        private void btnContabilidadMenu_MouseEnter(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null)
+                btnContabilidadMenu.Image = Properties.Resources.ContabilidadMenuGIF;
+        }
+
+        private void btnContabilidadMenu_MouseLeave(object sender, EventArgs e)
+        {
+            if (botonMenuSeleccionado is null && !btnContabilidadMenu.Checked)
+                btnContabilidadMenu.Image = Properties.Resources.ContabilidadMenu;
+        }
+
+        #endregion
+
+
     }
 }

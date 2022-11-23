@@ -10,8 +10,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Cochera.Servicios;
 using Cochera.Entidades;
-using Cochera.Entidades.Enumeraciones;
+using Cochera.Entidades.Interfaces;
 using Cochera.Windows.Utilidades;
+using Cochera.Windows.Interfaces;
+using Cochera.Windows.Clases;
 
 namespace Cochera.Windows
 {
@@ -29,15 +31,17 @@ namespace Cochera.Windows
         private ServicioModelos servicioModelos;
         private ServicioMarcas servicioMarcas;
         private ServicioIngresos servicioIngresos;
+        private ServicioAbonados servicioAbonados;
+
 
         private Estacionamiento estacionamiento;
-        private UCEstacionamiento uCEstacionamiento;
+        private IGeneradorIngresos generadorIngresos;
 
-        private Ingreso ingreso;
+        private IIngreso ingreso;
         #endregion
 
         //------------CONSTRUCTOR------------//
-        public frmIngresosEdicion(Estacionamiento estacionamiento, UCEstacionamiento ucEstacionamiento)
+        public frmIngresosEdicion(Estacionamiento estacionamiento, IGeneradorIngresos generadorIngresos)
         {
             InitializeComponent();
 
@@ -48,15 +52,28 @@ namespace Cochera.Windows
             servicioModelos = new ServicioModelos();
             servicioMarcas = new ServicioMarcas();
             servicioIngresos = new ServicioIngresos();
+            servicioAbonados = new ServicioAbonados();
 
             this.estacionamiento = estacionamiento;
-            this.uCEstacionamiento = ucEstacionamiento;
+            this.generadorIngresos = generadorIngresos;
 
             SetearComponentes();
   
             SetearTamanio(213, 464);
+
+            CorrectorDeEstados.AnularBoton(btnEditar);
+            CorrectorDeEstados.ActivarBoton(btnEstacionar);
         }
 
+
+        public frmIngresosEdicion(Estacionamiento estacionamiento, IIngreso ingreso, IGeneradorIngresos generadorIngresos) :
+            this(estacionamiento, generadorIngresos)
+        {
+            this.ingreso = ingreso;
+
+            ModoEdicion();
+
+        }
         //------------METODOS------------//
 
         //----PRIVADOS----//
@@ -65,29 +82,18 @@ namespace Cochera.Windows
         //--CALCULOS--//
 
         #region
-        private void CalcularFechaExpiracion()
+        private DateTime CalcularFechaExpiracion()
         {
-            int tarifa = cmboxTarifa.SelectedIndex;
+            List<Tarifa> tarifas = (List<Tarifa>)cmboxTarifa.Tag;
 
-            DateTime fechaExpiracion = Convert.ToDateTime(txtIngreso.Text);
+            Tarifa tarifa = tarifas.Find(t => t.Tiempo == (string)cmboxTarifa.SelectedItem);
 
-            switch (tarifa)
-            {
-                case (int)ClasificacionTarifa.Semana:
-                    fechaExpiracion = fechaExpiracion.AddDays(7);
-                    break;
-                case (int)ClasificacionTarifa.Quincena:
-                    fechaExpiracion = fechaExpiracion.AddDays(15);
-                    break;
-                case (int)ClasificacionTarifa.Mes:
-                    fechaExpiracion = fechaExpiracion.AddMonths(1);
-                    break;
-            }
+            Parkimetro parkimetro = new Parkimetro();
 
-            txtExpiracion.Text = fechaExpiracion.ToString();
+            return parkimetro.CalcularFechaExpiracion(tarifa);
         }
 
-        private void CalcularPrecio()
+        private decimal CalcularPrecio()
         {
 
             List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
@@ -98,9 +104,7 @@ namespace Cochera.Windows
 
             Tarifa tarifa = tarifas.Find(t => t.Tiempo == (string)cmboxTarifa.SelectedItem);
 
-            decimal precio = servicioTarifasPorVehiculo.ObtenerPrecio(tipo, tarifa);
-
-            txtPrecio.Text = precio.ToString("C");
+            return servicioTarifasPorVehiculo.ObtenerPrecio(tipo, tarifa);
         }
 
         #endregion
@@ -108,21 +112,44 @@ namespace Cochera.Windows
         //--ALMACENAMIENTO--//
 
         #region
-        private void EstacionarVehiculo()
+
+        private void ActualizarSector(TipoDeVehiculo tipo, IIngreso ingreso)
+        {
+            generadorIngresos.EstacionamientoOcupado(tipo, ingreso);
+
+            generadorIngresos.ActualizarLugares(tipo);
+        }
+
+        private void EditarVehiculo()
         {
             try
             {
                 ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime fechaIngreso);
 
-                //Ingreso ingreso = new Ingreso(patente, tipo, ingreso, estacionamiento);
+                ((Ingreso)ingreso).ActualizarIngreso(tipo, patente,fechaIngreso);
 
-                ingreso = servicioIngresos.GenerarIngreso(patente,tipo,fechaIngreso,estacionamiento);
+                servicioIngresos.ActualizarIngreso((Ingreso)ingreso);
 
-                estacionamiento.EstacionarVehiculo(tipo);
+                ActualizarSector(tipo, ingreso);
 
-                uCEstacionamiento.EstacionamientoOcupado(ingreso);
+                Close();
+            }
+            catch (Exception)
+            {
+                Mensajero.MensajeError("No ha sido posible actualizar este ingreso.");
+            }
+        }
 
-                uCEstacionamiento.ActualizarLugares(tipo);
+        private void EstacionarVehiculo()
+        {
+            try
+            {
+
+                ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime fechaIngreso);
+
+                ingreso = servicioIngresos.GenerarIngreso(patente, tipo, fechaIngreso, estacionamiento);
+                
+                ActualizarSector(tipo, ingreso);
 
                 Close();
             }
@@ -138,7 +165,30 @@ namespace Cochera.Windows
 
         private void EstacionarVehiculoAbonado()
         {
+            try
+            {
 
+                ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime fechaIngreso);
+
+                ObtenerDatosDeAbonado(out Modelo modelo, out Marca marca, out Tarifa tarifa, out DateTime fechaExpiracion, out Cliente cliente);
+
+                decimal importe = CalcularPrecio();
+
+                Abonado abonado = servicioAbonados.GenerarAbonado(tipo, patente, fechaIngreso, estacionamiento, modelo, tarifa, fechaExpiracion, cliente, importe);
+
+                ActualizarSector(tipo, abonado);
+
+                Close();
+
+            }
+            catch (SqlException)
+            {
+                Mensajero.MensajeError("Hubo problemas con el servidor.");
+            }
+            catch (Exception)
+            { 
+                Mensajero.MensajeError("Ocurrio algo inesperado.");
+            }
         }
 
         private void ObtenerDatosDeVehiculo(out TipoDeVehiculo tipo, out string patente, out DateTime ingreso)
@@ -149,7 +199,26 @@ namespace Cochera.Windows
 
             patente = txtPatente.Text;
 
-            ingreso = DateTime.Now;
+            ingreso = Convert.ToDateTime(txtIngreso.Text);
+        }
+
+        private void ObtenerDatosDeAbonado(out Modelo modelo, out Marca marca, out Tarifa tarifa, out DateTime fechaExpiracion, out Cliente cliente)
+        {
+            List<Modelo> modelos = (List<Modelo>)cmboxModelo.Tag;
+
+            modelo = modelos.Find(m => m.Nombre == cmboxModelo.SelectedItem.ToString());
+
+            marca = servicioMarcas.ObtenerMarca(modelo.ObtenerMarcaId());
+
+            List<Tarifa> tarifas = (List<Tarifa>)cmboxTarifa.Tag;
+
+            tarifa = tarifas.Find(t => t.Tiempo == cmboxTarifa.SelectedItem.ToString());
+
+            Parkimetro parkimetro = new Parkimetro();
+
+            fechaExpiracion = parkimetro.CalcularFechaExpiracion(tarifa);
+
+            cliente = (Cliente)datosClientes.SelectedRows[0].Tag;
         }
 
         #endregion
@@ -157,6 +226,19 @@ namespace Cochera.Windows
         //--SETS--//
 
         #region
+
+        private void ModoEdicion()
+        {
+            CorrectorDeEstados.AnularCheck(checkAbonar);
+            CorrectorDeEstados.AnularBoton(btnEstacionar);
+            CorrectorDeEstados.ActivarBoton(btnEditar);
+
+            cmboxTipoVehiculo.SelectedItem = ingreso.ObtenerTipoVehiculo();
+            txtPatente.Text = ingreso.ObtenerPatente();
+            txtEstacionamiento.Text = estacionamiento.Ubicacion;
+            txtIngreso.Text = ingreso.ObtenerFechaIngreso().ToString();
+        }
+
         private void SetearClientes()
         {
             List<Cliente> clientes = servicioClientes.ObtenerClientes();
@@ -169,11 +251,11 @@ namespace Cochera.Windows
 
             List<TipoDeVehiculo> tipos = servicioTipos.ObtenerTiposDeVehiculo();
 
-            tipos = tipos.FindAll(t => estacionamiento.PuedeEstacionarVehiculo(t));
+            tipos = tipos.FindAll(t => generadorIngresos.PuedeEstacionarVehiculo(t));
 
             CargadorDeDatos.SetearComboBox<TipoDeVehiculo>(cmboxTipoVehiculo, tipos);
 
-            txtEstacionamiento.Text = estacionamiento.Ubicacion;
+            txtEstacionamiento.Text = generadorIngresos.ObtenerUbicacion();
 
             txtIngreso.Text = DateTime.Now.ToString();
 
@@ -184,16 +266,27 @@ namespace Cochera.Windows
 
         private void SetearModelos()
         {
-            cmboxModelo.Items.Clear();
+            try
+            {
+                cmboxModelo.Items.Clear();
 
-            List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
+                List<TipoDeVehiculo> tipos = (List<TipoDeVehiculo>)cmboxTipoVehiculo.Tag;
 
-            TipoDeVehiculo tipo = tipos.Find(t => t.Tipo == cmboxTipoVehiculo.SelectedItem.ToString());
+                TipoDeVehiculo tipo = tipos.Find(t => t.Tipo == cmboxTipoVehiculo.SelectedItem.ToString());
 
+                List<Modelo> modelos = servicioModelos.ObtenerModelos(tipo);
 
-            List<Modelo> modelos = servicioModelos.ObtenerModelos(tipo);
+                CargadorDeDatos.SetearComboBox<Modelo>(cmboxModelo, modelos);
+            }
+            catch (Exception)
+            {
+                Mensajero.MensajeError("No hay modelos para ese tipo de vehiculo.");
 
-            CargadorDeDatos.SetearComboBox<Modelo>(cmboxModelo, modelos);
+                cmboxModelo.Items.Clear();
+                cmboxModelo.SelectedItem = String.Empty;
+
+                txtMarca.Clear();
+            }
         }
 
         private void SetearMarca() 
@@ -226,9 +319,45 @@ namespace Cochera.Windows
         #endregion
 
         //--VALIDACION--//
+
+        private bool ValidarDatos()
+        {
+            bool patenteValida = ValidarPatente();
+
+            bool marcaValida = true;
+
+            if (checkAbonar.Checked)
+            {
+                marcaValida = ValidarMarca();
+            }
+
+            return patenteValida && marcaValida;
+        }
+
         private bool ValidarPatente()
         {
-            return Validador.InputConTexto(txtPatente.Text);
+            bool valido = Validador.InputConTexto(txtPatente.Text);
+
+            mostradorErrores.Clear();
+
+            if (!valido)
+            {
+                mostradorErrores.SetError(txtPatente, "Debe ingresar una patente.");
+            }
+
+            return valido;
+        }
+
+        private bool ValidarMarca()
+        {
+            bool valido = Validador.InputConTexto(txtMarca.Text);
+
+            if (!valido)
+            {
+                Mensajero.MensajeError("No es posible generar un abonado sin un modelo y sin una marca.");
+            }
+
+            return valido;
         }
 
         //----PUBLICOS----//
@@ -243,13 +372,16 @@ namespace Cochera.Windows
         {
             if (checkAbonar.Checked)
             {
-                CalcularPrecio();
+                txtPrecio.Text = CalcularPrecio().ToString("C");
+                SetearModelos();
             }
+
         }
 
         private void cmboxTarifa_SelectedValueChanged(object sender, EventArgs e)
         {
-                CalcularPrecio();         
+            txtPrecio.Text = CalcularPrecio().ToString("C");
+            txtExpiracion.Text = CalcularFechaExpiracion().ToString();
         }
 
         private void cmboxModelo_SelectedValueChanged(object sender, EventArgs e)
@@ -287,15 +419,19 @@ namespace Cochera.Windows
         #region
         private void btnEstacionar_Click(object sender, EventArgs e)
         {
-            if (checkAbonar.Checked && ValidarPatente())
-            {
-                EstacionarVehiculoAbonado();
-            }
-            else if(ValidarPatente())
+
+            if (ValidarDatos())
             {
                 if (Validador.ValidarIngreso(txtPatente.Text))
                 {
-                    EstacionarVehiculo();
+                    if (checkAbonar.Checked)
+                    {
+                        EstacionarVehiculoAbonado();
+                    }
+                    else
+                    {
+                        EstacionarVehiculo();
+                    }
                 }
                 else
                 {
@@ -306,6 +442,23 @@ namespace Cochera.Windows
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (ValidarDatos())
+            {
+                if (Validador.ValidarIngreso(txtPatente.Text))
+                {
+                    {
+                        EditarVehiculo();
+                    }
+                }
+                else
+                {
+                    Mensajero.MensajeError("Esa patente se ya se encuentra en la cochera.");
+                }
+            }
         }
 
         #endregion
@@ -328,7 +481,9 @@ namespace Cochera.Windows
 
         private void frmIngresosEdicion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            uCEstacionamiento.ActivarBotones();
+            generadorIngresos.ActivarBotones();
         }
+
+
     }
 }

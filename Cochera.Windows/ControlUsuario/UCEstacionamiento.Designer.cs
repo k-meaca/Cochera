@@ -37,10 +37,13 @@
             this.lblUbicacion = new System.Windows.Forms.Label();
             this.pnlImagen = new System.Windows.Forms.Panel();
             this.imgVehiculo = new System.Windows.Forms.PictureBox();
+            this.pnlPatente = new System.Windows.Forms.Panel();
+            this.lblPatente = new System.Windows.Forms.Label();
             this.pnlBoton.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVehiculo)).BeginInit();
+            this.pnlPatente.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBoton
@@ -122,7 +125,7 @@
             this.pnlImagen.Controls.Add(this.imgVehiculo);
             this.pnlImagen.Location = new System.Drawing.Point(33, 33);
             this.pnlImagen.Name = "pnlImagen";
-            this.pnlImagen.Size = new System.Drawing.Size(102, 150);
+            this.pnlImagen.Size = new System.Drawing.Size(102, 139);
             this.pnlImagen.TabIndex = 4;
             // 
             // imgVehiculo
@@ -130,16 +133,39 @@
             this.imgVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgVehiculo.Location = new System.Drawing.Point(0, 0);
             this.imgVehiculo.Name = "imgVehiculo";
-            this.imgVehiculo.Size = new System.Drawing.Size(102, 150);
+            this.imgVehiculo.Size = new System.Drawing.Size(102, 139);
             this.imgVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgVehiculo.TabIndex = 0;
             this.imgVehiculo.TabStop = false;
             this.imgVehiculo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgVehiculo_MouseDoubleClick);
             // 
+            // pnlPatente
+            // 
+            this.pnlPatente.BackColor = System.Drawing.Color.Black;
+            this.pnlPatente.Controls.Add(this.lblPatente);
+            this.pnlPatente.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlPatente.ForeColor = System.Drawing.Color.White;
+            this.pnlPatente.Location = new System.Drawing.Point(33, 178);
+            this.pnlPatente.Name = "pnlPatente";
+            this.pnlPatente.Size = new System.Drawing.Size(102, 24);
+            this.pnlPatente.TabIndex = 5;
+            this.pnlPatente.Visible = false;
+            // 
+            // lblPatente
+            // 
+            this.lblPatente.AutoSize = true;
+            this.lblPatente.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatente.Location = new System.Drawing.Point(22, 3);
+            this.lblPatente.Name = "lblPatente";
+            this.lblPatente.Size = new System.Drawing.Size(58, 18);
+            this.lblPatente.TabIndex = 0;
+            this.lblPatente.Text = "POO001";
+            // 
             // UCEstacionamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlPatente);
             this.Controls.Add(this.pnlImagen);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -152,6 +178,8 @@
             this.panel4.PerformLayout();
             this.pnlImagen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgVehiculo)).EndInit();
+            this.pnlPatente.ResumeLayout(false);
+            this.pnlPatente.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +195,7 @@
         private System.Windows.Forms.PictureBox imgVehiculo;
         private System.Windows.Forms.Button btnDesocupar;
         private System.Windows.Forms.Label lblUbicacion;
+        private System.Windows.Forms.Panel pnlPatente;
+        private System.Windows.Forms.Label lblPatente;
     }
 }

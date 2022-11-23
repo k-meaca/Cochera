@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.botonesMenu = new System.Windows.Forms.ToolStrip();
-            this.pnlSeparador = new System.Windows.Forms.Panel();
-            this.datosMarcas = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnEliminar = new System.Windows.Forms.ToolStripButton();
+            this.pnlSeparador = new System.Windows.Forms.Panel();
+            this.datosMarcas = new System.Windows.Forms.DataGridView();
             this.colMarcas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMenu.SuspendLayout();
             this.botonesMenu.SuspendLayout();
@@ -70,45 +70,6 @@
             this.botonesMenu.TabIndex = 0;
             this.botonesMenu.Text = "toolStrip1";
             // 
-            // pnlSeparador
-            // 
-            this.pnlSeparador.BackColor = System.Drawing.Color.Silver;
-            this.pnlSeparador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSeparador.Location = new System.Drawing.Point(0, 43);
-            this.pnlSeparador.Name = "pnlSeparador";
-            this.pnlSeparador.Size = new System.Drawing.Size(800, 3);
-            this.pnlSeparador.TabIndex = 1;
-            // 
-            // datosMarcas
-            // 
-            this.datosMarcas.AllowUserToAddRows = false;
-            this.datosMarcas.AllowUserToDeleteRows = false;
-            this.datosMarcas.AllowUserToResizeColumns = false;
-            this.datosMarcas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            this.datosMarcas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.datosMarcas.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datosMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.datosMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datosMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMarcas});
-            this.datosMarcas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datosMarcas.Location = new System.Drawing.Point(0, 46);
-            this.datosMarcas.MultiSelect = false;
-            this.datosMarcas.Name = "datosMarcas";
-            this.datosMarcas.RowHeadersVisible = false;
-            this.datosMarcas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.datosMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datosMarcas.Size = new System.Drawing.Size(800, 404);
-            this.datosMarcas.TabIndex = 2;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Cochera.Windows.Properties.Resources.AgregarAbonado;
@@ -134,13 +95,53 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 40);
             this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // pnlSeparador
+            // 
+            this.pnlSeparador.BackColor = System.Drawing.Color.Silver;
+            this.pnlSeparador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSeparador.Location = new System.Drawing.Point(0, 43);
+            this.pnlSeparador.Name = "pnlSeparador";
+            this.pnlSeparador.Size = new System.Drawing.Size(800, 3);
+            this.pnlSeparador.TabIndex = 1;
+            // 
+            // datosMarcas
+            // 
+            this.datosMarcas.AllowUserToAddRows = false;
+            this.datosMarcas.AllowUserToDeleteRows = false;
+            this.datosMarcas.AllowUserToResizeColumns = false;
+            this.datosMarcas.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.datosMarcas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datosMarcas.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datosMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datosMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datosMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMarcas});
+            this.datosMarcas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datosMarcas.Location = new System.Drawing.Point(0, 46);
+            this.datosMarcas.MultiSelect = false;
+            this.datosMarcas.Name = "datosMarcas";
+            this.datosMarcas.RowHeadersVisible = false;
+            this.datosMarcas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.datosMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datosMarcas.Size = new System.Drawing.Size(800, 404);
+            this.datosMarcas.TabIndex = 2;
             // 
             // colMarcas
             // 
             this.colMarcas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMarcas.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMarcas.DefaultCellStyle = dataGridViewCellStyle3;
             this.colMarcas.HeaderText = "Marcas";
             this.colMarcas.Name = "colMarcas";
             this.colMarcas.ReadOnly = true;

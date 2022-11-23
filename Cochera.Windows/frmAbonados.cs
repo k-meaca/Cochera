@@ -7,17 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cochera.Servicios;
+using Cochera.Entidades;
+using Cochera.Windows.Utilidades;
 
 namespace Cochera.Windows
 {
     public partial class frmAbonados : Form
     {
-        frmPrincipal formPrincipal;
+        //------------ATRIBUTOS------------//
+
+        private frmPrincipal formPrincipal;
+        private ServicioAbonados servicioAbonados;
         public frmAbonados(frmPrincipal formPrincipal)
         {
             InitializeComponent();
 
+            servicioAbonados = new ServicioAbonados();
+
             this.formPrincipal = formPrincipal;
+
+            CargarGrilla();
         }
+
+        //------------METODOS------------//
+
+        //----PRIVADOS----//
+
+        private void CargarGrilla()
+        {
+            List<Abonado> abonados = servicioAbonados.ObtenerAbonados();
+            CargadorDeDatos.CargarDataGrid(datosAbonados, abonados);
+        }
+
+        //----PUBLICOS----//
+
+        //------------EVENTOS------------//
     }
 }

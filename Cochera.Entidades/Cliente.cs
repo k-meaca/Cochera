@@ -12,8 +12,6 @@ namespace Cochera.Entidades
 
         public int ClienteId { get; private set; }
 
-        public int PersonaId { get; private set; }
-
         public string Nombre { get; private set; }
 
         public string Apellido { get; private set; }
@@ -24,13 +22,12 @@ namespace Cochera.Entidades
 
         //------------CONSTRUCTOR------------//
 
-        public Cliente(int clienteId, int personaId)
+        public Cliente(int personaId)
         {
-            ClienteId = clienteId;
-            PersonaId = personaId;
+            ClienteId = personaId;
         }
 
-        public Cliente(int clienteId, int personaId, string nombre, string apellido, Documento documento) : this(clienteId, personaId)
+        public Cliente(int personaId, string nombre, string apellido, Documento documento) : this(personaId)
         {
             Nombre = nombre;
             Apellido = apellido;

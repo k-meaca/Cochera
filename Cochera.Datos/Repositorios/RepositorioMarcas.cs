@@ -72,7 +72,25 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+        public void EliminarMarca(Marca marca)
+        {
+            try
+            {
+                string query = "exec SP_EliminarMarca @MarcaId;";
 
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@MarcaId", marca.MarcaId);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
         public List<Marca> ObtenerMarcas()
         {
             try

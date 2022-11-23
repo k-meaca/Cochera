@@ -24,14 +24,6 @@ namespace Cochera.Servicios
 
         //----PRIVADOS----//
 
-        private void SetearClientes(List<Cliente> clientes, List<Documento> documentos, RepositorioPersonas repositorioPersonas)
-        {
-            foreach(Cliente cliente in clientes)
-            {
-                repositorioPersonas.SetearCliente(cliente, documentos);
-            }
-        }
-
         //----PUBLICOS----//
 
         public Cliente AgregarCliente(string nombre, string apellido, Documento documento, string telefono)
@@ -68,6 +60,31 @@ namespace Cochera.Servicios
 
         }
 
+        public void EliminarCliente(Cliente cliente)
+        {
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                using(SqlConnection conexion = ConexionBD.AbrirConexion())
+                {
+                    transaccion = conexion.BeginTransaction();
+
+                    repositorioClientes = new RepositorioClientes(conexion, transaccion);
+                    repositorioPersonas = new RepositorioPersonas(conexion, transaccion);
+
+                    repositorioClientes.EliminarCliente(cliente);
+                    repositorioPersonas.EliminarPersona(cliente);
+
+                    transaccion.Commit();
+                }
+            }
+            catch (SqlException)
+            {
+                transaccion.Rollback();
+                throw;
+            }
+        }
         public List<Cliente> ObtenerClientes()
         {
             List<Cliente> clientes;
@@ -81,7 +98,7 @@ namespace Cochera.Servicios
                 clientes = repositorioClientes.ObtenerClientes();
                 List<Documento> documentos = repositorioTipoDocumentos.ObtenerDocumentos();
 
-                SetearClientes(clientes, documentos, repositorioPersonas);
+                repositorioPersonas.SetearClientes(clientes, documentos);
             }
 
             return clientes;

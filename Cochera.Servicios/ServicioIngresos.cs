@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Cochera.Datos;
 using Cochera.Datos.Repositorios;
 using Cochera.Entidades;
+using Cochera.Entidades.Interfaces;
 
 namespace Cochera.Servicios
 {
@@ -18,8 +19,55 @@ namespace Cochera.Servicios
         private RepositorioEstacionamientos repositorioEstacionamientos;
         private RepositorioTiposDeVehiculo repositorioTipos;
         private RepositorioSectores repositorioSectores;
+        private RepositorioAbonados repositorioAbonados;
+        private RepositorioTarifas repositorioTarifas;
+
+        private ServicioModelos servicioModelos;
+        private ServicioClientes servicioClientes;
+        private ServicioTarifas servicioTarifas;
 
         //------------METODOS------------//
+
+        //----PRIVADOS----//
+
+        //----PUBLICOS----//
+
+        public void ActualizarIngreso(Ingreso ingreso)
+        {
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioIngresos = new RepositorioIngresos(conexion);
+
+                repositorioIngresos.ActualizarIngreso(ingreso);
+            }
+        }
+
+        public void EliminarIngreso(Estacionamiento estacionamiento, Ingreso ingreso)
+        {
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                using(SqlConnection conexion = ConexionBD.AbrirConexion())
+                {
+                    transaccion = conexion.BeginTransaction();
+
+                    repositorioIngresos = new RepositorioIngresos(conexion, transaccion);
+                    repositorioEstacionamientos = new RepositorioEstacionamientos(conexion, transaccion);
+
+                    repositorioIngresos.EliminarIngreso(ingreso);
+                    repositorioEstacionamientos.DesocuparEstacionamiento(estacionamiento.EstacionamientoId);
+
+                    transaccion.Commit();
+                }
+            }
+            catch (SqlException)
+            {
+                transaccion.Rollback();
+                throw;
+            }
+        }
+
 
         public Ingreso GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime fechaIngreso, Estacionamiento estacionamiento)
         {
@@ -52,26 +100,38 @@ namespace Cochera.Servicios
             }
         }
 
-        public Ingreso ObtenerIngreso(Estacionamiento estacionamiento)
+        public IIngreso ObtenerIngreso(Estacionamiento estacionamiento)
         {
-            Ingreso ingreso;
+            IIngreso ingreso;
+
+            servicioClientes = new ServicioClientes();
+            servicioModelos = new ServicioModelos();
+            servicioTarifas = new ServicioTarifas();
+
+            List<Cliente> clientes = servicioClientes.ObtenerClientes();
+            List<Modelo> modelos = servicioModelos.ObtenerModelos();
+            List<Tarifa> tarifas = servicioTarifas.ObtenerTarifas();
+
 
             using (SqlConnection conexion = ConexionBD.AbrirConexion())
             {
                 repositorioIngresos = new RepositorioIngresos(conexion);
                 repositorioTipos = new RepositorioTiposDeVehiculo(conexion);
+                repositorioAbonados = new RepositorioAbonados(conexion);
 
                 List<TipoDeVehiculo> tipos = repositorioTipos.ObtenerTiposDeVehiculo();
 
                 ingreso = repositorioIngresos.ObtenerIngreso(estacionamiento, tipos);
+
+                ingreso = repositorioAbonados.IngresoEsAbonado(modelos, tarifas, (Ingreso)ingreso, clientes);
             }
 
             return ingreso;
         }
 
-        public List<Ingreso> ObtenerIngresos()
+        public List<IIngreso> ObtenerIngresos()
         {
-            List<Ingreso> ingresos;
+            List<IIngreso> ingresos;
 
             using (SqlConnection conexion = ConexionBD.AbrirConexion())
             {

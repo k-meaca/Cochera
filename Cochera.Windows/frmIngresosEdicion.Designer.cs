@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -65,13 +66,16 @@
             this.pnlDivisorTop = new System.Windows.Forms.Panel();
             this.pnlBotonEstacionar = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.checkAbonar = new System.Windows.Forms.CheckBox();
+            this.mostradorErrores = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosClientes)).BeginInit();
             this.pnlBotonCliente.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotonEstacionar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mostradorErrores)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -114,6 +118,7 @@
             // 
             // cmboxTipoVehiculo
             // 
+            this.cmboxTipoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxTipoVehiculo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxTipoVehiculo.FormattingEnabled = true;
             this.cmboxTipoVehiculo.Location = new System.Drawing.Point(24, 87);
@@ -267,6 +272,7 @@
             // 
             // cmboxTarifa
             // 
+            this.cmboxTarifa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxTarifa.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxTarifa.FormattingEnabled = true;
             this.cmboxTarifa.Location = new System.Drawing.Point(227, 208);
@@ -287,6 +293,7 @@
             // 
             // cmboxModelo
             // 
+            this.cmboxModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboxModelo.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxModelo.FormattingEnabled = true;
             this.cmboxModelo.Location = new System.Drawing.Point(227, 87);
@@ -407,6 +414,7 @@
             // pnlBotonEstacionar
             // 
             this.pnlBotonEstacionar.Controls.Add(this.btnCancelar);
+            this.pnlBotonEstacionar.Controls.Add(this.btnEditar);
             this.pnlBotonEstacionar.Controls.Add(this.btnEstacionar);
             this.pnlBotonEstacionar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotonEstacionar.Location = new System.Drawing.Point(6, 415);
@@ -429,6 +437,21 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(499, 3);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(97, 34);
+            this.btnEditar.TabIndex = 2;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // txtMarca
             // 
             this.txtMarca.Enabled = false;
@@ -450,6 +473,10 @@
             this.checkAbonar.Text = "Abonar";
             this.checkAbonar.UseVisualStyleBackColor = true;
             this.checkAbonar.CheckedChanged += new System.EventHandler(this.checkAbonar_CheckedChanged);
+            // 
+            // mostradorErrores
+            // 
+            this.mostradorErrores.ContainerControl = this;
             // 
             // frmIngresosEdicion
             // 
@@ -498,6 +525,7 @@
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotonEstacionar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mostradorErrores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,5 +569,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumDoc;
         private System.Windows.Forms.CheckBox checkAbonar;
+        private System.Windows.Forms.ErrorProvider mostradorErrores;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
