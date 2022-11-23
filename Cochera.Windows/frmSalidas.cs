@@ -37,6 +37,24 @@ namespace Cochera.Windows
         //------------METODOS------------//
 
         //----PRIVADOS----//
+        private void BuscarPorPatente(string patente)
+        {
+            List<Salida> salidas = servicioSalidas.ObtenerSalidas();
+
+            datosSalidas.Rows.Clear();
+
+            if (!Validador.InputConTexto(patente))
+            {
+                CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
+            }
+            else
+            {
+                salidas = salidas.FindAll(s => s.ObtenerPatente().Contains(patente));
+                CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
+            }
+
+            MostrarRecaudacion(salidas);
+        }
 
         private void CargarGrilla()
         {
@@ -44,7 +62,7 @@ namespace Cochera.Windows
             CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
             MostrarRecaudacion(salidas);
         }
-        
+
         public void MostrarRecaudacion(List<Salida> salidas)
         {
             lblMontoTotal.Text = salidas.Sum(s => s.MontoTotal).ToString("C");
@@ -54,16 +72,29 @@ namespace Cochera.Windows
         {
             List<Salida> salidas = servicioSalidas.ObtenerSalidas();
 
-            CorrectorDeEstados.SetearFecha(fechaInicio, salidas[0].FechaSalida);
-            CorrectorDeEstados.SetearFecha(fechaFinal, salidas[0].FechaSalida);
+
+            DateTime inicio = salidas.First().FechaMovimiento();
+
+            fechaInicio.MinDate = inicio;
+            fechaFinal.MinDate = inicio;
+
+            fechaInicio.MaxDate = DateTime.Now;
+            fechaFinal.MaxDate = DateTime.Now;
+
+            fechaInicio.Value = fechaInicio.MinDate;
+            fechaFinal.Value = fechaFinal.MaxDate;
         }
 
         //------------EVENTOS------------//
+
+        //-FILTRAR FECHA-//
+
+        #region
         private void btnFiltrarPorFecha_Click(object sender, EventArgs e)
         {
             List<Salida> salidas = servicioSalidas.ObtenerSalidas();
 
-            Func<Salida, bool> enFecha = s => 
+            Func<Salida, bool> enFecha = s =>
                             Convert.ToDateTime(s.FechaSalida.ToShortDateString()) >= Convert.ToDateTime(fechaInicio.Value.ToShortDateString())
                          && Convert.ToDateTime(s.FechaSalida.ToShortDateString()) <= Convert.ToDateTime(fechaFinal.Value.ToShortDateString());
 
@@ -75,5 +106,50 @@ namespace Cochera.Windows
 
             MostrarRecaudacion(salidas);
         }
+
+        #endregion
+
+        //-BUSCAR PATENTE-//
+
+        #region
+        private void txtBuscarPatente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Validador.NumerosYLetras(e.KeyChar))
+            {
+                e.Handled = false;
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBuscarPatente_TextChanged(object sender, EventArgs e)
+        {
+            BuscarPorPatente(txtBuscarPatente.Text);
+        }
+
+        #endregion
+
+        //-SELECTOR FECHA-/
+
+        #region
+        private void fechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (fechaInicio.Value > fechaFinal.Value)
+            {
+                fechaInicio.Value = fechaFinal.Value;
+            }
+        }
+
+        private void fechaFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (fechaFinal.Value < fechaInicio.Value)
+            {
+                fechaFinal.Value = fechaInicio.Value;
+            }
+        }
+        #endregion
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Cochera.Entidades;
+using Cochera.Entidades.Interfaces;
 
 namespace Cochera.Datos.Repositorios
 {
@@ -46,15 +47,53 @@ namespace Cochera.Datos.Repositorios
 
         }
 
-        private Ingreso SinIngreso(TipoDeVehiculo tipo, Estacionamiento estacionamiento)
-        {
-            DateTime antesDeAyer = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 2);
+        //----PUBLICOS----//
 
-            return new Ingreso(-1, "", tipo, antesDeAyer, estacionamiento);
+        public void ActualizarIngreso(Ingreso ingreso)
+        {
+            try
+            {
+                string query = "exec SP_ActualizarIngreso @IngresoId, @Patente, @TipoVehiculoId, @FechaIngreso, @EstacionamientoId;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@IngresoId",ingreso.ObtenerIngresoId());
+                    comando.Parameters.AddWithValue("@Patente",ingreso.ObtenerPatente());
+                    comando.Parameters.AddWithValue("@TipoVehiculoId", ingreso.ObtenerTipoVehiculoId());
+                    comando.Parameters.AddWithValue("@FechaIngreso", ingreso.ObtenerFechaIngreso());
+                    comando.Parameters.AddWithValue("@EstacionamientoId",ingreso.ObtenerEstacionamientoId());
+
+                    comando.ExecuteNonQuery();
+                }
+
+            }
+            catch(SqlException)
+            {
+                throw;
+            }
         }
 
+        public void EliminarIngreso(Ingreso ingreso)
+        {
+            try
+            {
+                string query = "exec SP_EliminarIngreso @IngresoId;";
 
-        //----PUBLICOS----//
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@IngresoId", ingreso.ObtenerIngresoId());
+
+                    comando.ExecuteNonQuery();
+                }
+
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
         public Ingreso GenerarIngreso(string patente, TipoDeVehiculo tipo, DateTime fechaIngreso, Estacionamiento estacionamiento)
         {
             try
@@ -118,11 +157,11 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
-        public List<Ingreso> ObtenerIngresos(List<TipoDeVehiculo> tipos, List<Estacionamiento> estacionamientos)
+        public List<IIngreso> ObtenerIngresos(List<TipoDeVehiculo> tipos, List<Estacionamiento> estacionamientos)
         {
             try
             {
-                List<Ingreso> ingresos = new List<Ingreso>();
+                List<IIngreso> ingresos = new List<IIngreso>();
 
                 string query = "SELECT * FROM Ingresos;";
 
@@ -150,16 +189,9 @@ namespace Cochera.Datos.Repositorios
         public Ingreso ObtenerUltimoIngreso(string patente, List<TipoDeVehiculo> tipos, List<Estacionamiento> estacionamientos)
         {
 
-            Ingreso ultimoIngreso;
-
-            ultimoIngreso = ObtenerIngresos(tipos, estacionamientos).FindLast(i => i.Patente == patente);
-
-            //if(ultimoIngreso is null)
-            //{
-            //    ultimoIngreso = SinIngreso(tipos[0], estacionamientos[0]);
-            //}
+            return (Ingreso)ObtenerIngresos(tipos, estacionamientos).FindLast(i => i.ObtenerPatente() == patente);
                
-            return ultimoIngreso;
+           
         }
 
     }

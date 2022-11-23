@@ -132,13 +132,35 @@ namespace Cochera.Windows.Clases
 
         //----PUBLICOS----//
 
+        public DateTime CalcularFechaExpiracion(Tarifa tarifa)
+        {
+            DateTime fechaExpiracion;
+
+            switch (tarifa.Tiempo.ToUpper())
+            {
+                case "SEMANA":
+                    fechaExpiracion = DateTime.Now.AddDays(7);
+                    break;
+                case "QUINCENA":
+                    fechaExpiracion = DateTime.Now.AddDays(15);
+                    break;
+                case "MES":
+                    fechaExpiracion = DateTime.Now.AddMonths(1);
+                    break;
+                default:
+                    fechaExpiracion = new DateTime();
+                    break;
+            }
+
+            return fechaExpiracion;
+        }
         public  List<Tarifa> CalcularTarifa(Ingreso ingreso)
         {
-            TimeSpan tiempoEstacionado = DateTime.Now - ingreso.FechaIngreso;
+            TimeSpan tiempoEstacionado = DateTime.Now - ingreso.ObtenerFechaIngreso();
 
             int dias = tiempoEstacionado.Days;
 
-            int horaIngreso = ingreso.FechaIngreso.Hour;
+            int horaIngreso = ingreso.ObtenerFechaIngreso().Hour;
             double horasEstacionado = tiempoEstacionado.TotalHours;
 
             int horaSalida = DateTime.Now.Hour;

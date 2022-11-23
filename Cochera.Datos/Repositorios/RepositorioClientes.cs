@@ -39,7 +39,6 @@ namespace Cochera.Datos.Repositorios
             try
             {
                 Cliente cliente;
-                int clienteId;
 
                 string query = "exec SP_AgregarCliente @PersonaId;";
 
@@ -48,10 +47,10 @@ namespace Cochera.Datos.Repositorios
                     comando.CommandType = System.Data.CommandType.Text;
                     comando.Parameters.AddWithValue("@PersonaId", personaId);
 
-                    clienteId = Convert.ToInt32(comando.ExecuteScalar());
+                    comando.ExecuteNonQuery();
                 }
 
-                cliente = new Cliente(clienteId, personaId, nombre, apellido, doc);
+                cliente = new Cliente(personaId, nombre, apellido, doc);
                 cliente.AsignarTelefono(telefono);
 
                 return cliente;
@@ -61,6 +60,28 @@ namespace Cochera.Datos.Repositorios
             {
                 throw;
             }
+        }
+
+        public void EliminarCliente(Cliente cliente)
+        {
+            try
+            {
+                string query = "exec SP_EliminarCliente @ClienteId;";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@ClienteId", cliente.ClienteId);
+
+                    comando.ExecuteNonQuery();
+                }
+
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
         }
 
         public List<Cliente> ObtenerClientes()
@@ -79,10 +100,9 @@ namespace Cochera.Datos.Repositorios
                     {
                         while (lector.Read())
                         {
-                            int clienteId = lector.GetInt32(0);
-                            int personaId = lector.GetInt32(1);
+                            int personaId = lector.GetInt32(0);
 
-                            Cliente cliente = new Cliente(clienteId,personaId);
+                            Cliente cliente = new Cliente(personaId);
 
                             clientes.Add(cliente);
                         }

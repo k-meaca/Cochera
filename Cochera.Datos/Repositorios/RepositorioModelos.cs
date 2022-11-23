@@ -104,6 +104,26 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+        public void EliminarModelo(Modelo modelo)
+        {
+            try
+            {
+                string query = "exec SP_EliminarModelo @ModeloId";
+
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@ModeloId", modelo.ModeloId);
+
+                    comando.ExecuteNonQuery();
+                }
+
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
         public List<Modelo> ObtenerModelos(List<Marca> marcas, List<TipoDeVehiculo> tipos)
         {
             try

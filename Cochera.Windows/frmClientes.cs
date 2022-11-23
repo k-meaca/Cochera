@@ -19,7 +19,7 @@ namespace Cochera.Windows
         //------------ATRIBUTOS------------//
 
         frmPrincipal formPrincipal;
-        ServicioClientes servicio;
+        ServicioClientes servicioClientes;
 
 
         //------------CONSTRUCTOR------------//
@@ -29,7 +29,7 @@ namespace Cochera.Windows
 
             this.formPrincipal = formPrincipal;
 
-            servicio = new ServicioClientes();
+            servicioClientes = new ServicioClientes();
 
             datosClientes.Rows.Clear();
         }
@@ -40,9 +40,21 @@ namespace Cochera.Windows
 
         private void CargarGrilla()
         {
-            List<Cliente> clientes = servicio.ObtenerClientes();
+            List<Cliente> clientes = servicioClientes.ObtenerClientes();
 
             CargadorDeDatos.CargarDataGrid(datosClientes, clientes);
+        }
+
+        private string MensajeEliminacionError(Cliente cliente)
+        {
+            StringBuilder mensaje = new StringBuilder();
+
+            mensaje.AppendLine("No se ha podido eliminar al cliente:");
+            mensaje.AppendLine($"Nombre: {cliente.NombreCompleto()}");
+            mensaje.AppendLine($"Nro. doc: {cliente.ObtenerNumeroDoc()}");
+            mensaje.AppendLine("Primero debe eliminar su cuenta asociada y sus vehiculos asociados.");
+
+            return mensaje.ToString();
         }
 
         //----PUBLICOS----//
@@ -110,6 +122,28 @@ namespace Cochera.Windows
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+
+            DialogResult opcion = Mensajero.MensajeAdvertencia("Advertencia.. esta por eliminar un cliente", "Cuidad.. operacion con riesgo.");
+
+            if(opcion == DialogResult.OK)
+            {
+                if (datosClientes.SelectedRows.Count > 0)
+                {
+                    Cliente cliente = (Cliente)datosClientes.SelectedRows[0].Tag;
+                    try
+                    {
+                        servicioClientes.EliminarCliente(cliente);
+
+                        datosClientes.Rows.Remove(datosClientes.SelectedRows[0]);
+
+                        Mensajero.MensajeExitoso("La eliminacion ha sido exitosa.");
+                    }
+                    catch (Exception)
+                    {
+                        Mensajero.MensajeError(MensajeEliminacionError(cliente));
+                    }
+                }
+            }
 
         }
     }

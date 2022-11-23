@@ -16,7 +16,7 @@ namespace Cochera.Windows.Utilidades
 
         public static void MensajeExitoso(string mensaje)
         {
-            MessageBox.Show(mensaje, "Operacion existosa.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(mensaje, "Operacion existosa.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static DialogResult MensajeAdvertencia(string mensaje, string advertencia)

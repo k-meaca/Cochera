@@ -3,48 +3,75 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cochera.Entidades.Interfaces;
+
 
 namespace Cochera.Entidades
 {
-    public class Ingreso
+    public class Ingreso : IIngreso
     {
         //------------ATRIBUTOS Y PROPIEDADES------------//
 
-        public int IngresoId { get; private set; }
+        private int ingresoId;
 
-        public string Patente { get; private set; }
+        private string patente;
 
+        protected TipoDeVehiculo tipo;
 
-        private TipoDeVehiculo tipo;
+        public DateTime fechaIngreso;
 
-        public DateTime FechaIngreso { get; private set; }
-
-        private Estacionamiento estacionamiento;
+        protected Estacionamiento estacionamiento;
 
         //------------CONSTRUCTOR------------//
 
         public Ingreso(int ingresoId, string patente, TipoDeVehiculo tipo, DateTime fechaIngreso, Estacionamiento estacionamiento)
         {
-            IngresoId = ingresoId;
-            Patente = patente;
+            this.ingresoId = ingresoId;
+            this.patente = patente;
             this.tipo = tipo;
-            FechaIngreso = fechaIngreso;
+            this.fechaIngreso = fechaIngreso;
             this.estacionamiento = estacionamiento;
         }
+
 
         //------------METODOS------------//
 
         //----PUBLICOS----//
+
+        public void ActualizarIngreso(TipoDeVehiculo tipo, string patente, DateTime fechaIngreso)
+        {
+            this.tipo = tipo;
+            this.patente = patente;
+            this.fechaIngreso = fechaIngreso;
+        }
+
+        public bool esAbonado()
+        {
+            return false;
+        }
         public int ObtenerEstacionamientoId()
         {
             return estacionamiento.EstacionamientoId;
         }
 
+        public DateTime ObtenerFechaIngreso()
+        {
+            return fechaIngreso;
+        }
         public string ObtenerImagenVehiculo()
         {
             return tipo.ImagenAsociada;
         }
 
+        public int ObtenerIngresoId()
+        {
+            return ingresoId;
+        }
+
+        public string ObtenerPatente()
+        {
+            return patente;
+        }
         public string ObtenerSector()
         {
             return estacionamiento.ObtenerSector();
@@ -63,11 +90,6 @@ namespace Cochera.Entidades
         public string ObtenerUbicacion()
         {
             return estacionamiento.Ubicacion;
-        }
-
-        public TipoDeVehiculo ObtenerVehiculo()
-        {
-            return tipo;
         }
     }
 }

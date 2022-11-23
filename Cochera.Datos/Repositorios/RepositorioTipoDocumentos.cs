@@ -74,6 +74,25 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+        public void EliminarDocumento(Documento doc)
+        {
+            try
+            {
+                string query = "exec SP_EliminarDocumento @TipoDeDocumentoId;";
+            
+                using(SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.CommandType = System.Data.CommandType.Text;
+                    comando.Parameters.AddWithValue("@TipoDeDocumentoId", doc.TipoDocId);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
         public List<Documento> ObtenerDocumentos()
         {
             List<Documento> documentos = new List<Documento>();

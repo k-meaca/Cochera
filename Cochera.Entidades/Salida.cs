@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cochera.Entidades.Interfaces;
 
 namespace Cochera.Entidades
 {
-    public class Salida
+    public class Salida : IContable
     {
         //------------ATRIBUTOS Y PROPIEDADES------------//
 
@@ -34,12 +35,12 @@ namespace Cochera.Entidades
 
         public DateTime ObtenerFechaIngreso()
         {
-            return ingreso.FechaIngreso;
+            return ingreso.ObtenerFechaIngreso();
         }
 
         public string ObtenerPatente()
         {
-            return ingreso.Patente;
+            return ingreso.ObtenerPatente();
         
         }
 
@@ -57,6 +58,34 @@ namespace Cochera.Entidades
         {
             return ingreso.ObtenerUbicacion();
         }
+        public string MedioDePago()
+        {
+            return "EFECTIVO";
+        }
 
+        public string Descripcion()
+        {
+            return "SALIDA COMUN";
+        }
+
+        public string Vehiculo()
+        {
+            return ObtenerTipoVehiculo();
+        }
+
+        public string Patente()
+        {
+            return ObtenerPatente();
+        }
+
+        public DateTime FechaMovimiento()
+        {
+            return FechaSalida;
+        }
+
+        public decimal Importe()
+        {
+            return MontoTotal;
+        }
     }
 }

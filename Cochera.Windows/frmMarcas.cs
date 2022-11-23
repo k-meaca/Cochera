@@ -100,5 +100,31 @@ namespace Cochera.Windows
                 frmEditarMarca.Show();
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion = Mensajero.MensajeAdvertencia("Advertencia.. esta por eliminar un dato.", "Cuidado.. opracion con riesgo");
+
+            if(opcion == DialogResult.OK)
+            {
+                if(datosMarcas.SelectedRows.Count > 0)
+                {
+                    Marca marca = (Marca)datosMarcas.SelectedRows[0].Tag;
+
+                    try
+                    {
+                        servicioMarcas.EliminarMarca(marca);
+
+                        datosMarcas.Rows.Remove(datosMarcas.SelectedRows[0]);
+
+                        Mensajero.MensajeExitoso("Se ha eliminado con exito.");
+                    }
+                    catch (Exception)
+                    {
+                        Mensajero.MensajeError("No se ha podido eliminar la marca ya que tiene modelos asociados.");
+                    }
+                }
+            }
+        }
     }
 }

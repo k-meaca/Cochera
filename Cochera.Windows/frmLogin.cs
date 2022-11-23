@@ -128,36 +128,32 @@ namespace Cochera.Windows
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //if (! ValidarDatos())
-            //{
-            //    return;
-            //}
+            if (!ValidarDatos())
+            {
+                return;
+            }
 
-            //try
-            //{
-            //    if (servicio.ValidarUsuario(txtUsuario.Text, txtPassword.Text))
-            //    {
-            //        Usuario usuario = servicio.CrearUsuario(txtUsuario.Text, txtPassword.Text);
-            //        IniciarSesion(usuario);
-            //    }
-            //}
-            //catch (UsuarioInvalidoExcepcion)
-            //{
-            //    LabelConError(lblErrorUsuario, "Usuario o contraseña mal ingresados.");
-            //    LabelConError(lblErrorPassword, "Usuario o contraseña mal ingresados.");
-            //}
-            //catch (SqlException)
-            //{
-            //    Mensajero.MensajeError("No se ha podido conectar con el servidor.");
-            //}
-            //catch (Exception)
-            //{
-            //    Mensajero.MensajeError("Ha ocurrido algo inesperado. Comuniquese con el tecnico.");
-            //}
-
-            //TODELETE
-            Usuario usuario = servicio.CrearUsuario("admin", "admin");
-            IniciarSesion(usuario);
+            try
+            {
+                if (servicio.ValidarUsuario(txtUsuario.Text, txtPassword.Text))
+                {
+                    Usuario usuario = servicio.CrearUsuario(txtUsuario.Text, txtPassword.Text);
+                    IniciarSesion(usuario);
+                }
+            }
+            catch (UsuarioInvalidoExcepcion)
+            {
+                LabelConError(lblErrorUsuario, "Usuario o contraseña mal ingresados.");
+                LabelConError(lblErrorPassword, "Usuario o contraseña mal ingresados.");
+            }
+            catch (SqlException)
+            {
+                Mensajero.MensajeError("No se ha podido conectar con el servidor.");
+            }
+            catch (Exception)
+            {
+                Mensajero.MensajeError("Ha ocurrido algo inesperado. Comuniquese con el tecnico.");
+            }
         }
         
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)

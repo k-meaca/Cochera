@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Entidades;
 using Cochera.Windows.Utilidades;
+using Cochera.Windows.Interfaces;
 using Cochera.Windows.Clases;
 using Cochera.Servicios;
+using Cochera.Entidades.Interfaces;
 
 
 namespace Cochera.Windows
@@ -19,23 +21,23 @@ namespace Cochera.Windows
     {
         //------------ATRIBUTOS------------//
 
-        private Ingreso ingreso;
-        private UCEstacionamiento uCEstacionamiento;
+        private IIngreso ingreso;
+        private IGeneradorSalidas generadorSalidas;
         private ServicioTarifasPorVehiculo servicioTarifasPorVehiculo;
         private ServicioSalidas servicioSalidas;
         private List<Tarifa> tarifasIngreso;
         private decimal montoTotal;
 
         //------------CONSTRUCTOR------------//
-        public frmDarSalida(Ingreso ingreso, UCEstacionamiento uCEstacionamiento)
+        public frmDarSalida(IIngreso ingreso, IGeneradorSalidas generadorSalidas)
         {
             InitializeComponent();
             this.ingreso = ingreso;
-            this.uCEstacionamiento = uCEstacionamiento;
+            this.generadorSalidas = generadorSalidas;
             servicioTarifasPorVehiculo = new ServicioTarifasPorVehiculo();
             servicioSalidas = new ServicioSalidas();
 
-            CargarDatos();
+            SetearComponentes();
         }
 
         //------------METODOS------------//
@@ -45,7 +47,7 @@ namespace Cochera.Windows
         private void CalcularTarifa()
         {
             Parkimetro parkimetro = new Parkimetro();
-            List<Tarifa> tarifasIngreso = parkimetro.CalcularTarifa(ingreso);
+            List<Tarifa> tarifasIngreso = parkimetro.CalcularTarifa((Ingreso)ingreso);
 
             montoTotal = servicioTarifasPorVehiculo.ObtenerMontoParaTarifas(ingreso.ObtenerTipoVehiculoId(), tarifasIngreso);
 
@@ -56,11 +58,21 @@ namespace Cochera.Windows
         private void CargarDatos()
         {
             txtVehiculo.Text = ingreso.ObtenerTipoVehiculo();
-            txtPatente.Text = ingreso.Patente;
+            txtPatente.Text = ingreso.ObtenerPatente();
             txtUbicacion.Text = ingreso.ObtenerUbicacion();
-            txtIngreso.Text = ingreso.FechaIngreso.ToString();
+            txtIngreso.Text = ingreso.ObtenerFechaIngreso().ToString();
 
-            CalcularTarifa();
+        }
+
+        private void CargarDatosAbonado()
+        {
+            Abonado abonado = (Abonado)ingreso;
+
+            txtModelo.Text = abonado.ObtenerModelo();
+            txtMarca.Text = abonado.ObtenerMarca();
+            txtCliente.Text = abonado.NombreCompletoCliente();
+            txtExpiracion.Text = abonado.FechaExpiracion.ToShortDateString();
+            txtTarifa.Text = abonado.ObtenerImporte().ToString("C");
         }
 
         private string DatosVehiculo()
@@ -68,17 +80,42 @@ namespace Cochera.Windows
             StringBuilder datos = new StringBuilder();
             
             datos.AppendLine($"Vehiculo: {ingreso.ObtenerTipoVehiculo()}");
-            datos.AppendLine($"Patente: {ingreso.Patente}");
+            datos.AppendLine($"Patente: {ingreso.ObtenerPatente()}");
             datos.AppendLine($"Estacionamiento: {ingreso.ObtenerUbicacion()}");
             datos.Append($"Sector: {ingreso.ObtenerSector()}");
 
             return datos.ToString();
         }
 
+        private void SetearComponentes()
+        {
+            if (!ingreso.esAbonado())
+            {
+                SetearTamanio(253, 361);
+                CargarDatos();
+                CalcularTarifa();
+                CorrectorDeEstados.AnularBoton(btnDarDeBaja);
+            }
+            else
+            {
+                SetearTamanio(516, 361);
+                CargarDatos();
+                CargarDatosAbonado();
+                CorrectorDeEstados.AnularBoton(btnDarSalida);
+            }
+        }
+
+        private void SetearTamanio(int ancho, int alto)
+        {
+            Size tamanio = new Size(ancho, alto);
+
+            this.Size = tamanio;
+        }
+
         //------------EVENTOS------------//
         private void frmDarSalida_FormClosing(object sender, FormClosingEventArgs e)
         {
-            uCEstacionamiento.ActivarBotones();
+            generadorSalidas.ActivarBotones();
         }
 
         //----IMAGEN SALIR----//
@@ -111,15 +148,15 @@ namespace Cochera.Windows
                 try
                 {
                     Parkimetro parkimetro = new Parkimetro();
-                    tarifasIngreso = parkimetro.CalcularTarifa(ingreso);
+                    tarifasIngreso = parkimetro.CalcularTarifa((Ingreso)ingreso);
 
-                    servicioSalidas.DarSalida(ingreso, DateTime.Now, montoTotal, tarifasIngreso);
+                    servicioSalidas.DarSalida((Ingreso)ingreso, DateTime.Now, montoTotal, tarifasIngreso);
 
                     Mensajero.MensajeExitoso($"Se ha liberado el estacionamiento: \n" +
                         $"Ubicacion: {ingreso.ObtenerUbicacion()}\n" +
                         $"Sector: {ingreso.ObtenerSector()}");
                     
-                    uCEstacionamiento.DesocuparEstacionamiento();
+                    generadorSalidas.DesocuparEstacionamiento();
 
                     Close();
                 }

@@ -99,5 +99,31 @@ namespace Cochera.Windows
                 frmEditarModelo.Show();
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion = Mensajero.MensajeAdvertencia("Advertencia.. esta por eliminar un dato", "Cuidado.. operacion con riesgo.");
+
+            if (opcion == DialogResult.OK)
+            {
+                if(datosModelos.SelectedRows.Count > 0)
+                {
+                    Modelo modelo = (Modelo)datosModelos.SelectedRows[0].Tag;
+
+                    try
+                    {
+                        servicioModelos.EliminarModelo(modelo);
+
+                        datosModelos.Rows.Remove(datosModelos.SelectedRows[0]);
+
+                        Mensajero.MensajeExitoso("Eliminacion exitosa.");
+                    }
+                    catch (Exception)
+                    {
+                        Mensajero.MensajeError("No se ha podido eliminar el modelo ya que hay vehiculos abonados asociados.");
+                    }
+                }
+            }
+        }
     }
 }

@@ -83,6 +83,16 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap actualizar {
+            get {
+                object obj = ResourceManager.GetObject("actualizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AgregarAbonado {
             get {
                 object obj = ResourceManager.GetObject("AgregarAbonado", resourceCulture);
@@ -143,6 +153,16 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buscarVehiculo {
+            get {
+                object obj = ResourceManager.GetObject("buscarVehiculo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Camioneta4x4 {
             get {
                 object obj = ResourceManager.GetObject("Camioneta4x4", resourceCulture);
@@ -193,6 +213,26 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ContabilidadMenu {
+            get {
+                object obj = ResourceManager.GetObject("ContabilidadMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ContabilidadMenuGIF {
+            get {
+                object obj = ResourceManager.GetObject("ContabilidadMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CuentasCtesMenu {
             get {
                 object obj = ResourceManager.GetObject("CuentasCtesMenu", resourceCulture);
@@ -206,6 +246,26 @@ namespace Cochera.Windows.Properties {
         internal static System.Drawing.Bitmap CuentasCtesMenuGIF {
             get {
                 object obj = ResourceManager.GetObject("CuentasCtesMenuGIF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap descripcion {
+            get {
+                object obj = ResourceManager.GetObject("descripcion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap desocupado {
+            get {
+                object obj = ResourceManager.GetObject("desocupado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +463,16 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap metodoPago {
+            get {
+                object obj = ResourceManager.GetObject("metodoPago", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimizar {
             get {
                 object obj = ResourceManager.GetObject("minimizar", resourceCulture);
@@ -436,6 +506,16 @@ namespace Cochera.Windows.Properties {
         internal static System.Drawing.Bitmap moto {
             get {
                 object obj = ResourceManager.GetObject("moto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ordenar {
+            get {
+                object obj = ResourceManager.GetObject("ordenar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -41,6 +41,15 @@ namespace Cochera.Servicios
             return modelo;
         }
 
+        public void EliminarModelo(Modelo modelo)
+        {
+            using(SqlConnection conexion = ConexionBD.AbrirConexion())
+            {
+                repositorioModelos = new RepositorioModelos(conexion);
+
+                repositorioModelos.EliminarModelo(modelo);
+            }
+        }
         public List<Modelo> ObtenerModelos()
         {
             List<Modelo> modelos;

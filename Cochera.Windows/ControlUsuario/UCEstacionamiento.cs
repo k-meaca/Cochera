@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Entidades;
-using Cochera.Entidades.Enumeraciones;
 using Cochera.Windows.Interfaces;
 using Cochera.Windows.Utilidades;
 using Cochera.Servicios;
+using Cochera.Entidades.Interfaces;
 
 
 namespace Cochera.Windows
 {
-    public partial class UCEstacionamiento : UserControl
+    public partial class UCEstacionamiento : UserControl, IGeneradorIngresos, IGeneradorSalidas
     {
         //------------ATRIBUTOS------------//
 
         private ISectorEstacionamiento sector;
         private Estacionamiento estacionamiento;
-        private Ingreso ingreso;
+        private IIngreso ingreso;
 
         private ServicioIngresos servicioIngresos;
 
@@ -56,7 +56,7 @@ namespace Cochera.Windows
         {
             if (estacionamiento.Ocupado)
             {
-                Ingreso ingreso = servicioIngresos.ObtenerIngreso(estacionamiento);
+                IIngreso ingreso = servicioIngresos.ObtenerIngreso(estacionamiento);
                 EstacionamientoOcupado(ingreso);
             }
             else
@@ -71,6 +71,13 @@ namespace Cochera.Windows
         private void SetearImagen()
         {
             imgVehiculo.Image = Image.FromFile(@ingreso.ObtenerImagenVehiculo());
+            SetearPatente();
+        }
+
+        private void SetearPatente()
+        {
+            pnlPatente.Visible = true;
+            lblPatente.Text = ingreso.ObtenerPatente();
         }
 
         //----PUBLICOS----//
@@ -85,6 +92,11 @@ namespace Cochera.Windows
             sector.ActualizarLugares(vehiculo);
         }
 
+        public void AnularBotones()
+        {
+            sector.AnularBotones();
+        }
+
         public void DesocuparEstacionamiento()
         {
             estacionamiento.SacarVehiculo();
@@ -97,16 +109,31 @@ namespace Cochera.Windows
             imgVehiculo.Image = null;
         }
 
-        public void EstacionamientoOcupado(Ingreso ingreso)
+        public void EstacionamientoOcupado(IIngreso ingreso)
         {
             this.ingreso = ingreso;
-            
+
             CorrectorDeEstados.ActivarBoton(btnDesocupar);
             CorrectorDeEstados.AnularBoton(btnEstacionar);
 
             SetearImagen();
         }
 
+        public void EstacionamientoOcupado(TipoDeVehiculo tipo, IIngreso ingreso)
+        {
+            EstacionamientoOcupado(ingreso);
+            estacionamiento.EstacionarVehiculo(tipo);
+        }
+
+        public string ObtenerUbicacion()
+        {
+            return estacionamiento.Ubicacion;
+        }
+
+        public bool PuedeEstacionarVehiculo(TipoDeVehiculo tipo)
+        {
+            return estacionamiento.PuedeEstacionarVehiculo(tipo);
+        }
 
         //-----------EVENTOS-----------//
         private void btnDesocupar_Click(object sender, EventArgs e)
@@ -116,9 +143,9 @@ namespace Cochera.Windows
 
         private void btnEstacionar_Click(object sender, EventArgs e)
         {
-            frmIngresosEdicion frmEstacionar = new frmIngresosEdicion(estacionamiento,this);
+            frmIngresosEdicion frmEstacionar = new frmIngresosEdicion(estacionamiento, this);
 
-            sector.AnularBotones();
+            AnularBotones();
 
             frmEstacionar.Show();
         }

@@ -38,6 +38,18 @@ namespace Cochera.Windows.Utilidades
             boton.Enabled = false;
         }
 
+        public static void ActivarCheck(CheckBox check)
+        {
+            check.Checked = true;
+            check.Enabled = true;
+        }
+
+        public static void AnularCheck(CheckBox check)
+        {
+            check.Checked = false;
+            check.Enabled = false;
+        }
+
         public static void SetearFecha(DateTimePicker selectorFecha, DateTime fechaInicial)
         {
             selectorFecha.MinDate = fechaInicial;
