@@ -43,7 +43,10 @@
             this.lblTarifa = new System.Windows.Forms.Label();
             this.txtTarifa = new System.Windows.Forms.TextBox();
             this.pnlBoton = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.btnDarDeBaja = new System.Windows.Forms.Button();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnDarSalida = new System.Windows.Forms.Button();
             this.imgSalir = new System.Windows.Forms.PictureBox();
             this.lblModelo = new System.Windows.Forms.Label();
@@ -54,6 +57,10 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblFechaExpiracion = new System.Windows.Forms.Label();
             this.txtExpiracion = new System.Windows.Forms.TextBox();
+<<<<<<< HEAD
+=======
+            this.btnDarDeBaja = new System.Windows.Forms.Button();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlBoton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSalir)).BeginInit();
             this.SuspendLayout();
@@ -213,6 +220,7 @@
             this.pnlBoton.Size = new System.Drawing.Size(506, 38);
             this.pnlBoton.TabIndex = 6;
             // 
+<<<<<<< HEAD
             // btnDarDeBaja
             // 
             this.btnDarDeBaja.BackColor = System.Drawing.Color.Coral;
@@ -226,6 +234,8 @@
             this.btnDarDeBaja.UseVisualStyleBackColor = false;
             this.btnDarDeBaja.Click += new System.EventHandler(this.btnDarDeBaja_Click);
             // 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // btnDarSalida
             // 
             this.btnDarSalida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -338,6 +348,21 @@
             this.txtExpiracion.Size = new System.Drawing.Size(202, 26);
             this.txtExpiracion.TabIndex = 5;
             // 
+<<<<<<< HEAD
+=======
+            // btnDarDeBaja
+            // 
+            this.btnDarDeBaja.BackColor = System.Drawing.Color.Coral;
+            this.btnDarDeBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDarDeBaja.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDarDeBaja.Location = new System.Drawing.Point(377, 0);
+            this.btnDarDeBaja.Name = "btnDarDeBaja";
+            this.btnDarDeBaja.Size = new System.Drawing.Size(108, 35);
+            this.btnDarDeBaja.TabIndex = 4;
+            this.btnDarDeBaja.Text = "Dar de baja";
+            this.btnDarDeBaja.UseVisualStyleBackColor = false;
+            // 
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // frmDarSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

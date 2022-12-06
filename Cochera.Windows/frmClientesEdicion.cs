@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cochera.Windows.Utilidades;
+<<<<<<< HEAD
 using Cochera.Windows.Interfaces;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 using Cochera.Entidades;
 using Cochera.Servicios;
 
@@ -18,16 +21,26 @@ namespace Cochera.Windows
     {
         //------------ATRIBUTOS------------//
 
+<<<<<<< HEAD
         IAgregadorClientes formClientes;
+=======
+        frmClientes formClientes;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         Cliente clienteEdicion;
         ServicioTiposDeDocumentos servicioTipoDocs;
         ServicioClientes servicioClientes;
         ServicioPersonas servicioPersonas;
+<<<<<<< HEAD
         ServicioMarcasDeTarjetas servicioMarcasTarjetas;
         ServicioTiposDeTarjetas servicioTiposDeTarjetas;
 
         //------------CONSTRUCTOR------------//
         public frmClientesEdicion(IAgregadorClientes formClientes)
+=======
+
+        //------------CONSTRUCTOR------------//
+        public frmClientesEdicion(frmClientes formClientes)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             InitializeComponent();
 
@@ -38,7 +51,11 @@ namespace Cochera.Windows
             SetearComboBox();
         }
 
+<<<<<<< HEAD
         public frmClientesEdicion(IAgregadorClientes formClientes, Cliente cliente)
+=======
+        public frmClientesEdicion(frmClientes formClientes, Cliente cliente)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             InitializeComponent();
 
@@ -68,9 +85,13 @@ namespace Cochera.Windows
                 txtNombre,
                 txtApellido,
                 txtNumeroDoc,
+<<<<<<< HEAD
                 txtTelefono,
                 txtNumTarjeta,
                 txtCodSeguridad
+=======
+                txtTelefono
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             };
 
             foreach(TextBox txtBox in inputs)
@@ -96,6 +117,7 @@ namespace Cochera.Windows
         {
             lblTitulo.Text = "AGREGAR CLIENTE";
 
+<<<<<<< HEAD
             SetearTamanio(494, 448);
 
             CorrectorDeEstados.ActivarComponente(cmboxMarcas);
@@ -104,6 +126,8 @@ namespace Cochera.Windows
             CorrectorDeEstados.ActivarComponente(txtCodSeguridad);
             
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             CorrectorDeEstados.ActivarBoton(btnAgregar);
             CorrectorDeEstados.AnularBoton(btnEditar);
         }
@@ -112,6 +136,7 @@ namespace Cochera.Windows
         {
             lblTitulo.Text = "EDITAR CLIENTE";
 
+<<<<<<< HEAD
             SetearTamanio(494, 269);
 
             CorrectorDeEstados.AnularComponente(cmboxMarcas);
@@ -119,6 +144,8 @@ namespace Cochera.Windows
             CorrectorDeEstados.AnularComponente(txtNumTarjeta);
             CorrectorDeEstados.AnularComponente(txtCodSeguridad);
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             CorrectorDeEstados.ActivarBoton(btnEditar);
             CorrectorDeEstados.AnularBoton(btnAgregar);
         }
@@ -127,6 +154,7 @@ namespace Cochera.Windows
         {
             servicioTipoDocs = new ServicioTiposDeDocumentos();
             CargadorDeDatos.SetearComboBox<Documento>(cmboxTipoDocs, servicioTipoDocs.ObtenerTiposDeDocumentos());
+<<<<<<< HEAD
 
             servicioMarcasTarjetas = new ServicioMarcasDeTarjetas();
             CargadorDeDatos.SetearComboBox<MarcaTarjeta>(cmboxMarcas, servicioMarcasTarjetas.ObtenerMarcasDeTarjetas());
@@ -138,6 +166,8 @@ namespace Cochera.Windows
         private void SetearTamanio(int ancho, int alto)
         {
             this.Size = new Size(ancho, alto);
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         private Documento ObtenerDocumento()
@@ -149,6 +179,7 @@ namespace Cochera.Windows
             return doc;
         }
 
+<<<<<<< HEAD
         private MarcaTarjeta ObtenerMarcaTarjeta()
         {
             List<MarcaTarjeta> marcas = (List<MarcaTarjeta>)cmboxMarcas.Tag;
@@ -163,6 +194,8 @@ namespace Cochera.Windows
             return tipo;
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void SetearComponentes()
         {
             txtNombre.Text = clienteEdicion.Nombre;
@@ -196,6 +229,7 @@ namespace Cochera.Windows
         {
             e.Handled = !Validador.SoloNumerosPositivos(e.KeyChar);
         }
+<<<<<<< HEAD
         private void txtNumTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !Validador.SoloNumerosPositivos(e.KeyChar);
@@ -205,6 +239,8 @@ namespace Cochera.Windows
         {
             e.Handled = !Validador.SoloNumerosPositivos(e.KeyChar);
         }
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         #endregion
 
@@ -235,6 +271,7 @@ namespace Cochera.Windows
                 string telefono = txtTelefono.Text;
 
                 Documento doc = ObtenerDocumento();
+<<<<<<< HEAD
                 MarcaTarjeta marca = ObtenerMarcaTarjeta();
                 TipoDePago tipo = ObtenerTipoDeTarjeta();
 
@@ -244,6 +281,12 @@ namespace Cochera.Windows
                 servicioClientes = new ServicioClientes();
 
                 Cliente cliente = servicioClientes.AgregarCliente(nombre, apellido, doc, telefono, marca, tipo, numTarjeta, codigo);
+=======
+
+                servicioClientes = new ServicioClientes();
+
+                Cliente cliente = servicioClientes.AgregarCliente(nombre, apellido, doc, telefono);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                 formClientes.AgregarCliente(cliente);
 
@@ -275,7 +318,10 @@ namespace Cochera.Windows
         }
 
         #endregion
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

@@ -68,6 +68,7 @@ namespace Cochera.Windows
 
         }
 
+<<<<<<< HEAD
         private void LimpiarPatente()
         {
             lblPatente.Text = "";
@@ -78,6 +79,12 @@ namespace Cochera.Windows
         {
             imgVehiculo.Image = Image.FromFile(@ingreso.ObtenerImagenVehiculo());
             
+=======
+        private void SetearImagen()
+        {
+            imgVehiculo.Image = Image.FromFile(@ingreso.ObtenerImagenVehiculo());
+            SetearPatente();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         private void SetearPatente()
@@ -113,8 +120,11 @@ namespace Cochera.Windows
             CorrectorDeEstados.AnularBoton(btnDesocupar);
 
             imgVehiculo.Image = null;
+<<<<<<< HEAD
 
             LimpiarPatente();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         public void EstacionamientoOcupado(IIngreso ingreso)
@@ -125,7 +135,10 @@ namespace Cochera.Windows
             CorrectorDeEstados.AnularBoton(btnEstacionar);
 
             SetearImagen();
+<<<<<<< HEAD
             SetearPatente();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         public void EstacionamientoOcupado(TipoDeVehiculo tipo, IIngreso ingreso)

@@ -25,8 +25,11 @@ namespace Cochera.Windows
         private IGeneradorSalidas generadorSalidas;
         private ServicioTarifasPorVehiculo servicioTarifasPorVehiculo;
         private ServicioSalidas servicioSalidas;
+<<<<<<< HEAD
         private ServicioAbonados servicioAbonados;
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private List<Tarifa> tarifasIngreso;
         private decimal montoTotal;
 
@@ -38,7 +41,10 @@ namespace Cochera.Windows
             this.generadorSalidas = generadorSalidas;
             servicioTarifasPorVehiculo = new ServicioTarifasPorVehiculo();
             servicioSalidas = new ServicioSalidas();
+<<<<<<< HEAD
             servicioAbonados = new ServicioAbonados();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             SetearComponentes();
         }
@@ -169,6 +175,7 @@ namespace Cochera.Windows
                 }
             }
         }
+<<<<<<< HEAD
 
         private void btnDarDeBaja_Click(object sender, EventArgs e)
         {
@@ -194,5 +201,7 @@ namespace Cochera.Windows
                 }
             }
         }
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

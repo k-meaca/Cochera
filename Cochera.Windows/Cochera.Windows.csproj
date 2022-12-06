@@ -54,12 +54,15 @@
     <Compile Include="frmAbonados.Designer.cs">
       <DependentUpon>frmAbonados.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="frmAbonadosPorVencer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAbonadosPorVencer.Designer.cs">
       <DependentUpon>frmAbonadosPorVencer.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     <Compile Include="frmContabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +75,15 @@
     <Compile Include="frmCuentasCorrientes.Designer.cs">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="frmCuentasEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCuentasEdicion.Designer.cs">
       <DependentUpon>frmCuentasEdicion.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     <Compile Include="frmDarSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,7 +204,10 @@
     <Compile Include="frmTarifas.Designer.cs">
       <DependentUpon>frmTarifas.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Interfaces\IAgregadorClientes.cs" />
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     <Compile Include="Interfaces\IGeneradorIngresos.cs" />
     <Compile Include="Interfaces\IGeneradorSalidas.cs" />
     <Compile Include="Interfaces\ISectorEstacionamiento.cs" />
@@ -222,18 +231,24 @@
     <EmbeddedResource Include="frmAbonados.resx">
       <DependentUpon>frmAbonados.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmAbonadosPorVencer.resx">
       <DependentUpon>frmAbonadosPorVencer.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     <EmbeddedResource Include="frmContabilidad.resx">
       <DependentUpon>frmContabilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuentasCorrientes.resx">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmCuentasEdicion.resx">
       <DependentUpon>frmCuentasEdicion.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     <EmbeddedResource Include="frmDarSalida.resx">
       <DependentUpon>frmDarSalida.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,11 +505,14 @@
   <ItemGroup>
     <None Include="Imagenes\UsoGral\descripcion.png" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <None Include="Imagenes\frmCuentasCtes\pago.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagenes\frmCuentasCtes\cancelar.png" />
   </ItemGroup>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

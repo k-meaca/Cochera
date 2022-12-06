@@ -19,10 +19,13 @@ namespace Cochera.Servicios
         RepositorioClientes repositorioClientes;
         RepositorioPersonas repositorioPersonas;
         RepositorioTipoDocumentos repositorioTipoDocumentos;
+<<<<<<< HEAD
         RepositorioCuentasCorrientes repositorioCuentasCorrientes;
         RepositorioTarjetas repositorioTarjetas;
 
         ServicioAbonados servicioAbonados;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         //------------METODOS------------//
 
@@ -30,8 +33,12 @@ namespace Cochera.Servicios
 
         //----PUBLICOS----//
 
+<<<<<<< HEAD
         public Cliente AgregarCliente(string nombre, string apellido, Documento documento, string telefono, MarcaTarjeta marca,
                                 TipoDePago tipo, string numero, string codigo)
+=======
+        public Cliente AgregarCliente(string nombre, string apellido, Documento documento, string telefono)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
 
             SqlTransaction transaccion = null;
@@ -47,16 +54,23 @@ namespace Cochera.Servicios
 
                     repositorioPersonas = new RepositorioPersonas(conexion, transaccion);
                     repositorioClientes = new RepositorioClientes(conexion, transaccion);
+<<<<<<< HEAD
                     repositorioCuentasCorrientes = new RepositorioCuentasCorrientes(conexion, transaccion);
                     repositorioTarjetas = new RepositorioTarjetas(conexion, transaccion);
+=======
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                     int personaId = repositorioPersonas.AgregarPersona(nombre, apellido, documento, telefono);
                     cliente = repositorioClientes.AgregarCliente(personaId, nombre, apellido, documento, telefono);
 
+<<<<<<< HEAD
                     int tarjetaId = repositorioTarjetas.NuevaTarjeta(numero, codigo, marca, tipo);
 
                     repositorioCuentasCorrientes.GenerarCuentaCorriente(cliente, tarjetaId);
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
                     transaccion.Commit();
                 }
 
@@ -82,8 +96,11 @@ namespace Cochera.Servicios
 
                     repositorioClientes = new RepositorioClientes(conexion, transaccion);
                     repositorioPersonas = new RepositorioPersonas(conexion, transaccion);
+<<<<<<< HEAD
                     repositorioCuentasCorrientes = new RepositorioCuentasCorrientes(conexion, transaccion);
                     
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                     repositorioClientes.EliminarCliente(cliente);
                     repositorioPersonas.EliminarPersona(cliente);

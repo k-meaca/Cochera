@@ -38,19 +38,27 @@ namespace Cochera.Datos.Repositorios
             int clienteId = lector.GetInt32(4);
             DateTime fechaExpiracion = lector.GetDateTime(5);
             decimal importe = lector.GetDecimal(6);
+<<<<<<< HEAD
             bool baja = lector.GetBoolean(7);
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             Modelo modelo = modelos.Find(m => m.ModeloId == modeloId);
             Tarifa tarifa = tarifas.Find(t => t.TarifaId == tarifaId);
             Cliente cliente = clientes.Find(c => c.ClienteId == clienteId);
 
+<<<<<<< HEAD
             return new Abonado(abonadoId, modelo, tarifa, ingreso, cliente, fechaExpiracion, importe, baja);
+=======
+            return new Abonado(abonadoId, modelo, tarifa, ingreso, cliente, fechaExpiracion, importe);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         }
 
 
         //----PUBLICOS----//
 
+<<<<<<< HEAD
         public void DarBaja(Abonado abonado)
         {
             try
@@ -72,6 +80,8 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public Abonado GenerarAbonado(Modelo modelo, Tarifa tarifa, Ingreso ingreso, Cliente cliente, DateTime fechaExpiracion, decimal importe)
         {
             try
@@ -92,7 +102,11 @@ namespace Cochera.Datos.Repositorios
 
                     int abonadoId = Convert.ToInt32(comando.ExecuteScalar());
 
+<<<<<<< HEAD
                     abonado = new Abonado(abonadoId, modelo, tarifa, ingreso, cliente, fechaExpiracion, importe, false);
+=======
+                    abonado = new Abonado(abonadoId, modelo, tarifa, ingreso, cliente, fechaExpiracion, importe);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
                 }
 
                 return abonado;

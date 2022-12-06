@@ -35,6 +35,7 @@ namespace Cochera.Windows
 
         //----PRIVADOS----//
 
+<<<<<<< HEAD
         private void AnularFormulario()
         {
             this.Enabled = false;
@@ -59,11 +60,14 @@ namespace Cochera.Windows
             }
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void CargarGrilla() 
         {
             List<CuentaCorriente> ctasCtes = servicioCtaCtes.ObtenerCuentasCorrientes();
             CargadorDeDatos.CargarDataGrid(datosCtasCtes, ctasCtes);
         }
+<<<<<<< HEAD
 
         //----PUBLICOS----//
 
@@ -101,5 +105,7 @@ namespace Cochera.Windows
         {
             BuscarCliente(txtBuscarCliente.Text);
         }
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

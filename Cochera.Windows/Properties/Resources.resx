@@ -184,9 +184,12 @@
   <data name="EditarDocumentoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmDocumentos\EditarDocumentoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+<<<<<<< HEAD
   <data name="pago" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmCuentasCtes\pago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
   <data name="EstacionamientoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmPrincipal\EstacionamientoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,9 +223,12 @@
   <data name="CuentasCtesMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmPrincipal\CuentasCtesMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+<<<<<<< HEAD
   <data name="descripcion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\UsoGral\descripcion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
   <data name="AbonadosMenuGIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmPrincipal\AbonadosMenuGIF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -277,7 +283,12 @@
   <data name="MarcasMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmPrincipal\MarcasMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+<<<<<<< HEAD
   <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\frmCuentasCtes\cancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+=======
+  <data name="descripcion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\UsoGral\descripcion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
   </data>
 </root>

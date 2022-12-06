@@ -50,6 +50,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.mostradorDeErrores = new System.Windows.Forms.ErrorProvider(this.components);
+<<<<<<< HEAD
             this.lblMarcaTarjeta = new System.Windows.Forms.Label();
             this.cmboxMarcas = new System.Windows.Forms.ComboBox();
             this.lblTipoTarjeta = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             this.txtNumTarjeta = new System.Windows.Forms.TextBox();
             this.lblCodSeguridad = new System.Windows.Forms.Label();
             this.txtCodSeguridad = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mostradorDeErrores)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +81,11 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+<<<<<<< HEAD
             this.panel1.Size = new System.Drawing.Size(5, 448);
+=======
+            this.panel1.Size = new System.Drawing.Size(5, 309);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -87,7 +94,11 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(489, 0);
             this.panel2.Name = "panel2";
+<<<<<<< HEAD
             this.panel2.Size = new System.Drawing.Size(5, 448);
+=======
+            this.panel2.Size = new System.Drawing.Size(5, 309);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panel2.TabIndex = 2;
             // 
             // panel3
@@ -103,7 +114,11 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< HEAD
             this.panel4.Location = new System.Drawing.Point(5, 443);
+=======
+            this.panel4.Location = new System.Drawing.Point(5, 304);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 5);
             this.panel4.TabIndex = 4;
@@ -224,11 +239,18 @@
             // 
             // btnCancelar
             // 
+<<<<<<< HEAD
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(263, 408);
+=======
+            this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(263, 269);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 28);
             this.btnCancelar.TabIndex = 9;
@@ -238,11 +260,18 @@
             // 
             // btnAgregar
             // 
+<<<<<<< HEAD
             this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAgregar.BackColor = System.Drawing.Color.SpringGreen;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(116, 408);
+=======
+            this.btnAgregar.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(116, 269);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(96, 28);
             this.btnAgregar.TabIndex = 10;
@@ -252,11 +281,18 @@
             // 
             // btnEditar
             // 
+<<<<<<< HEAD
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditar.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(116, 408);
+=======
+            this.btnEditar.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(116, 269);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(96, 28);
             this.btnEditar.TabIndex = 10;
@@ -268,6 +304,7 @@
             // 
             this.mostradorDeErrores.ContainerControl = this;
             // 
+<<<<<<< HEAD
             // lblMarcaTarjeta
             // 
             this.lblMarcaTarjeta.AutoSize = true;
@@ -348,15 +385,22 @@
             this.txtCodSeguridad.TabIndex = 8;
             this.txtCodSeguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodSeguridad_KeyPress);
             // 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // frmClientesEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(494, 448);
+=======
+            this.ClientSize = new System.Drawing.Size(494, 309);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
+<<<<<<< HEAD
             this.Controls.Add(this.cmboxTiposTarjetas);
             this.Controls.Add(this.cmboxMarcas);
             this.Controls.Add(this.cmboxTipoDocs);
@@ -369,6 +413,12 @@
             this.Controls.Add(this.lblCodSeguridad);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.lblNumTarjeta);
+=======
+            this.Controls.Add(this.cmboxTipoDocs);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtNumeroDoc);
+            this.Controls.Add(this.txtApellido);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.Controls.Add(this.lblTipoDoc);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblNroDoc);
@@ -385,7 +435,10 @@
             this.Name = "frmClientesEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmClientesEdicion";
+<<<<<<< HEAD
             this.TopMost = true;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmClientesEdicion_FormClosing);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -418,6 +471,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.ErrorProvider mostradorDeErrores;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox cmboxMarcas;
         private System.Windows.Forms.Label lblMarcaTarjeta;
         private System.Windows.Forms.ComboBox cmboxTiposTarjetas;
@@ -426,5 +480,7 @@
         private System.Windows.Forms.Label lblNumTarjeta;
         private System.Windows.Forms.TextBox txtCodSeguridad;
         private System.Windows.Forms.Label lblCodSeguridad;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

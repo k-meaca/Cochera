@@ -26,12 +26,19 @@ namespace Cochera.Entidades
 
         private decimal importe;
 
+<<<<<<< HEAD
         public bool Baja { get; private set; }
 
         //------------CONSTRUCTOR------------//
 
         public Abonado(int abonadoId, Modelo modelo, Tarifa tarifa, Ingreso ingreso,
             Cliente cliente, DateTime fechaExpiracion, decimal importe, bool baja)
+=======
+        //------------CONSTRUCTOR------------//
+
+        public Abonado(int abonadoId, Modelo modelo, Tarifa tarifa, Ingreso ingreso,
+            Cliente cliente, DateTime fechaExpiracion, decimal importe)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             AbonadoId = abonadoId;
             this.modelo = modelo;
@@ -40,7 +47,11 @@ namespace Cochera.Entidades
             this.ingreso = ingreso;
             FechaExpiracion = fechaExpiracion;
             this.importe = importe;
+<<<<<<< HEAD
             Baja = baja;
+=======
+            
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         //------------METODOS-------------//
@@ -61,11 +72,14 @@ namespace Cochera.Entidades
         {
             return cliente.Apellido;
         }
+<<<<<<< HEAD
 
         public int ObtenerEstacionamientoId()
         {
             return ingreso.ObtenerEstacionamientoId();
         }
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public DateTime ObtenerFechaIngreso()
         {
             return ingreso.ObtenerFechaIngreso();

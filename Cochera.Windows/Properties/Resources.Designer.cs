@@ -173,6 +173,7 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap cancelar {
             get {
                 object obj = ResourceManager.GetObject("cancelar", resourceCulture);
@@ -183,6 +184,8 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         internal static System.Drawing.Bitmap ClientesMenu {
             get {
                 object obj = ResourceManager.GetObject("ClientesMenu", resourceCulture);
@@ -533,6 +536,7 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap pago {
             get {
                 object obj = ResourceManager.GetObject("pago", resourceCulture);
@@ -543,6 +547,8 @@ namespace Cochera.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         internal static System.Drawing.Bitmap pwsNoVisible {
             get {
                 object obj = ResourceManager.GetObject("pwsNoVisible", resourceCulture);

@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Cochera.Entidades;
 using Cochera.Servicios;
+<<<<<<< HEAD
 using System.Drawing;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
 namespace Cochera.Windows.Clases
 {
@@ -133,6 +136,7 @@ namespace Cochera.Windows.Clases
 
         //----PUBLICOS----//
 
+<<<<<<< HEAD
         public Color ColorAbonado(Abonado abonado)
         {
             Color color;
@@ -160,6 +164,8 @@ namespace Cochera.Windows.Clases
             
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public DateTime CalcularFechaExpiracion(Tarifa tarifa)
         {
             DateTime fechaExpiracion;

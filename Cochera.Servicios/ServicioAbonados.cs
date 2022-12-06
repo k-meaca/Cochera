@@ -16,11 +16,17 @@ namespace Cochera.Servicios
         //------------ATRIBUTOS------------//
 
         private RepositorioAbonados repositorioAbonados;
+<<<<<<< HEAD
         private RepositorioMovimientosCtasCtes repositorioMovimientos;
         private RepositorioIngresos repositorioIngresos;
         private RepositorioEstacionamientos repositorioEstacionamientos;
         private RepositorioSalidas repositorioSalidas;
 
+=======
+        private RepositorioCuentasCorrientes repositorioCuentasCorrientes;
+        private RepositorioIngresos repositorioIngresos;
+        private RepositorioEstacionamientos repositorioEstacionamientos;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         private ServicioClientes servicioClientes;
         private ServicioModelos servicioModelos;
@@ -29,6 +35,7 @@ namespace Cochera.Servicios
 
         //------------METODOS------------//
 
+<<<<<<< HEAD
 
         public void DarBaja(Abonado abonado)
         {
@@ -62,6 +69,10 @@ namespace Cochera.Servicios
 
         public Abonado GenerarAbonado(TipoDeVehiculo tipo, string patente, DateTime fechaIngreso, Estacionamiento estacionamiento, Modelo modelo,
             Tarifa tarifa, DateTime fechaExpiracion, Cliente cliente, CuentaCorriente cuenta, decimal importe)
+=======
+        public Abonado GenerarAbonado(TipoDeVehiculo tipo, string patente, DateTime fechaIngreso, Estacionamiento estacionamiento, Modelo modelo,
+            Tarifa tarifa, DateTime fechaExpiracion, Cliente cliente, decimal importe)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             SqlTransaction transaccion = null;
 
@@ -80,11 +91,18 @@ namespace Cochera.Servicios
                     repositorioEstacionamientos.OcuparEstacionamiento(estacionamiento.EstacionamientoId);
 
                     repositorioAbonados = new RepositorioAbonados(conexion, transaccion);
+<<<<<<< HEAD
                     repositorioMovimientos = new RepositorioMovimientosCtasCtes(conexion, transaccion);
 
                     abonado = repositorioAbonados.GenerarAbonado(modelo, tarifa, ingreso, cliente, fechaExpiracion, importe);
 
                     repositorioMovimientos.DebitarImporte(cuenta, abonado, importe);
+=======
+                    repositorioCuentasCorrientes = new RepositorioCuentasCorrientes(conexion, transaccion);
+
+                    abonado = repositorioAbonados.GenerarAbonado(modelo, tarifa, ingreso, cliente, fechaExpiracion, importe);
+                    repositorioCuentasCorrientes.DebitarImporte(abonado, importe);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                     transaccion.Commit();
                 }

@@ -23,17 +23,21 @@ namespace Cochera.Windows
         private ToolStripButton botonMenuSeleccionado;
         private Form formularioActivo;
 
+<<<<<<< HEAD
 
         private ServicioAbonados servicioAbonados;
         private ServicioIngresos servicioIngresos;
         private List<Abonado> abonados;
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         //CONSTRUCTOR
 
         public frmPrincipal(Usuario usuarioSesion)
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             minutero.Start();
 
             this.usuarioSesion = usuarioSesion;
@@ -44,6 +48,13 @@ namespace Cochera.Windows
             InfoSesion();
 
             InformarAbonadosPorCaducar();
+=======
+            reloj.Start();
+
+            this.usuarioSesion = usuarioSesion;
+
+            InfoSesion();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         //------------------METODOS------------------//
@@ -51,6 +62,7 @@ namespace Cochera.Windows
         //-------PRIVADOS-------//
 
         #region
+<<<<<<< HEAD
 
         private bool ActualizarAbonados(List<Abonado> abonados)
         {
@@ -69,6 +81,8 @@ namespace Cochera.Windows
             return actualizado;
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void CerrarFormularioActivo()
         {
             formularioActivo.Close();
@@ -83,6 +97,7 @@ namespace Cochera.Windows
             lblHora.Text = "HORA: " + DateTime.Now.ToShortTimeString();
 
         }
+<<<<<<< HEAD
 
         private void InformarAbonadosPorCaducar()
         {
@@ -103,6 +118,8 @@ namespace Cochera.Windows
             }
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void MostrarFormulario(Form formulario)
         {
 
@@ -128,6 +145,7 @@ namespace Cochera.Windows
             }
         }
 
+<<<<<<< HEAD
         private void NoEsMasAbonado(Abonado abonado)
         {
             try
@@ -145,6 +163,8 @@ namespace Cochera.Windows
         }
 
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void SeleccionarBoton(ToolStripButton boton)
         {
             if (boton.Checked)
@@ -188,14 +208,18 @@ namespace Cochera.Windows
 
         //------------------EVENTOS------------------//
 
+<<<<<<< HEAD
         //----RELOJES----//
 
         #region
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void reloj_Tick(object sender, EventArgs e)
         {
             lblHora.Text = "HORA: " + DateTime.Now.ToShortTimeString();
         }
 
+<<<<<<< HEAD
         private void relojAbonados_Tick(object sender, EventArgs e)
         {
             abonados = servicioAbonados.ObtenerAbonados().Where(a => !a.Baja).ToList();
@@ -204,12 +228,18 @@ namespace Cochera.Windows
 
         #endregion
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         //-------IMAGENES-------//
 
         #region
         private void imgSalir_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             minutero.Stop();
+=======
+            reloj.Stop();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             Close();   
         }
 
@@ -623,7 +653,10 @@ namespace Cochera.Windows
                 btnContabilidadMenu.Image = Properties.Resources.ContabilidadMenu;
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         #endregion
 
 

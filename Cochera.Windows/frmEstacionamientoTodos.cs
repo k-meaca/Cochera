@@ -156,7 +156,12 @@ namespace Cochera.Windows
         #region
         public void ActivarBotones()
         {
+<<<<<<< HEAD
             this.Enabled = true;
+=======
+            btnDesocupar.Enabled = true;
+            btnEstacionar.Enabled = true;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             formEstacionamiento.ActivarBotones();
         }
         public void ActualizarLugares(TipoDeVehiculo tipo)
@@ -167,7 +172,12 @@ namespace Cochera.Windows
         }
         public void AnularBotones()
         {
+<<<<<<< HEAD
             this.Enabled = false;
+=======
+            btnDesocupar.Enabled = false;
+            btnEstacionar.Enabled = false;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             formEstacionamiento.AnularBotones();
         }
 

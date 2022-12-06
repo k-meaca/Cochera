@@ -32,6 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.botonesMenu = new System.Windows.Forms.ToolStrip();
+<<<<<<< HEAD
+=======
+            this.pnlDivision = new System.Windows.Forms.Panel();
+            this.panelInfoSesion = new System.Windows.Forms.Panel();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.reloj = new System.Windows.Forms.Timer(this.components);
+            this.pnlDivisorioV = new System.Windows.Forms.Panel();
+            this.pnlCerrar = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlFormularios = new System.Windows.Forms.Panel();
+            this.imgMinimizar = new System.Windows.Forms.PictureBox();
+            this.imgSalir = new System.Windows.Forms.PictureBox();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnEstacionamientoMenu = new System.Windows.Forms.ToolStripButton();
             this.btnContabilidadMenu = new System.Windows.Forms.ToolStripButton();
             this.btnIngresosMenu = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +58,7 @@
             this.btnMarcasMenu = new System.Windows.Forms.ToolStripButton();
             this.btnTarifasMenu = new System.Windows.Forms.ToolStripButton();
             this.btnDocumentosMenu = new System.Windows.Forms.ToolStripButton();
+<<<<<<< HEAD
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.panelInfoSesion = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
@@ -56,6 +72,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlFormularios = new System.Windows.Forms.Panel();
             this.relojAbonados = new System.Windows.Forms.Timer(this.components);
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panelMenu.SuspendLayout();
             this.botonesMenu.SuspendLayout();
             this.panelInfoSesion.SuspendLayout();
@@ -96,10 +114,138 @@
             this.botonesMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.botonesMenu.Location = new System.Drawing.Point(0, 42);
             this.botonesMenu.Name = "botonesMenu";
+<<<<<<< HEAD
             this.botonesMenu.Size = new System.Drawing.Size(202, 519);
             this.botonesMenu.TabIndex = 2;
             this.botonesMenu.Text = "toolStrip1";
             // 
+=======
+            this.botonesMenu.Size = new System.Drawing.Size(202, 538);
+            this.botonesMenu.TabIndex = 2;
+            this.botonesMenu.Text = "toolStrip1";
+            // 
+            // pnlDivision
+            // 
+            this.pnlDivision.BackColor = System.Drawing.Color.Silver;
+            this.pnlDivision.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDivision.Location = new System.Drawing.Point(0, 39);
+            this.pnlDivision.Name = "pnlDivision";
+            this.pnlDivision.Size = new System.Drawing.Size(202, 3);
+            this.pnlDivision.TabIndex = 1;
+            // 
+            // panelInfoSesion
+            // 
+            this.panelInfoSesion.Controls.Add(this.lblHora);
+            this.panelInfoSesion.Controls.Add(this.lblFecha);
+            this.panelInfoSesion.Controls.Add(this.lblUsuario);
+            this.panelInfoSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInfoSesion.Location = new System.Drawing.Point(0, 0);
+            this.panelInfoSesion.Name = "panelInfoSesion";
+            this.panelInfoSesion.Size = new System.Drawing.Size(202, 39);
+            this.panelInfoSesion.TabIndex = 0;
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Location = new System.Drawing.Point(121, 20);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(36, 16);
+            this.lblHora.TabIndex = 1;
+            this.lblHora.Text = "Hora";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(3, 20);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(41, 16);
+            this.lblFecha.TabIndex = 1;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(3, 4);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(53, 16);
+            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // reloj
+            // 
+            this.reloj.Interval = 60000;
+            this.reloj.Tick += new System.EventHandler(this.reloj_Tick);
+            // 
+            // pnlDivisorioV
+            // 
+            this.pnlDivisorioV.BackColor = System.Drawing.Color.Silver;
+            this.pnlDivisorioV.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlDivisorioV.Location = new System.Drawing.Point(202, 0);
+            this.pnlDivisorioV.Name = "pnlDivisorioV";
+            this.pnlDivisorioV.Size = new System.Drawing.Size(3, 652);
+            this.pnlDivisorioV.TabIndex = 1;
+            // 
+            // pnlCerrar
+            // 
+            this.pnlCerrar.Controls.Add(this.imgMinimizar);
+            this.pnlCerrar.Controls.Add(this.imgSalir);
+            this.pnlCerrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCerrar.Location = new System.Drawing.Point(205, 0);
+            this.pnlCerrar.Name = "pnlCerrar";
+            this.pnlCerrar.Size = new System.Drawing.Size(805, 39);
+            this.pnlCerrar.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(205, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(805, 3);
+            this.panel1.TabIndex = 8;
+            // 
+            // pnlFormularios
+            // 
+            this.pnlFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFormularios.Location = new System.Drawing.Point(205, 42);
+            this.pnlFormularios.Name = "pnlFormularios";
+            this.pnlFormularios.Size = new System.Drawing.Size(805, 610);
+            this.pnlFormularios.TabIndex = 9;
+            // 
+            // imgMinimizar
+            // 
+            this.imgMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.imgMinimizar.Image = global::Cochera.Windows.Properties.Resources.minimizar;
+            this.imgMinimizar.Location = new System.Drawing.Point(720, 11);
+            this.imgMinimizar.Name = "imgMinimizar";
+            this.imgMinimizar.Size = new System.Drawing.Size(38, 17);
+            this.imgMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgMinimizar.TabIndex = 6;
+            this.imgMinimizar.TabStop = false;
+            this.imgMinimizar.Click += new System.EventHandler(this.imgMinimizar_Click);
+            this.imgMinimizar.MouseEnter += new System.EventHandler(this.imgControl_MouseEnter);
+            this.imgMinimizar.MouseLeave += new System.EventHandler(this.imgControl_MouseLeave);
+            // 
+            // imgSalir
+            // 
+            this.imgSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgSalir.BackColor = System.Drawing.Color.Transparent;
+            this.imgSalir.Image = ((System.Drawing.Image)(resources.GetObject("imgSalir.Image")));
+            this.imgSalir.Location = new System.Drawing.Point(764, 11);
+            this.imgSalir.Name = "imgSalir";
+            this.imgSalir.Size = new System.Drawing.Size(38, 17);
+            this.imgSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgSalir.TabIndex = 6;
+            this.imgSalir.TabStop = false;
+            this.imgSalir.Click += new System.EventHandler(this.imgSalir_Click);
+            this.imgSalir.MouseEnter += new System.EventHandler(this.imgControl_MouseEnter);
+            this.imgSalir.MouseLeave += new System.EventHandler(this.imgControl_MouseLeave);
+            // 
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // btnEstacionamientoMenu
             // 
             this.btnEstacionamientoMenu.Image = global::Cochera.Windows.Properties.Resources.EstacionamientoMenu;
@@ -234,6 +380,7 @@
             this.btnDocumentosMenu.MouseEnter += new System.EventHandler(this.btnDocumentosMenu_MouseEnter);
             this.btnDocumentosMenu.MouseLeave += new System.EventHandler(this.btnDocumentosMenu_MouseLeave);
             // 
+<<<<<<< HEAD
             // pnlDivision
             // 
             this.pnlDivision.BackColor = System.Drawing.Color.Silver;
@@ -359,6 +506,8 @@
             // 
             this.relojAbonados.Tick += new System.EventHandler(this.relojAbonados_Tick);
             // 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,7 +545,11 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblFecha;
+<<<<<<< HEAD
         private System.Windows.Forms.Timer minutero;
+=======
+        private System.Windows.Forms.Timer reloj;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private System.Windows.Forms.Panel pnlDivisorioV;
         private System.Windows.Forms.PictureBox imgSalir;
         private System.Windows.Forms.Panel pnlDivision;
@@ -416,6 +569,9 @@
         private System.Windows.Forms.ToolStripButton btnIngresosMenu;
         private System.Windows.Forms.ToolStripButton btnSalidasMenu;
         private System.Windows.Forms.ToolStripButton btnContabilidadMenu;
+<<<<<<< HEAD
         private System.Windows.Forms.Timer relojAbonados;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

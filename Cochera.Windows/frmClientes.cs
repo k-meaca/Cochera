@@ -10,12 +10,19 @@ using System.Windows.Forms;
 using Cochera.Windows.Utilidades;
 using Cochera.Servicios;
 using Cochera.Entidades;
+<<<<<<< HEAD
 using Cochera.Windows.Interfaces;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
 
 namespace Cochera.Windows
 {
+<<<<<<< HEAD
     public partial class frmClientes : Form, IAgregadorClientes
+=======
+    public partial class frmClientes : Form
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     {
         //------------ATRIBUTOS------------//
 

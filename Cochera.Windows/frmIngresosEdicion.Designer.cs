@@ -84,7 +84,11 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
+<<<<<<< HEAD
             this.pnlTop.Size = new System.Drawing.Size(731, 6);
+=======
+            this.pnlTop.Size = new System.Drawing.Size(707, 6);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlTop.TabIndex = 0;
             // 
             // lblTitulo
@@ -101,9 +105,15 @@
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.Black;
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< HEAD
             this.pnlBottom.Location = new System.Drawing.Point(0, 458);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(731, 6);
+=======
+            this.pnlBottom.Location = new System.Drawing.Point(0, 455);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(707, 6);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlBottom.TabIndex = 1;
             // 
             // Vehiculo
@@ -169,8 +179,11 @@
             // 
             this.datosClientes.AllowUserToAddRows = false;
             this.datosClientes.AllowUserToDeleteRows = false;
+<<<<<<< HEAD
             this.datosClientes.AllowUserToResizeColumns = false;
             this.datosClientes.AllowUserToResizeRows = false;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.datosClientes.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -186,7 +199,10 @@
             this.colNumDoc});
             this.datosClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datosClientes.Location = new System.Drawing.Point(0, 0);
+<<<<<<< HEAD
             this.datosClientes.MultiSelect = false;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.datosClientes.Name = "datosClientes";
             this.datosClientes.ReadOnly = true;
             this.datosClientes.RowHeadersVisible = false;
@@ -234,7 +250,10 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar cliente";
             this.btnAgregar.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // 
             // pnlIzq
             // 
@@ -242,7 +261,11 @@
             this.pnlIzq.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlIzq.Location = new System.Drawing.Point(0, 6);
             this.pnlIzq.Name = "pnlIzq";
+<<<<<<< HEAD
             this.pnlIzq.Size = new System.Drawing.Size(6, 452);
+=======
+            this.pnlIzq.Size = new System.Drawing.Size(6, 449);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlIzq.TabIndex = 0;
             // 
             // lblEstacionamiento
@@ -377,9 +400,15 @@
             // 
             this.pnlDer.BackColor = System.Drawing.Color.Black;
             this.pnlDer.Dock = System.Windows.Forms.DockStyle.Right;
+<<<<<<< HEAD
             this.pnlDer.Location = new System.Drawing.Point(725, 6);
             this.pnlDer.Name = "pnlDer";
             this.pnlDer.Size = new System.Drawing.Size(6, 452);
+=======
+            this.pnlDer.Location = new System.Drawing.Point(701, 6);
+            this.pnlDer.Name = "pnlDer";
+            this.pnlDer.Size = new System.Drawing.Size(6, 449);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlDer.TabIndex = 7;
             // 
             // btnEstacionar
@@ -389,7 +418,11 @@
             this.btnEstacionar.BackColor = System.Drawing.Color.SpringGreen;
             this.btnEstacionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstacionar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.btnEstacionar.Location = new System.Drawing.Point(524, 3);
+=======
+            this.btnEstacionar.Location = new System.Drawing.Point(499, 3);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnEstacionar.Name = "btnEstacionar";
             this.btnEstacionar.Size = new System.Drawing.Size(97, 34);
             this.btnEstacionar.TabIndex = 2;
@@ -403,7 +436,11 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(6, 6);
             this.pnlTitulo.Name = "pnlTitulo";
+<<<<<<< HEAD
             this.pnlTitulo.Size = new System.Drawing.Size(719, 36);
+=======
+            this.pnlTitulo.Size = new System.Drawing.Size(695, 36);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlTitulo.TabIndex = 8;
             // 
             // pnlDivisorTop
@@ -412,7 +449,11 @@
             this.pnlDivisorTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDivisorTop.Location = new System.Drawing.Point(6, 42);
             this.pnlDivisorTop.Name = "pnlDivisorTop";
+<<<<<<< HEAD
             this.pnlDivisorTop.Size = new System.Drawing.Size(719, 4);
+=======
+            this.pnlDivisorTop.Size = new System.Drawing.Size(695, 4);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlDivisorTop.TabIndex = 9;
             // 
             // pnlBotonEstacionar
@@ -421,9 +462,15 @@
             this.pnlBotonEstacionar.Controls.Add(this.btnEditar);
             this.pnlBotonEstacionar.Controls.Add(this.btnEstacionar);
             this.pnlBotonEstacionar.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< HEAD
             this.pnlBotonEstacionar.Location = new System.Drawing.Point(6, 418);
             this.pnlBotonEstacionar.Name = "pnlBotonEstacionar";
             this.pnlBotonEstacionar.Size = new System.Drawing.Size(719, 40);
+=======
+            this.pnlBotonEstacionar.Location = new System.Drawing.Point(6, 415);
+            this.pnlBotonEstacionar.Name = "pnlBotonEstacionar";
+            this.pnlBotonEstacionar.Size = new System.Drawing.Size(695, 40);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlBotonEstacionar.TabIndex = 10;
             // 
             // btnCancelar
@@ -433,7 +480,11 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.btnCancelar.Location = new System.Drawing.Point(627, 3);
+=======
+            this.btnCancelar.Location = new System.Drawing.Point(602, 3);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(86, 34);
             this.btnCancelar.TabIndex = 2;
@@ -448,7 +499,11 @@
             this.btnEditar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.btnEditar.Location = new System.Drawing.Point(524, 3);
+=======
+            this.btnEditar.Location = new System.Drawing.Point(499, 3);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(97, 34);
             this.btnEditar.TabIndex = 2;
@@ -487,7 +542,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(731, 464);
+=======
+            this.ClientSize = new System.Drawing.Size(707, 461);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.ControlBox = false;
             this.Controls.Add(this.checkAbonar);
             this.Controls.Add(this.pnlBotonEstacionar);

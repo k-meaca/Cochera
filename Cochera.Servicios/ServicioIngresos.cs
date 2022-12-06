@@ -32,6 +32,7 @@ namespace Cochera.Servicios
 
         //----PUBLICOS----//
 
+<<<<<<< HEAD
         public void AbonadoAhoraEsIngreso(Abonado abonado)
         {
             SqlTransaction transaccion = null;
@@ -60,6 +61,8 @@ namespace Cochera.Servicios
         }
 
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public void ActualizarIngreso(Ingreso ingreso)
         {
             using(SqlConnection conexion = ConexionBD.AbrirConexion())

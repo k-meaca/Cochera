@@ -36,7 +36,11 @@ namespace Cochera.Windows
 
         private void CargarGrilla()
         {
+<<<<<<< HEAD
             List<Abonado> abonados = servicioAbonados.ObtenerAbonados().Where(a => !a.Baja).ToList();
+=======
+            List<Abonado> abonados = servicioAbonados.ObtenerAbonados();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             CargadorDeDatos.CargarDataGrid(datosAbonados, abonados);
         }
 

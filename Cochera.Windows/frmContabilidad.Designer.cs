@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlFiltrarBotones = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnFiltrarDescripcion = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnFiltrarSalida = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +54,8 @@
             this.btnFiltrarEfectivo = new System.Windows.Forms.ToolStripMenuItem();
             this.btnFiltrarDebito = new System.Windows.Forms.ToolStripMenuItem();
             this.btnActualizar = new System.Windows.Forms.ToolStripButton();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlFiltrarFecha = new System.Windows.Forms.Panel();
             this.fechaFinal = new System.Windows.Forms.DateTimePicker();
             this.btnFiltrarPorFecha = new System.Windows.Forms.Button();
@@ -70,12 +73,35 @@
             this.colHoraMov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
             this.pnlMenu.SuspendLayout();
             this.pnlFiltrarBotones.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.pnlFiltrarFecha.SuspendLayout();
             this.pnlInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosContables)).BeginInit();
+=======
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnFiltrarVehiculo = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnFiltrarAuto = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarCamioneta = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarCombi = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarMoto = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarMotoSidecar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarPago = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnFiltrarEfectivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarDebito = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnActualizar = new System.Windows.Forms.ToolStripButton();
+            this.btnFiltrarDescripcion = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnFiltrarSalida = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFiltrarAbonado = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMenu.SuspendLayout();
+            this.pnlFiltrarBotones.SuspendLayout();
+            this.pnlFiltrarFecha.SuspendLayout();
+            this.pnlInformacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datosContables)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -97,6 +123,7 @@
             this.pnlFiltrarBotones.Size = new System.Drawing.Size(703, 65);
             this.pnlFiltrarBotones.TabIndex = 4;
             // 
+<<<<<<< HEAD
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
@@ -229,6 +256,8 @@
             this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // pnlFiltrarFecha
             // 
             this.pnlFiltrarFecha.Controls.Add(this.fechaFinal);
@@ -442,6 +471,141 @@
             this.colImporte.ReadOnly = true;
             this.colImporte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+<<<<<<< HEAD
+=======
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFiltrarDescripcion,
+            this.btnFiltrarVehiculo,
+            this.btnFiltrarPago,
+            this.btnActualizar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(703, 65);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnFiltrarVehiculo
+            // 
+            this.btnFiltrarVehiculo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFiltrarAuto,
+            this.btnFiltrarCamioneta,
+            this.btnFiltrarCombi,
+            this.btnFiltrarMoto,
+            this.btnFiltrarMotoSidecar});
+            this.btnFiltrarVehiculo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarVehiculo.Image = global::Cochera.Windows.Properties.Resources.buscarVehiculo;
+            this.btnFiltrarVehiculo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFiltrarVehiculo.Name = "btnFiltrarVehiculo";
+            this.btnFiltrarVehiculo.Size = new System.Drawing.Size(132, 62);
+            this.btnFiltrarVehiculo.Text = "FILTRAR VEHICULO";
+            this.btnFiltrarVehiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnFiltrarAuto
+            // 
+            this.btnFiltrarAuto.Name = "btnFiltrarAuto";
+            this.btnFiltrarAuto.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarAuto.Text = "AUTO";
+            this.btnFiltrarAuto.Click += new System.EventHandler(this.btnFiltrarAuto_Click);
+            // 
+            // btnFiltrarCamioneta
+            // 
+            this.btnFiltrarCamioneta.Name = "btnFiltrarCamioneta";
+            this.btnFiltrarCamioneta.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarCamioneta.Text = "CAMIONETA";
+            this.btnFiltrarCamioneta.Click += new System.EventHandler(this.btnFiltrarCamioneta_Click);
+            // 
+            // btnFiltrarCombi
+            // 
+            this.btnFiltrarCombi.Name = "btnFiltrarCombi";
+            this.btnFiltrarCombi.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarCombi.Text = "COMBI";
+            this.btnFiltrarCombi.Click += new System.EventHandler(this.btnFiltrarCombi_Click);
+            // 
+            // btnFiltrarMoto
+            // 
+            this.btnFiltrarMoto.Name = "btnFiltrarMoto";
+            this.btnFiltrarMoto.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarMoto.Text = "MOTO";
+            this.btnFiltrarMoto.Click += new System.EventHandler(this.btnFiltrarMoto_Click);
+            // 
+            // btnFiltrarMotoSidecar
+            // 
+            this.btnFiltrarMotoSidecar.Name = "btnFiltrarMotoSidecar";
+            this.btnFiltrarMotoSidecar.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarMotoSidecar.Text = "MOTO C/ SIDECAR";
+            this.btnFiltrarMotoSidecar.Click += new System.EventHandler(this.btnFiltrarMotoSidecar_Click);
+            // 
+            // btnFiltrarPago
+            // 
+            this.btnFiltrarPago.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFiltrarEfectivo,
+            this.btnFiltrarDebito});
+            this.btnFiltrarPago.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarPago.Image = global::Cochera.Windows.Properties.Resources.metodoPago;
+            this.btnFiltrarPago.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFiltrarPago.Name = "btnFiltrarPago";
+            this.btnFiltrarPago.Size = new System.Drawing.Size(128, 62);
+            this.btnFiltrarPago.Text = "FILTRAR POR PAGO";
+            this.btnFiltrarPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnFiltrarEfectivo
+            // 
+            this.btnFiltrarEfectivo.Name = "btnFiltrarEfectivo";
+            this.btnFiltrarEfectivo.Size = new System.Drawing.Size(195, 22);
+            this.btnFiltrarEfectivo.Text = "EFECTIVO";
+            this.btnFiltrarEfectivo.Click += new System.EventHandler(this.btnFiltrarEfectivo_Click);
+            // 
+            // btnFiltrarDebito
+            // 
+            this.btnFiltrarDebito.Name = "btnFiltrarDebito";
+            this.btnFiltrarDebito.Size = new System.Drawing.Size(195, 22);
+            this.btnFiltrarDebito.Text = "DEBITO AUTOMATICO";
+            this.btnFiltrarDebito.Click += new System.EventHandler(this.btnFiltrarDebito_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Image = global::Cochera.Windows.Properties.Resources.actualizar;
+            this.btnActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(83, 62);
+            this.btnActualizar.Text = "ACTUALIZAR";
+            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnFiltrarDescripcion
+            // 
+            this.btnFiltrarDescripcion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFiltrarSalida,
+            this.btnFiltrarAbonado});
+            this.btnFiltrarDescripcion.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarDescripcion.Image = global::Cochera.Windows.Properties.Resources.descripcion;
+            this.btnFiltrarDescripcion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFiltrarDescripcion.Name = "btnFiltrarDescripcion";
+            this.btnFiltrarDescripcion.Size = new System.Drawing.Size(153, 62);
+            this.btnFiltrarDescripcion.Text = "FILTRAR DESCRIPCION";
+            this.btnFiltrarDescripcion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnFiltrarSalida
+            // 
+            this.btnFiltrarSalida.Name = "btnFiltrarSalida";
+            this.btnFiltrarSalida.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarSalida.Text = "SALIDA";
+            this.btnFiltrarSalida.Click += new System.EventHandler(this.btnFiltrarPorSalida_Click);
+            // 
+            // btnFiltrarAbonado
+            // 
+            this.btnFiltrarAbonado.Name = "btnFiltrarAbonado";
+            this.btnFiltrarAbonado.Size = new System.Drawing.Size(180, 22);
+            this.btnFiltrarAbonado.Text = "ABONADO";
+            this.btnFiltrarAbonado.Click += new System.EventHandler(this.btnFiltrarPorAbonado_Click);
+            // 
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // frmContabilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,17 +620,29 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmContabilidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+<<<<<<< HEAD
             this.Text = "|";
             this.pnlMenu.ResumeLayout(false);
             this.pnlFiltrarBotones.ResumeLayout(false);
             this.pnlFiltrarBotones.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+=======
+            this.Text = "frmIngresos";
+            this.pnlMenu.ResumeLayout(false);
+            this.pnlFiltrarBotones.ResumeLayout(false);
+            this.pnlFiltrarBotones.PerformLayout();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.pnlFiltrarFecha.ResumeLayout(false);
             this.pnlFiltrarFecha.PerformLayout();
             this.pnlInformacion.ResumeLayout(false);
             this.pnlInformacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosContables)).EndInit();
+<<<<<<< HEAD
+=======
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.ResumeLayout(false);
 
         }

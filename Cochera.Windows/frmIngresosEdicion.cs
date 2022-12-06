@@ -17,7 +17,11 @@ using Cochera.Windows.Clases;
 
 namespace Cochera.Windows
 {
+<<<<<<< HEAD
     public partial class frmIngresosEdicion : Form, IAgregadorClientes
+=======
+    public partial class frmIngresosEdicion : Form
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     {
 
         //------------ATRIBUTOS------------//
@@ -32,7 +36,11 @@ namespace Cochera.Windows
         private ServicioMarcas servicioMarcas;
         private ServicioIngresos servicioIngresos;
         private ServicioAbonados servicioAbonados;
+<<<<<<< HEAD
         private ServicioCuentasCorrientes servicioCuentasCtes;
+=======
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         private Estacionamiento estacionamiento;
         private IGeneradorIngresos generadorIngresos;
@@ -53,7 +61,10 @@ namespace Cochera.Windows
             servicioMarcas = new ServicioMarcas();
             servicioIngresos = new ServicioIngresos();
             servicioAbonados = new ServicioAbonados();
+<<<<<<< HEAD
             servicioCuentasCtes = new ServicioCuentasCorrientes();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             this.estacionamiento = estacionamiento;
             this.generadorIngresos = generadorIngresos;
@@ -175,9 +186,13 @@ namespace Cochera.Windows
 
                 decimal importe = CalcularPrecio();
 
+<<<<<<< HEAD
                 CuentaCorriente cuenta = servicioCuentasCtes.ObtenerCuentaCorriente(cliente);
 
                 Abonado abonado = servicioAbonados.GenerarAbonado(tipo, patente, fechaIngreso, estacionamiento, modelo, tarifa, fechaExpiracion, cliente, cuenta, importe);
+=======
+                Abonado abonado = servicioAbonados.GenerarAbonado(tipo, patente, fechaIngreso, estacionamiento, modelo, tarifa, fechaExpiracion, cliente, importe);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                 ActualizarSector(tipo, abonado);
 
@@ -323,16 +338,22 @@ namespace Cochera.Windows
 
         //--VALIDACION--//
 
+<<<<<<< HEAD
         #region
         private bool ValidarDatos()
         {
 
             mostradorErrores.Clear();
 
+=======
+        private bool ValidarDatos()
+        {
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             bool patenteValida = ValidarPatente();
 
             bool marcaValida = true;
 
+<<<<<<< HEAD
             bool clienteValido = true;
 
             if (checkAbonar.Checked)
@@ -342,12 +363,25 @@ namespace Cochera.Windows
             }
 
             return patenteValida && marcaValida && clienteValido;
+=======
+            if (checkAbonar.Checked)
+            {
+                marcaValida = ValidarMarca();
+            }
+
+            return patenteValida && marcaValida;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         private bool ValidarPatente()
         {
             bool valido = Validador.InputConTexto(txtPatente.Text);
 
+<<<<<<< HEAD
+=======
+            mostradorErrores.Clear();
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             if (!valido)
             {
                 mostradorErrores.SetError(txtPatente, "Debe ingresar una patente.");
@@ -362,12 +396,17 @@ namespace Cochera.Windows
 
             if (!valido)
             {
+<<<<<<< HEAD
                 mostradorErrores.SetError(txtMarca,"No es posible generar un abonado sin un modelo y sin una marca.");
+=======
+                Mensajero.MensajeError("No es posible generar un abonado sin un modelo y sin una marca.");
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             }
 
             return valido;
         }
 
+<<<<<<< HEAD
         private bool ValidarCliente()
         {
             if(datosClientes.SelectedRows.Count == 0) 
@@ -399,6 +438,10 @@ namespace Cochera.Windows
         {
 
         }
+=======
+        //----PUBLICOS----//
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         //------------EVENTOS------------//
 
@@ -437,7 +480,11 @@ namespace Cochera.Windows
                 SetearModelos();
                 SetearTarifa();
                 SetearClientes();
+<<<<<<< HEAD
                 SetearTamanio(731, 464);
+=======
+                SetearTamanio(704, 464);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
                 CalcularFechaExpiracion();
             }
             else
@@ -497,6 +544,7 @@ namespace Cochera.Windows
                 }
             }
         }
+<<<<<<< HEAD
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -513,6 +561,8 @@ namespace Cochera.Windows
                 Mensajero.MensajeError("No ha sido posible agregar un cliente.");
             }
         }
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         #endregion
 
@@ -532,12 +582,20 @@ namespace Cochera.Windows
 
         }
 
+<<<<<<< HEAD
 
         //----FORMULARIO----//
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         private void frmIngresosEdicion_FormClosing(object sender, FormClosingEventArgs e)
         {
             generadorIngresos.ActivarBotones();
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

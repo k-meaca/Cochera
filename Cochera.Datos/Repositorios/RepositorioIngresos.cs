@@ -49,6 +49,7 @@ namespace Cochera.Datos.Repositorios
 
         //----PUBLICOS----//
 
+<<<<<<< HEAD
         public void AbonadoAhoraEsIngreso(Abonado abonado)
         {
             try
@@ -73,6 +74,8 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public void ActualizarIngreso(Ingreso ingreso)
         {
             try

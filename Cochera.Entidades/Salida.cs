@@ -7,7 +7,11 @@ using Cochera.Entidades.Interfaces;
 
 namespace Cochera.Entidades
 {
+<<<<<<< HEAD
     public class Salida
+=======
+    public class Salida : IContable
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     {
         //------------ATRIBUTOS Y PROPIEDADES------------//
 
@@ -17,13 +21,25 @@ namespace Cochera.Entidades
 
         public DateTime FechaSalida { get; private set; }
 
+<<<<<<< HEAD
         //------------CONSTRUCTOR------------//
 
         public Salida(int salidaId, Ingreso ingreso, DateTime fechaSalida)
+=======
+        public decimal MontoTotal { get; private set; }
+
+        //------------CONSTRUCTOR------------//
+
+        public Salida(int salidaId, Ingreso ingreso, DateTime fechaSalida, decimal montoTotal)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             SalidaId = salidaId;
             this.ingreso = ingreso;
             FechaSalida = fechaSalida;
+<<<<<<< HEAD
+=======
+            MontoTotal = montoTotal;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         //------------METODOS------------//
@@ -55,6 +71,38 @@ namespace Cochera.Entidades
         {
             return ingreso.ObtenerUbicacion();
         }
+<<<<<<< HEAD
 
+=======
+        public string MedioDePago()
+        {
+            return "EFECTIVO";
+        }
+
+        public string Descripcion()
+        {
+            return "SALIDA COMUN";
+        }
+
+        public string Vehiculo()
+        {
+            return ObtenerTipoVehiculo();
+        }
+
+        public string Patente()
+        {
+            return ObtenerPatente();
+        }
+
+        public DateTime FechaMovimiento()
+        {
+            return FechaSalida;
+        }
+
+        public decimal Importe()
+        {
+            return MontoTotal;
+        }
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
     }
 }

@@ -52,12 +52,26 @@ namespace Cochera.Windows
                 salidas = salidas.FindAll(s => s.ObtenerPatente().Contains(patente));
                 CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
             }
+<<<<<<< HEAD
+=======
+
+            MostrarRecaudacion(salidas);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         private void CargarGrilla()
         {
             List<Salida> salidas = servicioSalidas.ObtenerSalidas();
             CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
+<<<<<<< HEAD
+=======
+            MostrarRecaudacion(salidas);
+        }
+
+        public void MostrarRecaudacion(List<Salida> salidas)
+        {
+            lblMontoTotal.Text = salidas.Sum(s => s.MontoTotal).ToString("C");
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         private void SetearComponentes()
@@ -65,7 +79,11 @@ namespace Cochera.Windows
             List<Salida> salidas = servicioSalidas.ObtenerSalidas();
 
 
+<<<<<<< HEAD
             DateTime inicio = salidas.First().FechaSalida;
+=======
+            DateTime inicio = salidas.First().FechaMovimiento();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             fechaInicio.MinDate = inicio;
             fechaFinal.MinDate = inicio;
@@ -95,6 +113,11 @@ namespace Cochera.Windows
             datosSalidas.Rows.Clear();
 
             CargadorDeDatos.CargarDataGrid(datosSalidas, salidas);
+<<<<<<< HEAD
+=======
+
+            MostrarRecaudacion(salidas);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         }
 
         #endregion

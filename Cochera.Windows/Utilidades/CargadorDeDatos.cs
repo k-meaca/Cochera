@@ -7,7 +7,10 @@ using System.Windows.Forms;
 using System.Drawing;
 using Cochera.Entidades;
 using Cochera.Entidades.Interfaces;
+<<<<<<< HEAD
 using Cochera.Windows.Clases;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
 
 namespace Cochera.Windows.Utilidades
@@ -43,10 +46,13 @@ namespace Cochera.Windows.Utilidades
         }
 
         #endregion
+<<<<<<< HEAD
 
         //--GRILLA REDUCIDA CLIENTES--//
 
         #region
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public static void CargarDataGridReducido(DataGridView grilla, List<Cliente> clientes)
         {
 
@@ -68,9 +74,13 @@ namespace Cochera.Windows.Utilidades
 
             fila.Tag = cliente;
         }
+<<<<<<< HEAD
 
         #endregion
 
+=======
+       
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         //--DATA GRAL--//
 
         #region
@@ -144,6 +154,10 @@ namespace Cochera.Windows.Utilidades
             fila.Cells[5].Value = salida.FechaSalida.ToShortTimeString();
             fila.Cells[6].Value = salida.ObtenerUbicacion();
             fila.Cells[7].Value = salida.ObtenerSector();
+<<<<<<< HEAD
+=======
+            fila.Cells[8].Value = salida.MontoTotal.ToString("C");
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             fila.Tag = salida;
         }
@@ -178,7 +192,10 @@ namespace Cochera.Windows.Utilidades
             {
                 fila.Cells[3].Value = "";
                 fila.Cells[4].Value = "";
+<<<<<<< HEAD
                 fila.DefaultCellStyle.BackColor = Color.White;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             }
             else
             {
@@ -352,10 +369,13 @@ namespace Cochera.Windows.Utilidades
             fila.Cells[5].Value = abonado.ObtenerTiempoTarifa();
             fila.Cells[6].Value = abonado.ObtenerFechaIngreso().ToShortDateString(); ;
             fila.Cells[7].Value = abonado.FechaExpiracion.ToShortDateString();
+<<<<<<< HEAD
             
             Parkimetro parkimetro = new Parkimetro();
 
             fila.DefaultCellStyle.BackColor = parkimetro.ColorAbonado(abonado);
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             fila.Tag = abonado;
         }
@@ -381,6 +401,7 @@ namespace Cochera.Windows.Utilidades
         public static void CargarDatosEnFila(DataGridViewRow fila, CuentaCorriente cuenta)
         {
             fila.Cells[0].Value = cuenta.CuentaId.ToString();
+<<<<<<< HEAD
             fila.Cells[1].Value = cuenta.NombreCompletoCliente();
             fila.Cells[2].Value = String.IsNullOrWhiteSpace(cuenta.Nombre) ? "" : cuenta.Nombre;
             fila.Cells[3].Value = cuenta.ObtenerNumeroTarjeta();
@@ -388,6 +409,16 @@ namespace Cochera.Windows.Utilidades
             fila.Cells[5].Value = cuenta.MedioDePago();
 
 
+=======
+            fila.Cells[1].Value = cuenta.ObtenerDescripcion();
+            fila.Cells[2].Value = cuenta.NombreCompletoCliente();
+            fila.Cells[3].Value = cuenta.ObtenerVehiculo();
+            fila.Cells[4].Value = cuenta.ObtenerPatente();
+            fila.Cells[5].Value = cuenta.Debe.ToString("C");
+            fila.Cells[6].Value = cuenta.Haber.ToString("C");
+            fila.Cells[7].Value = cuenta.Saldo.ToString("C");
+            fila.Cells[8].Value = cuenta.FechaMoviemiento.ToShortDateString();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             fila.Tag = cuenta;
         }

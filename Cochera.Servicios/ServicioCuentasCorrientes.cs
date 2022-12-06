@@ -15,6 +15,7 @@ namespace Cochera.Servicios
         //------------ATRIBUTOS------------//
         private RepositorioCuentasCorrientes repositorioCtasCtes;
 
+<<<<<<< HEAD
         private ServicioClientes servicioClientes;
         private ServicioTarjetas servicioTarjetas;
 
@@ -34,6 +35,17 @@ namespace Cochera.Servicios
 
             List<Cliente> clientes = servicioClientes.ObtenerClientes();
             List<Tarjeta> tarjetas = servicioTarjetas.ObtenerTarjetas();
+=======
+        private ServicioAbonados servicioAbonados;
+
+        //------------METODOS------------//
+
+        public List<CuentaCorriente> ObtenerCuentasCorrientes()
+        {
+            servicioAbonados = new ServicioAbonados();
+
+            List<Abonado> abonados = servicioAbonados.ObtenerAbonados();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             List<CuentaCorriente> cuentas;
 
@@ -41,7 +53,11 @@ namespace Cochera.Servicios
             {
                 repositorioCtasCtes = new RepositorioCuentasCorrientes(conexion);
 
+<<<<<<< HEAD
                 cuentas = repositorioCtasCtes.ObtenerCuentasCorrientes(clientes, tarjetas);
+=======
+                cuentas = repositorioCtasCtes.ObtenerCuentasCorrientes(abonados);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             }
 
             return cuentas;

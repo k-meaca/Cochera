@@ -37,6 +37,7 @@ namespace Cochera.Datos.Repositorios
             int salidaId = lector.GetInt32(0);
             int ingresoId = lector.GetInt32(1);
             DateTime fechaSalida = lector.GetDateTime(2);
+<<<<<<< HEAD
 
             Ingreso ingreso = (Ingreso)(ingresos.Find(i => i.ObtenerIngresoId() == ingresoId));
 
@@ -47,18 +48,44 @@ namespace Cochera.Datos.Repositorios
 
         //----PUBLICOS----//
         public int DarSalida(Ingreso ingreso, DateTime fechaSalida)
+=======
+            decimal montoTotal = lector.GetDecimal(3);
+
+            Ingreso ingreso = (Ingreso)(ingresos.Find(i => i.ObtenerIngresoId() == ingresoId));
+
+            return new Salida(salidaId, ingreso, fechaSalida, montoTotal);
+        }
+
+        private Salida SinSalida(Ingreso ingreso)
+        {
+            DateTime ayer = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 1);
+
+            return new Salida(-1, ingreso, ayer, 0);
+        }
+
+        //----PUBLICOS----//
+        public int DarSalida(Ingreso ingreso, DateTime fechaSalida, decimal montoTotal)
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         {
             try
             {
                 int salidaId;
 
+<<<<<<< HEAD
                 string query = "exec SP_DarSalida @IngresoId, @FechaSalida;";
+=======
+                string query = "exec SP_DarSalida @IngresoId, @FechaSalida, @MontoTotal;";
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                 using(SqlCommand comando = new SqlCommand(query, conexion, transaccion))
                 {
                     comando.CommandType = System.Data.CommandType.Text;
                     comando.Parameters.AddWithValue("@IngresoId", ingreso.ObtenerIngresoId());
                     comando.Parameters.AddWithValue("@FechaSalida", fechaSalida);
+<<<<<<< HEAD
+=======
+                    comando.Parameters.AddWithValue("@MontoTotal", montoTotal);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
                     salidaId = Convert.ToInt32(comando.ExecuteScalar());
                 }
@@ -71,6 +98,7 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+<<<<<<< HEAD
         public void DarSalidaAbonado(Abonado abonado)
         {
             try
@@ -100,6 +128,8 @@ namespace Cochera.Datos.Repositorios
             }
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public List<Salida> ObtenerSalidas(List<IIngreso> ingresos)
         {
             try

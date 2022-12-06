@@ -50,6 +50,7 @@ namespace Cochera.Windows.Utilidades
             check.Enabled = false;
         }
 
+<<<<<<< HEAD
         public static void ActivarComponente(TextBox txtBox)
         {
             txtBox.Enabled = true;
@@ -70,6 +71,8 @@ namespace Cochera.Windows.Utilidades
             cmBox.Enabled = false;
         }
 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
         public static void SetearFecha(DateTimePicker selectorFecha, DateTime fechaInicial)
         {
             selectorFecha.MinDate = fechaInicial;

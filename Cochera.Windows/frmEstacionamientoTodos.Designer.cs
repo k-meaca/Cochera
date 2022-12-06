@@ -35,7 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInformacion = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.btnEliminar = new System.Windows.Forms.Button();
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnDesocupar = new System.Windows.Forms.Button();
             this.btnEstacionar = new System.Windows.Forms.Button();
@@ -83,6 +86,10 @@
             this.colOcupado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPatente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
+=======
+            this.btnEliminar = new System.Windows.Forms.Button();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.panelInformacion.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.pnlBotonesFiltrar.SuspendLayout();
@@ -119,6 +126,7 @@
             this.panelInformacion.Size = new System.Drawing.Size(169, 594);
             this.panelInformacion.TabIndex = 1;
             // 
+<<<<<<< HEAD
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Salmon;
@@ -132,6 +140,8 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.CadetBlue;
@@ -577,7 +587,10 @@
             this.datosEstacionamientos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datosEstacionamientos.GridColor = System.Drawing.Color.Silver;
             this.datosEstacionamientos.Location = new System.Drawing.Point(0, 63);
+<<<<<<< HEAD
             this.datosEstacionamientos.MultiSelect = false;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             this.datosEstacionamientos.Name = "datosEstacionamientos";
             this.datosEstacionamientos.ReadOnly = true;
             this.datosEstacionamientos.RowHeadersVisible = false;
@@ -635,6 +648,22 @@
             this.colTipoVehiculo.ReadOnly = true;
             this.colTipoVehiculo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+<<<<<<< HEAD
+=======
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Salmon;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(9, 216);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 45);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             // frmEstacionamientoTodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

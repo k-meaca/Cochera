@@ -19,8 +19,13 @@ namespace Cochera.Windows
     {
         //------------ATRIBUTOS------------//
         private frmPrincipal formPrincipal;
+<<<<<<< HEAD
         private ServicioMovimientosSalidas servicioMovimientoSalidas;
         private ServicioMovimientosCtasCtes servicioMovimientosCtas;
+=======
+        private ServicioSalidas servicioSalidas;
+        private ServicioCuentasCorrientes servicioCtasCtes;
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
 
         //------------CONSTRUCTOR------------//
@@ -31,8 +36,13 @@ namespace Cochera.Windows
 
             this.formPrincipal = formPrincipal;
 
+<<<<<<< HEAD
             servicioMovimientoSalidas = new ServicioMovimientosSalidas();
             servicioMovimientosCtas = new ServicioMovimientosCtasCtes();
+=======
+            servicioSalidas = new ServicioSalidas();
+            servicioCtasCtes = new ServicioCuentasCorrientes();
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
             List<IContable> contables = ObtenerContables();
  
@@ -102,6 +112,7 @@ namespace Cochera.Windows
         private List<IContable> ObtenerContables()
         {
 
+<<<<<<< HEAD
             List<MovimientoSalida> movimientosSalidas = servicioMovimientoSalidas.MovimientosSalidas();
             List<MovimientoCuentaCorriente> movimientosCtas = servicioMovimientosCtas.MovimientosCuentasCorrientes();
 
@@ -114,6 +125,20 @@ namespace Cochera.Windows
             foreach (MovimientoCuentaCorriente movimiento in movimientosCtas)
             {
                 contables.Add(movimiento);
+=======
+            List<Salida> salidas = servicioSalidas.ObtenerSalidas();
+            List<CuentaCorriente> cuentas = servicioCtasCtes.ObtenerCuentasCorrientes();
+
+            List<IContable> contables = new List<IContable>();
+            foreach(Salida salida in salidas)
+            {
+                contables.Add(salida);
+            }
+
+            foreach(CuentaCorriente cuenta in cuentas)
+            {
+                contables.Add(cuenta);
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
             }
 
             return contables.OrderBy(c => c.FechaMovimiento()).ToList();

@@ -20,7 +20,10 @@ namespace Cochera.Servicios
         private RepositorioIngresos repositorioIngresos;
         private RepositorioTiposDeVehiculo repositorioTipos;
         private RepositorioSectores repositorioSectores;
+<<<<<<< HEAD
         private RepositorioMovimientosSalidas repositorioMovimientosSalidas;
+=======
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
 
         //------------METODOS------------//
 
@@ -37,6 +40,7 @@ namespace Cochera.Servicios
                     repositorioSalidas = new RepositorioSalidas(conexion, transaccion);
                     repositorioTarifasEnSalida = new RepositorioTarifasEnSalida(conexion, transaccion);
                     repositorioEstacionamientos = new RepositorioEstacionamientos(conexion, transaccion);
+<<<<<<< HEAD
                     repositorioMovimientosSalidas = new RepositorioMovimientosSalidas(conexion, transaccion);
 
                     int salidaId = repositorioSalidas.DarSalida(ingreso, fechaSalida);
@@ -44,6 +48,12 @@ namespace Cochera.Servicios
 
                     repositorioMovimientosSalidas.PagarSalida(salidaId, montoTotal);
 
+=======
+
+                    int salidaId = repositorioSalidas.DarSalida(ingreso, fechaSalida, montoTotal);
+                    repositorioTarifasEnSalida.EstablecerTarifasParaSalida(salidaId, tarifas);
+
+>>>>>>> 4421b39b5a7276f4815f13d40c22d4adb7e67983
                     repositorioEstacionamientos.DesocuparEstacionamiento(ingreso.ObtenerEstacionamientoId());
 
                     transaccion.Commit();
